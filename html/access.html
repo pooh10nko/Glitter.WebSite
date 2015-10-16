@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="viewport" content="width=device-width,user-scalable=no">
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<title></title>
+<link rev="made" href="mailto:" />
+<link href="common/css/base.css" rel="stylesheet" type="text/css" />
+<link href="common/css/common.css" rel="stylesheet" type="text/css" />
+<link href="common/css/style.css" rel="stylesheet" type="text/css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script type="text/javascript" src="common/js/manual.js"></script>
+<!--[if lt IE 9]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+<![endif]-->
+<!--bxslider-->
+<link href="common/js/bxslider/jquery.bxslider.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="common/js/bxslider/jquery.bxslider.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(window).load(function(){
+		var delaySpeed = 300;
+		var fadeSpeed = 1000;
+		$('#navi ul li').each(function(i){
+			$(this).delay(i*(delaySpeed)).css({display:'block',opacity:'0'}).animate({opacity:'1'},fadeSpeed);
+		});
+	});
+});
+</script>
+</head>
+
+<body>
+<!-- 装飾 -->
+<div class="deco">
+	<div id="headerLine"></div>
+	<div id="footerLine">
+		<img src="common/images/copyright.png" alt="Copyright (C) glitter. All rights reserved." />
+	</div>
+	<div id="reserve"><a href="http://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000156450" target="_blank"><img src="common/images/btn_reserve.gif" alt="予約する" /></a></div>
+	<img src="common/images/flower01.png" alt="" class="flower1 flower" />
+	<img src="common/images/flower02.png" alt="" class="flower2 flower" />
+	<img src="common/images/flower03.png" alt="" class="flower3 flower" />
+	<img src="common/images/flower04.png" alt="" class="flower4 flower" />
+</div>
+<!-- /装飾 -->
+
+<!-- #wrapper -->
+<div id="wrapper">
+	
+	<!-- #header -->
+	<div id="header">
+		<div class="inner">
+			<h1><a href="index.html"><img src="common/images/logo_top.png" alt="glitter" /></a></h1>
+			<div class="link">
+				<ul class="flashOver clearfix">
+					<li><a href="http://beauty.hotpepper.jp/kr/slnH000156450/coupon/" target="_blank"><img src="common/images/link01.png" alt="ホットペッパービューティー" /></a></li>
+					<li><a href="http://ameblo.jp/nail-glitter81/" target="_blank"><img src="common/images/link02.png" alt="アメブロ" /></a></li>
+				</ul>
+			</div>
+			<div id="navi">
+				<ul class="clearfix">
+					<li class="navi1"><a href="index.html"><img src="common/images/navi01.png" alt="HOME" /></a></li>
+					<li class="navi2"><a href="menu.html"><img src="common/images/navi02.png" alt="MENU" /></a></li>
+					<li class="navi3"><a href="gallery.html"><img src="common/images/navi03.png" alt="GALLERY" /></a></li>
+					<li class="navi4"><a href="concept.html"><img src="common/images/navi04.png" alt="CONCEPT" /></a></li>
+					<li class="navi5"><a href="access.html"><img src="common/images/navi05.png" alt="ACCESS" /></a></li>
+				</ul>
+			</div>
+			<div id="shop"><a href="http://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000156450" target="_blank"><img src="common/images/shop_top.png" alt="glitter 池袋西口店 予約する♪" /></a></div>
+		</div>
+	</div>
+	<!-- /#header -->
+	
+	<!-- #main -->
+	<div id="main">
+		<h2><img src="common/images/access_h2.png" alt="Access" /></h2>
+		<div id="pankuzu">
+			<ul class="clearfix">
+				<li><a href="index.html">Home</a><span>&gt;</span></li>
+				<li>Access</li>
+			</ul>
+		</div>
+		<!-- ▼▼各コンテンツ▼▼ -->
+		<div id="access">
+			<h3><img src="common/images/access_h3.png" alt="ネイルサロン glitter 池袋西口店" /></h3>
+			<div id="map">
+				<img src="common/images/access_map.png" alt="マップ" />
+				<div class="googleMap"><a href="http://goo.gl/maps/6Mffk" target="_blank"><img src="common/images/access_btn.png" alt="google map!" /></a></div>
+			</div>
+			<div id="info">
+				<div class="inner">
+					<div class="text">
+						<p><span class="bold">住所：</span>東京都豊島区西池袋１-18-8 2F,3F</p>
+						<table>
+							<tr>
+								<th>営業時間：</th>
+								<td>平日・土曜 10:00～23:00（受付 22:00）<br />日曜・祝日 10:00～20:00（受付 19:00）</td>
+							</tr>
+						</table>
+						<p><span class="bold">TEL：</span><a href="tel:03-3985-5550">03-3985-5550</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ▲▲各コンテンツ▲▲ -->
+	</div>
+	<!-- /#main -->
+</div>
+<!-- /#wrapper -->
+</body>
+</html>

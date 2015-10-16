@@ -1,0 +1,1 @@
+<?php wp_list_categories(array('title_li' => '', 'taxonomy' => 'nailseason', 'show_count' => 0)); ?>
