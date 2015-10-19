@@ -21,16 +21,16 @@
 
 // ** MySQL 設定 - こちらの情報はホスティング先から入手してください。 ** //
 /** WordPress のデータベース名 */
-define('DB_NAME', 'LAA0407684-5ifj5a');
+define('DB_NAME', 'wordpress');
 
 /** MySQL のユーザー名 */
-define('DB_USER', 'LAA0407684');
+define('DB_USER', 'tokiwa');
 
 /** MySQL のパスワード */
-define('DB_PASSWORD', '6RNI7x4b');
+define('DB_PASSWORD', 'junko0110');
 
 /** MySQL のホスト名 (ほとんどの場合変更する必要はありません。) */
-define('DB_HOST', 'mysql006.phy.lolipop.lan');
+define('DB_HOST', 'localhost');
 
 /** データベーステーブルのキャラクターセット (ほとんどの場合変更する必要はありません。) */
 define('DB_CHARSET', 'utf8');
