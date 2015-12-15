@@ -1,0 +1,303 @@
+@charset "utf-8";
+
+/* ----------------------------------------------------------------------------------
+
+Module :共通レイアウト _layout.scss
+
+----------------------------------------------------------------------------------*/
+
+////////////////////////////
+// tag
+////////////////////////////
+*{
+	box-sizing: border-box;
+}
+html{
+	height: 100%;
+}
+
+body{
+	font-size: $font_size-base;
+	@include font-family();
+	line-height: 1.7;
+	word-wrap : break-word;
+	word-break: break-all;
+	overflow-wrap : break-word;
+	-webkit-text-size-adjust: 100%;
+	box-sizing: border-box;
+	color: $font_color_base;
+	text-align: center;
+	transition: 0.4s;
+}
+
+img{
+	vertical-align: top;
+	max-width: 100%;
+}
+
+a{
+	display: inline-block;
+	text-decoration: none;
+	outline: none;
+	color: $font_color_base;
+	&.tel{
+		cursor: default;
+		pointer-events: none;
+	}
+}
+
+
+.sp{
+	display: none;
+}
+.pc{
+	display: inline-block;
+}
+
+
+////////////////////////////
+// Float
+////////////////////////////
+
+.col_L{
+	float: left;
+}
+.col_R{
+	float: right;
+}
+
+
+////////////////////////////
+// Page
+////////////////////////////
+
+.page{
+	padding-top: $header_height;
+	background: $color_white;
+}
+
+
+////////////////////////////
+// Inner
+////////////////////////////
+
+.inner{
+	max-width: $width_base;
+	margin: 0 auto;
+	&:after {
+		content: ".";
+		display: block;
+		height: 0;
+		clear: both;
+		visibility: hidden;
+	}
+}
+
+
+////////////////////////////
+// Section
+////////////////////////////
+
+.section{
+	padding: 60px 0;
+}
+
+
+////////////////////////////
+// Slider or ItemList
+////////////////////////////
+
+.slider,
+.item_list{
+	.img{
+		margin-bottom: 25px;
+		img{
+			margin: 0 auto;
+		}
+	}
+	.label{
+		margin-bottom: 15px;
+		span{
+			margin-bottom: 5px;
+			border: 1px solid $color_brown;
+			border-radius: 16px;
+			line-height: 32px;
+			display: inline-block;
+			padding: 0 16px;
+			margin-left: 8px;
+			&:first-child{
+				margin-left: 0;
+			}
+		}
+	}
+	.price{
+		text-decoration: underline;
+	}
+	.date{
+		text-decoration: underline;
+		font-size: 12px;
+		padding-bottom: 10px;
+	}
+	.text{
+		text-decoration: underline;
+	}
+	// 各コンテンツ
+	.slick-slide{
+		padding: 0 20px;
+	}
+	//現在地カレント
+	.slick-dots{
+		text-align: center;
+		padding-top: 45px;
+		li{
+			display: inline-block;
+			width: 24px;
+			height: 16px;
+			text-align: center;
+			position: relative;
+			button{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translateX(-50%) translateY(-50%);
+				width: 8px;
+				height: 8px;
+				padding: 0;
+				border-radius: 50%;
+				border: none;
+				background: #84786e;
+				text-indent: -9999px;
+				outline: none;
+				cursor: pointer;
+			}
+			&.slick-active{
+				button{
+					width: 16px;
+					height: 16px;
+					transition: 0.4s;
+				}
+			}
+			&:hover{
+				button{
+					opacity: 0.8;
+				}
+			}
+		}
+	}
+}
+// ページ送り
+.control{
+	.slick-arrow{
+		border: none;
+		color: $font_color_base;
+		@include font-family($type:Futura,$space:6);
+		font-size: 16px;
+		background: #f4f3f2;
+		line-height: 80px;
+		width: 50%;
+		border-top: 1px solid $font_color_base;
+		outline: none;
+		&.slick-prev{
+			border-right: 1px solid $font_color_base;
+		}
+	}
+}
+
+@media screen and (max-width: $width_tb){
+
+////////////////////////////
+// Page
+////////////////////////////
+
+.page{
+	transition: 0.4s;
+	padding-top: $header_height;
+	position: relative;
+	z-index: 300;
+}
+.showNavi{
+	.page{
+		transform: translateX(-250px);
+	}
+}
+
+}
+
+@media screen and (max-width: $width_sp) {
+
+////////////////////////////
+// tag
+////////////////////////////
+body{
+	min-width: $width_min;
+}
+a{
+	&.tel{
+		cursor: pointer;
+		pointer-events: auto;
+	}
+}
+
+
+.sp{
+	display: inline-block;
+}
+.pc{
+	display: none;
+}
+
+
+////////////////////////////
+// float
+////////////////////////////
+
+.col_L{
+	float: none;
+	width: 100% !important;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+.col_R{
+	float: none;
+	width: 100% !important;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+
+////////////////////////////
+// Inner
+////////////////////////////
+
+.inner{
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+
+////////////////////////////
+// layout main
+////////////////////////////
+}
+
+////////////////////////////
+// Slider or ItemList
+////////////////////////////
+
+.slider,
+.item_list{
+	.img{
+		margin-bottom: 10px;
+	}
+	.label{
+		span{
+			font-size: 12px;
+			line-height: 28px;
+			margin-left: 0;
+		}
+	}
+	// 各コンテンツ
+	.slick-slide{
+		padding: 0 10px;
+	}
+}

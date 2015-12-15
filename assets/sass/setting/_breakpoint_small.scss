@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+/* ----------------------------------------------------------------------------------
+
+Setting : Breakpoint Small _breakpoint_small.scss
+
+----------------------------------------------------------------------------------*/
+
+
+@media screen and (max-width: $width_sp) {
+	.tel{
+		cursor: pointer;
+		pointer-events: auto;
+	}
+}

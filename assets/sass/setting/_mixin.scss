@@ -1,0 +1,88 @@
+@charset "utf-8";
+
+@mixin font-family($type:base,$space:4px){
+	@if $type == Futura {
+		font-family: $font_family-Futura;
+		letter-spacing: $space + px;
+	}@elseif $type == Futura-Light{
+		font-family: $font_family-Futura-Light;
+		letter-spacing: $space + px;
+	}@elseif $type == SourceHanSans{
+		font-family: $font_family-SourceHanSans;
+		letter-spacing: $space + px;
+	}@else{
+		font-family: $font_family;
+	}
+}
+//////////////////////////////////////////////////
+// 条件分岐
+//////////////////////////////////////////////////
+
+// @mixin color($color){
+// 	@if $color == orange {
+// 	  background: orange;
+// 	} @else{
+// 	  background: black;
+// 	}
+// }
+
+//////////////////////////////////////////////////
+// スプライトシート : 
+//////////////////////////////////////////////////
+
+@mixin sprite-background($name, $sprites, $sprites-img) {
+	background:{
+		image: $sprites-img;
+		position: sprite-position( $sprites, $name );
+		repeat: no-repeat;
+	}
+	display: block;
+	width: image-width(sprite-file($sprites, $name));
+	height: image-height(sprite-file($sprites, $name));
+	
+	// //Retina対応の場合はこちらを使用
+	// $ypos: round(nth(sprite-position($sprites, $name), 2) / 2);
+	// background:{
+	// 	image: $sprites-img;
+	// 	position: 0 $ypos;
+	// 	repeat: no-repeat;
+	// 	size: 100% auto;
+	// }
+	// display: block;
+	// height: image-height(sprite-file($sprites, $name)) / 2;
+	// width: image-width(sprite-file($sprites, $name)) / 2;
+}
+
+// $sprites01: sprite-map("sprites01/*.png");
+// $sprites-img01: sprite-url($sprites01);
+
+// $sprites02: sprite-map("sprites02/*.png");
+// $sprites-img02: sprite-url($sprites02);
+
+//  インクルード記述
+// @include sprite-background(close, $sprites01, $sprites-img01);
+
+//////////////////////////////////////////////////
+//  Arrow
+//////////////////////////////////////////////////
+@mixin arrow($size:10px, $color:$color_brown, $positionL:30px){
+	position: relative;
+	&:after {
+		position: absolute;
+		left: $positionL;
+		top: 50%;
+		margin-top: -($size/2);
+		content: "";
+		width: $size;
+		height: $size;
+		transform: rotate(45deg);
+		display: inline-block;
+		border-top: solid 1px $color;
+		border-right: solid 1px $color;
+		vertical-align: middle;
+	}
+}
+
+
+
+

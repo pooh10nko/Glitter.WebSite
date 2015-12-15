@@ -1,0 +1,107 @@
+@charset "utf-8";
+
+/* ----------------------------------------------------------------------------------
+
+Module :パーツ _parts.scss
+
+----------------------------------------------------------------------------------*/
+
+////////////////////////////
+// btn
+////////////////////////////
+
+.btn_area{
+	padding: 30px 0 0;
+}
+.btn{
+	@include font-family($type:SourceHanSans,$space:1);
+	width: 100%;
+	max-width: 360px;
+	display: inline-block;
+	line-height: 80px;
+	border-radius: 40px;
+	color: $font_color_base;
+	font-size: $font_size-btn;
+	margin: 0 15px 10px;
+	@include arrow();
+	// カラー
+	&.brown{
+		background: $color_brown;
+		color: $color_white;
+		&:after{
+			border-color: $color_white;
+		}
+	}
+	&.green{
+		background: $color_green;
+	}
+	&.yellow{
+		background: $color_yellow;
+	}
+	&.pink{
+		background: $color_pink;
+	}
+	&.white{
+		background: $color_white;
+	}
+	// 長さ
+	&.short{
+		max-width: 200px;
+	}
+	//サイズ
+	&.small{
+		max-width: 232px;
+		line-height: 48px;
+		font-size: $font_size-btn - 4px;
+	}
+}
+
+
+////////////////////////////
+// title
+////////////////////////////
+h1{
+	&.base{
+		@include font-family($type:Futura-Light, $space:6);
+		font-size: 24px;
+		padding: 0 0 25px;
+		color: $color_brown;
+	}
+	&.white{
+		color: $color_white;
+	}
+	&.bold{
+		font-weight: bold;
+		font-size: 16px;
+	}
+}
+
+.text_read{
+	&.large{
+		font-size: 15px;
+		font-weight: bold;
+		padding: 20px 0;
+	}
+}
+
+
+@media screen and (max-width: $width_sp) {
+////////////////////////////
+// btn
+////////////////////////////
+.btn{
+	margin-top: 10px;
+	line-height: 60px;
+	max-width: 300px;
+	font-size: $font_size-btn - 2;
+	&:first-child{
+		margin-top: 0;
+	}
+	// 長さ
+	&.short{
+		max-width: 160px;
+	}
+}
+
+
+}

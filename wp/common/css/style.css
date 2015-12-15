@@ -1,0 +1,938 @@
+@charset "UTF-8";
+/*============================================================
+共通
+============================================================*/
+@font-face {
+    font-family: 'FLOPDesignFont';
+    src: url('../font/FLOPDesignFont.ttf') format('truetype');
+}
+@media screen and (min-width: 960px) {
+	body {
+		overflow-x: hidden;
+		min-width:960px;
+	}
+}
+@media screen and (max-width: 640px) {
+	#wrapper #main{
+		padding-bottom: 200px;
+	}
+
+}
+/* フレーム */
+#wrapper{
+	position:relative;
+	height:100%;
+}
+/* 予約するボタン */
+#reserve{
+	position:fixed;
+	right:0;
+	top:350px;
+	z-index: 1;
+	display: none;
+}
+@media screen and (min-width: 1200px) {
+
+	#reserve{
+		display: block;
+	}
+}
+#reserve a{
+	display:block;
+}
+/* 装飾 */
+img.flower1{
+	position:fixed;
+	left:0;
+	top:0;
+	z-index: 9999;
+}
+img.flower2{
+	position:fixed;
+	right:0;
+	top:0;
+	z-index: 9999;
+}
+img.flower3{
+	position:fixed;
+	left:0;
+	bottom:0;
+	z-index: 9999;
+}
+img.flower4{
+	position:fixed;
+	right:0;
+	bottom:0;
+	z-index: 9999;
+}
+img.nail01{
+	position:absolute;
+	left:-200px;
+	top: -173px;
+	z-index: 0;
+}
+img.nail02{
+	position:absolute;
+	left:744px;
+	top: -49px;
+}
+img.nail03{
+	position:absolute;
+	left:945px;
+	top: 131px;
+}
+img.nail_img01{
+	position:absolute;
+	left: 266px;
+	top: -71px;
+}
+img.nail_img02{
+	position:absolute;
+	left: 857px;
+	top: -46px;
+	z-index: 2;
+}
+img.nail_img03{
+	position:absolute;
+	left:845px;
+	top: 350px;
+}
+/* ヘッダー */
+h1{
+	font-size: 10px;
+	line-height: 24px;
+	color: #4194d6;
+	padding: 0 0 0 200px;
+	white-space: nowrap;
+}
+h1 a:link{
+	color: #4194d6;
+	text-decoration:none;
+}
+h1 a:visited{
+	color: #4194d6;
+	text-decoration:none;
+}
+
+#index #header{
+	z-index: 1;
+}
+#header{
+	position:relative;
+	height: 382px;
+}
+#header .logo{
+	position: relative;
+	top: 15px;
+	z-index: 1;
+	width: 252px;
+}
+#header .logo a{
+	display: block;
+}
+#headerLine{
+	background: url(../images/line_top.png) repeat-x left top;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	height: 24px;
+	z-index: 999;
+}
+#header .inner{
+	width: 960px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#linkHead{
+	background: url(../images/bg_link.png) no-repeat;
+	width: 186px;
+	padding-top: 7px;
+	position: fixed;
+	left: 590px;
+	top: 0;
+	z-index: 9999;
+}
+#linkHead ul{
+	margin-left: 20px;
+}
+#linkHead ul li{
+	float: left;
+	margin-right: 5px;
+}
+#header #navi{
+	margin-top: -75px;
+}
+#header #navi ul{
+	position: relative;
+}
+#header #navi ul li{
+	z-index: 1;
+}
+#header #navi ul li.navi1{
+	position: absolute;
+	left: -1px;
+	top: 23px;
+}
+#header #navi ul li.navi2{
+	position: absolute;
+	left: 122px;
+	top: 108px;
+}
+#header #navi ul li.navi3{
+	position: absolute;
+	left: 250px;
+	top: 55px;
+}
+#header #navi ul li.navi4{
+	position: absolute;
+	left: 468px;
+	top: 110px;
+}
+#header #navi ul li.navi5{
+	position: absolute;
+	left: 633px;
+	top: 47px;
+}
+#header #navi ul li.navi6{
+	position: absolute;
+	left: 825px;
+	top: 74px;
+}
+#header #shop{
+	position:absolute;
+	right: 120px;
+	top: 40px;
+}
+#header #shop a{
+	display: block;
+}
+#header #shop .btnReserve{
+	background: url(../images/shop_top.png) no-repeat 0 0;
+	width: 128px;
+	height: 42px;
+	line-height: 30px;
+	font-size: 14px;
+	text-align: center;
+}
+#header #shop p{
+	padding: 0;
+}
+#header #shop .shopName{
+	font-weight: bold;
+}
+#header #shop .shopTel{
+	font-size: 26px;
+	color: #e33470;
+	padding: 10px 0;
+}
+#header #shop .btnReserve{
+	padding: 5px 0 0;
+}
+#header #shop .btnReserve a:hover{
+	text-decoration: none;
+}
+#header #linkBtn{
+	position: absolute;
+	top: 40px;
+	right: 0;
+}
+#header #linkBtn p{
+	background: url(../images/bg_btn_link.png) no-repeat 0 0;
+	width: 94px;
+	height: 34px;
+	text-align: center;
+	color: #5a4014;
+	font-weight: bold;
+	padding: 0;
+	line-height: 34px;
+}
+#header #linkBtn .btnFaq{
+	margin: 0 0 10px;
+}
+#header #linkBtn p a{
+	color: #5a4014;
+	display: block;
+}
+#header #linkBtn p a:hover{
+	text-decoration: none;
+}
+/* フッター */
+#footerLine{
+	width:100%;
+	background:url(../images/line_btm.png) repeat-x;
+	height:29px;
+	text-align:center;
+	position:fixed;
+	bottom:0;
+	z-index: 999;
+}
+/* 下層共通 */
+#pankuzu{
+	text-align: right;
+	padding: 20px 0;
+	width: 960px;
+	margin: 0 auto;
+}
+#pankuzu span{
+	display: inline-block;
+	padding: 0 5px;
+}
+#pankuzu ul{
+	display: inline;
+}
+#pankuzu ul li{
+	display: inline;
+	font-family: 'FLOPDesignFont';
+}
+#pankuzu a{
+	text-decoration: underline;
+	color: #fa498e;
+}
+#main{
+	padding-bottom: 30px;
+	padding-top: 15px;
+}
+#main .inner{
+	width: 960px;
+	margin: 0 auto;
+}
+#main h2{
+	background:url(../images/line.png) no-repeat left bottom;
+	text-align: center;
+	padding-bottom: 33px;
+	width: 960px;
+	margin: 0 auto;
+}
+
+.main{
+	padding-bottom: 30px;
+	padding-top: 15px;
+}
+.main .inner{
+	width: 960px;
+	margin: 0 auto;
+}
+.main h2{
+/*	background:url(../images/line.png) no-repeat left bottom; */
+	text-align: center;
+	padding-bottom: 33px;
+	width: 960px;
+	margin: 0 auto;
+}
+
+/*============================================================
+TOP
+============================================================*/
+#mainTop{
+	width:960px;
+	margin:0 auto;
+	position:relative;
+	padding-bottom: 30px;
+}
+#campaogn{
+	position:absolute;
+	left:529px;
+	top: 51px;
+	z-index: 10;
+	background: url(../images/bg_campaign.png) no-repeat 0 0;
+	width: 444px;
+	height: 563px;
+}
+#campaogn h2{
+	text-align: center;
+	margin: -25px 0 0;
+}
+#campaogn .txt{
+	text-align: center;
+	padding: 5px 20px 0;
+	position: relative;
+	background: url(../images/campaign_text.png) no-repeat 50% 90%;
+	width: 293px;
+	/* height: 40px; */
+	font-size: 18px;
+	color: #e33470;
+	margin: 0 auto;
+	font-weight: bold;
+	line-height: 1.1;
+}
+#campaogn .txt .imgOff{
+	position: absolute;
+	left: 252px;
+	top: -8px;
+}
+#campaogn ul{
+	padding: 20px 0 0 15px;
+}
+#campaogn ul li{
+	position: relative;
+	width: 347px;
+	margin: 0 0 15px;
+	padding: 0 0 10px 50px;
+	font-family:'ＭＳ Ｐゴシック', Osaka,'ヒラギノ角ゴ Pro W3';
+}
+#campaogn ul li.price1{
+	background: url(../images/campaign1.png) no-repeat left top;
+}
+#campaogn ul li.price2{
+	background: url(../images/campaign2.png) no-repeat left top;
+}
+#campaogn ul li.price3{
+	background: url(../images/campaign3.png) no-repeat left top;
+}
+#campaogn ul li.price4{
+	background: url(../images/campaign4.png) no-repeat left top;
+}
+#campaogn ul li.price5{
+	background: url(../images/campaign5.png) no-repeat left top;
+}
+#campaogn ul li.price6{
+	background: url(../images/campaign6.png) no-repeat left top;
+}
+/*
+#campaogn ul li.price2{
+	position: relative;
+	top: -6px;
+}
+*/
+#campaogn ul li img.en{
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+#campaogn ul li img.kira{
+	position: absolute;
+	right: -14px;
+	top: -17px;
+	z-index: 1;
+}
+#campaogn ul li p.priceTxt{
+	position: absolute;
+	right: -1px;
+	top: 0;
+	font-size: 24px;
+	font-weight: bold;
+	letter-spacing: -1px;
+}
+#campaogn ul li span{
+	width: 215px;
+	display: block;
+	font-size:10px;
+	width:250px;
+	letter-spacing: -1px;
+	line-height: 14px;
+}
+#campaogn ul li h3{
+	font-size:14px;
+	width:250px;
+}
+#campaogn ul li h3 img{
+	margin: 0 3px 0 0;
+}
+#newsWra{
+	padding-top: 274px;
+	margin-left: -69px;
+}
+#news {
+	background:url(../images/bg_news.png) no-repeat;
+	height:332px;
+	position:relative;
+}
+#news p{
+	margin:0;
+	padding:0;
+	line-height:1;
+	font-family: 'FLOPDesignFont';
+}
+#news p.date{
+	margin:15px 0 10px;
+	padding: 3px;
+	display: inline-block;
+}
+#news p.title{
+	margin:0 0 8px;
+	height:3em;
+}
+#news .box{
+	padding:15px 0 0 14px;
+}
+#news li{
+	display: none;
+}
+#news .slider li img{
+	width: 114px;
+	height: auto;
+}
+#news .slider li img{
+	border-bottom-width: 3px;
+	border-style: solid;
+}
+
+/*============================================================
+料金表　menu.html
+============================================================*/
+#menu{
+	width: 960px;
+	margin: 0 auto;
+	padding: 0 0 90px;
+	font-family:'ＭＳ Ｐゴシック', Osaka,'ヒラギノ角ゴ Pro W3';
+}
+#menu #menuNavi{
+	height: 166px;
+}
+#menu #menuNavi ul{
+	position: relative;
+}
+#menu #menuNavi ul li{
+	position: absolute;
+}
+#menu #menuNavi ul li.menu1{
+	left: 115px;
+	top: 8px;
+}
+#menu #menuNavi ul li.menu2{
+	left: 304px;
+	top: 0px;
+}
+#menu #menuNavi ul li.menu3{
+	left: 490px;
+	top: 3px;
+}
+#menu #menuNavi ul li.menu4{
+	left: 679px;
+	top: 0px;
+}
+#menu #menuNavi ul li.menu5{
+	left: 201px;
+	top: 104px;
+}
+#menu #menuNavi ul li.menu6{
+	left: 416px;
+	top: 98px;
+}
+#menu #menuNavi ul li.menu7{
+	left: 618px;
+	top: 98px;
+}
+#menu #offImg{
+	text-align: center;
+	background: url(../images/menu_img01.png) no-repeat 0 0;
+	width: 593px;
+	height: 46px;
+	margin: 50px auto 0;
+	font-size: 22px;
+	padding: 116px 0 0;
+	color: #fa498e;
+}
+#menu .box{
+	padding-top: 24px;
+}
+#menu .box h3{
+	text-align: center;
+}
+#menu .box h4{
+	text-align: center;
+	background:url(../images/menu_deco.png) no-repeat center bottom;	padding: 10px 0 57px;
+}
+#menu .box table{
+	width: 840px;
+	margin: 20px auto 0;
+	border-collapse: collapse;
+}
+#menu .box table th{
+	background:url(../images/line01.png) repeat-x left 0.6em;
+	vertical-align: top;
+	font-size: 11px;
+	letter-spacing: -1px;
+}
+#menu .box table th span{
+	display: inline-block;
+	padding-right: 10px;
+	background: url(../images/bg.png) repeat;
+	color: #0595e5;
+	font-size: 14px;
+	font-weight: bold;
+	letter-spacing: 0;
+}
+#menu .box table th,
+#menu .box table td{
+	padding-bottom: 30px;
+}
+#menu .box table td{
+	width: 70px;
+	text-align: left;
+	vertical-align: top;
+	padding: 0 0 0 20px;
+}
+#menu #warranty{
+	background: url(../images/bg_menu_hosho.png) no-repeat 0 0;
+	width: 908px;
+	height: 139px;
+	text-align: center;
+	padding: 70px 0;
+	margin: 50px auto 0;
+}
+#menu #warranty .txt1{
+	font-size: 14px;
+}
+#menu #warranty .txt2{
+	color: #fe539a;
+	font-size: 18px;
+}
+#menu #warranty .txt3{
+	font-size: 12px;
+}
+/*============================================================
+ブライダル　bridal.html
+============================================================*/
+#bridal{
+	background:url(../images/bg_menu_bridal.png) no-repeat 0 0;
+	height: 685px;
+	text-align: center;
+	padding: 82px 0 70px;
+	width: 960px;
+	margin: 43px auto 0;
+}
+#bridal .menu_bridal02{
+	margin-top: 47px;
+	padding-bottom: 33px;
+}
+#bridal table{
+	width: 750px;
+	margin: 25px auto 0;
+}
+#bridal table th{
+	font-size: 12px;
+	font-weight: normal;
+	background: url(../images/line01.gif) repeat-x left 0.6em;
+}
+#bridal table th span{
+	/* background: url(../images/menu_bridal_th01.png) no-repeat -10px 0; */
+	font-size: 14px;
+	font-weight: bold;
+	color: #73ae39;
+	background: white;
+	display: inline-block;
+	padding: 0 0 5px;
+}
+#bridal table th,
+#bridal table td{
+	padding-bottom: 25px;
+	vertical-align: top;
+}
+#bridal table td{
+	width: 70px;
+	text-align: right;
+}
+
+/*============================================================
+コンセプト　concept.html
+============================================================*/
+#concept{
+
+}
+#concept #bgConcept{
+	background:url(../images/bg_concept.png) no-repeat center top;
+	margin: 0 auto;
+	height: 406px;
+	text-align: center;
+	padding-top: 186px;
+}
+#concept h3{
+	margin: 0 auto 10px;
+	width: 790px;
+}
+#concept p.txtCopy{
+	font-size: 24px;
+	color: #fa498e;
+	width: 750px;
+	margin: 0 auto;
+	line-height: 140%;
+	text-align: left;
+}
+#concept p.txtMain{
+	font-size: 15px;
+	color: #333333;
+	font-size: 15px;
+	text-align: center;
+	margin: -50px 0 50px;
+}
+@media screen and (max-width: 640px) {
+	#concept{
+		width: 960px;
+		margin: 0 auto;
+	}
+}
+/*============================================================
+アクセス　access.html
+============================================================*/
+#access{
+	font-family: 'FLOPDesignFont';
+}
+#access h3{
+	text-align: center;
+}
+#access #map{
+	background:url(../images/access_img01.png) no-repeat center top;
+	text-align: center;
+}
+@media screen and (max-width: 640px) {
+	#access #map,#access h3,#info{
+		width: 960px;
+		margin: 0 auto;
+	}
+}
+#access #map > img{
+	padding-top: 11px;
+}
+#access #map .googleMap{
+	/* margin-top: 11px; */
+	/* margin-left: 743px; */
+	width: 865px;
+	margin: 0 auto;
+	text-align: right;
+	padding-right: 95px;
+	padding-top: 10px;
+}
+#info{
+	background:url(../images/bg_access_info.png) no-repeat center top;
+	height: 501px;
+	position: relative;
+}
+#info .text{
+	padding-left: 385px;
+}
+#info .text table th{
+	vertical-align: top;
+}
+#info > img{
+	position: absolute;
+	left: 600px;
+	top: 51px;
+}
+
+/*============================================================
+ギャラリー　gallery.html
+============================================================*/
+
+#gallery{
+	padding-bottom: 50px;
+	width: 960px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+#gallery p{
+	padding: 0;
+}
+#gallery #imgList ul {
+	width: 965px;
+}
+#gallery #imgList ul li{
+	float: left;
+	margin: 0 5px 4px 0;
+	padding: 0 16px;
+	background: url(../images/garally_bg_list.png) no-repeat 0 0;
+	width: 204px;
+	height: 430px;
+	text-align: center;
+	opacity: 0;
+}
+#gallery #imgList ul li h3{
+	margin: 24px 0 15px;
+	padding: 24px 0;
+	text-align: center;
+	background: url(../images/garally/base_date.png) no-repeat top center;
+	color: #333333;
+	font-size: 18px;
+	font-family: 'FLOPDesignFont';
+}
+#gallery #imgList ul li h4{
+	padding: 0 0 2px;
+	text-align: center;
+	font-size: 16px;
+	color: #fa498e;
+	font-family: 'FLOPDesignFont';
+	text-decoration: none;
+}
+#gallery #imgList ul li h5{
+	margin: 13px 0 9px;
+	height: 38px;
+	text-align: center;
+	color: #333333;
+	font-size: 12px;
+	font-family: 'FLOPDesignFont';
+	text-decoration: none;
+}
+#gallery #imgList ul li a:hover h3,
+#gallery #imgList ul li a:hover h4,
+#gallery #imgList ul li a:hover h5,
+#gallery #imgList ul li a:hover{
+	text-decoration: none;
+}
+#gallery #imgList ul li .btnMore{
+	margin: 16px auto 0;
+}
+#gallery #imgList ul li a .btnMore{
+	width: 196px;
+	height: 44px;
+	background: url(../images/garally_more.png) no-repeat 0 0;
+	display: block;
+}
+#gallery #imgList ul li a:hover .btnMore{
+	background: url(../images/garally_more.png) no-repeat 0 -44px;
+}
+#gallery #imgList ul li .btnMore{
+	margin: 16px auto 0;
+	width: 196px;
+	height: 44px;
+	background: url(../images/garally_more.png) no-repeat 0 -88px;
+}
+#gallery #imgList ul li .photo{
+	position: relative;
+	width: 204px;
+	height: 122px;
+	overflow: hidden;
+}
+#gallery #imgList ul li .photo .frame{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#gallery #imgList ul li .photo .nail,
+#gallery #imgList ul li .photo .nail img{
+	position: absolute;
+	left: 0;
+	width: 204px;
+	height: auto;
+}
+#gallery #imgList ul li .photo .nail{
+	height:122px;
+}
+#gallery #imgList ul li .photo .nail.top img{
+	top:0;
+}
+#gallery #imgList ul li .photo .nail.center img{
+	top:-10px;
+}
+#gallery #imgList ul li .photo .nail.bottom img{
+	bottom: 0;
+}
+
+/*============================================================
+ギャラリー　gallery_detail.html
+============================================================*/
+#gallery_detail{
+	width: 960px;
+	margin: 0 auto;
+	padding: 5px 0 150px;
+}
+#gallery_detail p{
+	text-align: center;
+}
+#gallery_detail #title{
+	text-align: center;
+	background: url(../images/garally_flag1.png) no-repeat center bottom;
+	padding: 0 0 50px;
+}
+#gallery_detail #title h3{
+	display: inline;
+	margin: 0 30px 0 0;
+}
+#gallery_detail #title .sub{
+	display:inline-block;
+}
+#gallery_detail #title .sub td{
+	vertical-align: middle;
+	height: 82px;
+}
+#gallery_detail h4{
+	font-size: 30px;
+	color:#fa498e;
+	margin: 15px 0 12px;
+	font-family: 'FLOPDesignFont';
+}
+#gallery_detail h5{
+	font-size: 16px;
+	font-family: 'FLOPDesignFont';
+}
+#gallery_detail .flexslider .frame{
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 8;
+}
+#gallery_detail #pagenav{
+	width: 730px;
+	margin: 0 auto;
+}
+#gallery_detail #pagenav table{
+	width: 100%;
+}
+#gallery_detail #pagenav .prev{
+	width: 200px;
+	text-align: left;
+}
+#gallery_detail #pagenav .home{
+	text-align: center;
+}
+#gallery_detail #pagenav .home img{
+	position: relative;
+	top: 10px;
+}
+#gallery_detail #pagenav .next{
+	width: 200px;
+	text-align: right;
+}
+
+/*============================================================
+Q&A　faq.html
+============================================================*/
+
+#faq{
+	padding-bottom: 50px;
+	width: 960px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+#faq .faq_box{
+	margin: 0 0 60px;
+}
+#faq h3{
+	text-align: center;
+}
+#faq h4{
+	text-align: center;
+	padding: 10px 0 15px;
+}
+.question{
+	background: url(../images/base_q.png) no-repeat 0 0;
+	padding: 48px 60px 25px 60px;
+	font-size: 16px;
+	color: #fa498e;
+	font-family: 'FLOPDesignFont';
+}
+.answer{
+	background: url(../images/base_a.png) no-repeat 0 0;
+	padding: 30px 60px;
+	font-size: 12px;
+	font-family: 'FLOPDesignFont';
+}
+.answer_btm{
+	padding: 0;
+	height: 4px;
+	margin: 0 0 30px;
+}
+.answer_btm img{
+	vertical-align: top;
+}
+
+/*============================================================
+BLOG　blog.html
+============================================================*/
+
+#blog{
+	padding-bottom: 50px;
+	width: 960px;
+	margin: 0 auto;
+	overflow: hidden;
+}

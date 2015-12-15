@@ -1,0 +1,491 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"backg",
+				"background-color"
+			],
+			[
+				"op",
+				"opacity"
+			],
+			[
+				"cu",
+				"cursor"
+			],
+			[
+				"ba",
+				"background"
+			],
+			[
+				"tet",
+				"text-decoration"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"z",
+				"z-index"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"r",
+				"rgba()"
+			],
+			[
+				"e",
+				"environment_place_icon_bk.png	w:55 h:75"
+			],
+			[
+				"b",
+				"bold"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"po",
+				"position"
+			],
+			[
+				"f",
+				"fixed"
+			],
+			[
+				"bg",
+				"bg_recruit_process.jpg	w:1280 h:336"
+			],
+			[
+				"bac",
+				"background-repeat"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Users/tokiwajunko/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 117,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 374.0,
+		"last_filter": "ins",
+		"selected_items":
+		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 417.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+	],
+	"file_history":
+	[
+		"/Users/tokiwajunko/Sites/Git/Glitter.WebSite.HTML/html/index.html",
+		"/Users/tokiwajunko/Sites/Git/Glitter.WebSite/wp-content/themes/glitter/page-templates/page-gallery.php",
+		"/Users/tokiwajunko/Sites/Git/Glitter.WebSite/wp-content/themes/glitter/content-search.php",
+		"/Users/tokiwajunko/Sites/Git/Glitter.WebSite/wp-content/themes/glitter/content-pager.php",
+		"/Users/tokiwajunko/Sites/Git/Glitter.WebSite/wp-content/themes/glitter/category.php",
+		"/Users/tokiwajunko/Sites/Git/Glitter.WebSite/wp-content/themes/glitter/archive.php",
+		"/Users/tokiwajunko/Sites/Git/Glitter.WebSite/wp-content/themes/glitter/footer.php",
+		"/Users/tokiwajunko/Sites/Git/Glitter.WebSite/wp-content/themes/glitter/single.php",
+		"/Users/tokiwajunko/Sites/Git/Glitter.WebSite/wp-content/themes/glitter/index.php",
+		"/Users/tokiwajunko/Sites/Git/Glitter.WebSite/wp-content/themes/glitter/header.php",
+		"/Users/tokiwajunko/Sites/Git/Glitter.WebSite/wp-content/themes/glitter/page-templates/page-blog.php",
+		"/Users/tokiwajunko/Sites/Git/Glitter.WebSite/wp-content/themes/glitter/content-nail.php",
+		"/Users/tokiwajunko/Sites/Git/Glitter.WebSite/wp-content/themes/glitter/style.css",
+		"/Users/tokiwajunko/Sites/Git/Glitter.WebSite/sftp-config.json",
+		"/Users/tokiwajunko/Sites/Git/Glitter.WebSite/wp-content/themes/glitter/functions.php",
+		"/Users/tokiwajunko/Sites/Git/Glitter.WebSite/wp-content/themes/glitter/search.php",
+		"/Users/tokiwajunko/Sites/Git/Glitter.WebSite/wp-content/themes/glitter/single-gallery.php",
+		"/Users/tokiwajunko/Sites/Git/Glitter.WebSite/wp-content/themes/glitter/content-nail_category.php",
+		"/Users/tokiwajunko/Sites/Git/Glitter.WebSite/wp-content/themes/glitter/content-nail_search.php",
+		"/Users/tokiwajunko/Google ドライブ/07_FIXER/03_git/FIXER.BlogTech.Website/wordpress/wp-content/themes/TechBlog/index.php",
+		"/Users/tokiwajunko/Google ドライブ/07_FIXER/03_git/Ando.OfficialWebSite/wp-content/themes/SiSiLaLaTV/functions.php",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/ssiinc/footer.html",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/sass/setting/_mixin.scss",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/sass/page/_index.scss",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/sass/parts/common/_members.scss",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/company.html",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/sass/parts/_footer.scss",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/sass/parts/common/_mainimg.scss",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/sass/parts/common/_environment.scss",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/sass/parts/common/_awards.scss",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/js/Main.js",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/sass/style.scss",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/recruit.html",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/index.html",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/about.html",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/.sass-cache/ec4819b6ab9b96433615b2f0d4e77cac9abd61dc/_members.scssc",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/sass/setting/_setting.scss",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/sass/page/_company.scss",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/sass/parts/_header.scss",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/.sass-cache/a4b2cebf9f74dcbffc1946ded625ebf784f4b55c/_header.scssc",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/.sass-cache/a4b2cebf9f74dcbffc1946ded625ebf784f4b55c/_footer.scssc",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/ssiinc/head.html",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/.sass-cache/4397d66b110cd74a20c0432efa21976311fb1f4d/_mixin.scssc",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/sass/parts/common/_top.scss",
+		"/Users/tokiwajunko/.sublime/history/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/sass/setting/2015-11-14_22.17.56._mixin.scss",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/ssiinc/header.html",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/js/lib/jquery.js",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/css/fancybox/jquery.fancybox-1.3.4.css",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/sass/parts/_entry.scss",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/ssiinc/entry.html",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/work.html",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/ssiinc/members.html",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/sass/page/_about.scss",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/ssiinc/environment.html",
+		"/Users/tokiwajunko/Library/Application Support/Sublime Text 3/Packages/Compass/build.sh",
+		"/Users/tokiwajunko/Library/Application Support/Sublime Text 3/Packages/Compass/Compass.sublime-build",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/prepros.cfg",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/css/style.css",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/.sass-cache/4397d66b110cd74a20c0432efa21976311fb1f4d/_variable.scssc",
+		"/Users/tokiwajunko/Sites/FIXER.Recruit.Websites/sass/page/_recruit.scss",
+		"/private/etc/apache2/users/Guest.conf",
+		"/Users/tokiwajunko/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 91.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"http://example.new/",
+			"http://example.old/",
+			"wp_",
+			"wp_options",
+			"parents",
+			"design",
+			"}\n",
+			".search_design ",
+			"h2",
+			"wp_",
+			"m/glitter_test/'",
+			"ter.net/'",
+			"est/'",
+			"http://www.eyeta.jp",
+			"http://example.new/",
+			"http://example.old/",
+			"ハンド",
+			"カテゴリーを選択して検索",
+			"fruits",
+			"カテゴリーを選択して検索",
+			"$value;",
+			"echo $value;",
+			"[]par",
+			"catnum[order]",
+			"[design]",
+			"me=\"catn",
+			"design",
+			"<?php ",
+			"; ?>",
+			"\" value=\"\" checked>",
+			"e=\"catnum[]design\" value=\"\" checked",
+			"value=\"\"",
+			"tnum[]",
+			"checked",
+			"<!-- ネイルカテゴリ一覧 -->",
+			"<?php get_template_part( 'content', 'nail_search' ); ?>",
+			"<?php get_template_part( 'content', 'nail_category_search' ); ?>",
+			"<?php get_template_part( 'content', 'nail_category_'search ); ?>",
+			"<?php get_template_part( 'content', 'nail_category' ); ?>",
+			"\" value=\"\">ALL</label><br>",
+			".active",
+			"checkbox",
+			"\n\n        <?php print $category->cat_name; ?>",
+			"35px",
+			"60px",
+			"30px",
+			"06-6476-9777",
+			"members_schedule",
+			"\n										<!-- <p class=\"img\"><img src=\"img/members_schedule_02.png\" alt=\"\"></p> -->",
+			"\n										<!-- <p class=\"img\"><img src=\"img/members_schedule_01.png\" alt=\"\"></p> -->",
+			"\n										<p class=\"img\"></p>",
+			"<br class=\"sp\">",
+			"<br>",
+			"<br class=\"sp\">",
+			"<a href=\"entry.html\">",
+			"a href=\"entry.html\">",
+			"<a href=\"entry.html\">",
+			"windowname",
+			"SetJobName",
+			"<a href=\"\">ENTRY</a><",
+			"<br>",
+			"img",
+			"<br>",
+			"jobNameEn[i",
+			"ie",
+			"SourceHanSans",
+			"arrow",
+			"$sprites-btn",
+			"btn",
+			"table-cell",
+			" ",
+			"<span class=\"pc\"> </span>",
+			"n/_",
+			"イトルやボタンの色を設定)",
+			"subtitleStyle",
+			"$color",
+			"resetStyleBtn",
+			"entryBtn",
+			"resetStyleBtn",
+			"listCenter",
+			"1",
+			"1900",
+			"middle",
+			"top",
+			".tel",
+			"[type=\"text\"]",
+			" id=\"\"",
+			"<li>",
+			"ame=\"\">",
+			">",
+			"div",
+			"\"></p>",
+			"<li></li>",
+			"Company",
+			"recruit",
+			"requirements",
+			"REQUIREMENTS",
+			"requirements",
+			"arctext",
+			"btn_entry",
+			"\">",
+			";",
+			";\n",
+			"bg_pink",
+			"btn",
+			"1",
+			"\n						position: absolute;",
+			"\n						z-index: 2;",
+			"<p class=\"icon\"><img src=\"img/env",
+			"<div class=\"inner\">",
+			"wh.png\" a",
+			"_wh.png\" alt",
+			"<h1><span class=\"ico",
+			"<h1><span",
+			"<h1><span class=",
+			"</h1>",
+			"background: #",
+			"n.png\" alt=\"\">",
+			".png\"",
+			".png\" alt=\"\">",
+			".layou",
+			".layoutR",
+			".",
+			"welfare",
+			"WELFARE",
+			"welfare",
+			"learning",
+			"LEARNING"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"<!-- ネイル 検索フォーム -->",
+			"<?php get_template_part( 'content', 'nail_search' ); ?>",
+			"<?php get_template_part( 'content', 'nail_category_search' ); ?>",
+			"<?php get_template_part( 'content', 'nail_category_'search ); ?>",
+			"$sprites-arrow",
+			"<span class=\"pc\">&thinsp;</span>",
+			"centerList",
+			"src=\"img",
+			"href=\"index.html\"",
+			"award_trophy.jpg",
+			"(220, 220, 220",
+			"$font_size_h1_L"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/tokiwajunko/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 117,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								114,
+								114
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 98.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 98.0
+	},
+	"pinned_build_system": "Packages/Compass/Compass.sublime-build",
+	"project": "glitter.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 334.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

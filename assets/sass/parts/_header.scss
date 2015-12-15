@@ -1,0 +1,93 @@
+@charset "utf-8";
+
+/* ----------------------------------------------------------------------------------
+
+Parts : Header _header.scss
+
+----------------------------------------------------------------------------------*/
+%navi-active{
+	width: 56px;
+	opacity: 1;
+}
+.header{
+	display: table;
+	width: 100%;
+	height: $header_height;
+	background: $color_white;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	.logo{
+		display: table-cell;
+		vertical-align: middle;
+		width: 110px;
+		text-align: center;
+	}
+	// WEBで予約ボタン
+	.btn_area{
+		transition: 0.4s;
+		position: absolute;
+		right: -($header_btn_width - $header_btn_width_view);
+		top: 50%;
+		padding-top: 0;
+		transform: translateY(-50%);
+		width: 232px;
+	}
+	// ハンバーガーメニュー
+	.icon_menu{
+		display: none;
+	}
+}
+
+@media screen and (max-width: $width-pc){
+	.header{
+		.btn_area{
+			right: -($header_btn_width-min - $header_btn_width_view-min);
+		}
+	}
+}
+
+
+@media screen and (max-width: $width-tb){
+	.header{
+		transition: 0.4s;
+		z-index: 400;
+		// WEBで予約ボタン
+		.btn_area{
+			display: none;
+		}
+		// ハンバーガーメニュー
+		.icon_menu{
+			display: block;
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 80px;
+			height: 80px;
+			padding-top: 16px;
+			span{
+				display: block;
+				margin: 0 auto;
+				&.line{
+					border-radius: 2px;
+					background: $color_brown;
+					width: 28px;
+					height: 4px;
+					margin-bottom: 5px;
+				}
+				&.text{
+					font-size: 9px;
+					color: $color_brown;
+					@include font-family($type:SourceHanSans,$space:1);
+				}
+			}
+		}
+	}
+
+	.showNavi{
+		.header{
+			transform: translateX(-250px);
+		}
+	}
+}

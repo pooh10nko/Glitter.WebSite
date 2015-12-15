@@ -1,0 +1,87 @@
+@charset "utf-8";
+
+//////////////////////////////////////////////////
+// ブレイクポイント
+//////////////////////////////////////////////////
+$width-pc: '1024px';
+$width-tb: '768px';
+$width_sp: '640px';
+
+//////////////////////////////////////////////////
+// ページ全体横幅
+//////////////////////////////////////////////////
+$width_max: 1024px;
+$width_base: 960px;
+$width_min: 320px;
+
+//////////////////////////////////////////////////
+// ヘッダー高さ
+//////////////////////////////////////////////////
+$header_height: 80px;
+
+
+$header_btn_width: 232px;
+$header_btn_width_view: 176px;
+$header_btn_width-min: 232px;
+$header_btn_width_view-min: 68px;
+
+//////////////////////////////////////////////////
+// フォント
+//////////////////////////////////////////////////
+@font-face {
+	font-family: 'Futura';
+	src:
+		url('/assets/font/Futura-Book.ttf');
+}
+@font-face {
+	font-family: 'Futura-Light';
+	src:
+		url('/assets/font/Futura-Std-Light.ttf');
+}
+@font-face {
+	font-family: 'SourceHanSans';
+	src:
+		url('/assets/font/SourceHanSansJP-Light.otf');
+}
+$font_family: YuGothic, '游ゴシック','SourceHanSans', "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
+$font_family-Futura: 'Futura', '游ゴシック',"Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
+$font_family-Futura-Light: 'Futura-Light', '游ゴシック',"Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
+$font_family-SourceHanSans: 'SourceHanSans', '游ゴシック',"Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
+
+//////////////////////////////////////////////////
+// Font Size
+//////////////////////////////////////////////////
+$font_size-base: 13px;
+
+// $font_size-L: 18px;
+// $font_size-M: 12px;
+// $font_size-S: 10px;
+
+$font_size-btn: 17px;
+
+$font_size-navi: 16px;
+
+
+//記事タイトル
+// $font_size-title_L: 24px;
+// $font_size-title_M: 14px;
+// $font_size-title_S: 12px;
+
+//////////////////////////////////////////////////
+// Color
+//////////////////////////////////////////////////
+$font_color_base: #59493f;
+
+$color_black: #000;
+$color_white: #fff;
+$color_brown: #97887c;
+$color_green: #d4e6aa;
+$color_yellow: #fffccb;
+$color_pink: #fadae8;
+$color_gray: #e6e4e2;
+
+
+//////////////////////////////////////////////////
+// Padding
+//////////////////////////////////////////////////
+$padding: 20px;

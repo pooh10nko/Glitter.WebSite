@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+/* ----------------------------------------------------------------------------------
+
+Parts : Footer _footer.scss
+
+----------------------------------------------------------------------------------*/
+
+.footer{
+	padding: 80px 0;
+	background: url('/assets/img/footer_bg.png') no-repeat 0 100%;
+	background: 100% auto;
+	.logo{
+		padding: 0 0 30px;
+	}
+	h1{
+		&.bold{
+			padding-bottom: 10px;
+		}
+	}
+	.copyright{
+		padding: 40px 0 0;
+	}
+}
+
+
+@media screen and (max-width: $width_sp) {
+	.footer{
+		padding: 40px 0;
+	}
+}
