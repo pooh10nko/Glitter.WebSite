@@ -1,6 +1,0 @@
-User-agent: *
-Disallow: /wp-admin/
-Disallow: /wp-includes/
-Disallow: /article/
-Disallow: /blog/
-Sitemap: http://nail-glitter.net/sitemap.xml
