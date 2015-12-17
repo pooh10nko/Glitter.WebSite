@@ -60,8 +60,37 @@ $('.icon_menu').on('click',function(){
 })
 $('.icon_close').on('click',function(){
 	$('body').removeClass('showNavi');
+///////////////////////////////
+// タブ切り替え
+//////////////////////////////
+var target = '.tab_area a[href^=#]';
+
+$(target).on('click',function(){
+	var targetIndex = $(target).index(this) + 1;
+	$('.nav_area').removeClass('active');
+	$('.body_area').fadeOut();
+
+	$('#nav'+targetIndex).addClass('active');
+	$('#tab'+targetIndex).fadeIn();
+
+	return false;
 })
 
+///////////////////////////////
+// 遅延ロード
+//////////////////////////////
+$('.item_list img').lazyload({
+    effect: 'fadeIn',
+    effectspeed: 1000
+});
+
+//////////////////////////////
+///loading
+//////////////////////////////
+
+$(window).on('load', function(){
+	$('.loading').fadeOut(800);
+});
 
 
 })
