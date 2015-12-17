@@ -170,19 +170,35 @@ var openMenu = function(){
 	});
 }
 
+
+///////////////////////////////
+// アコーディオン
+//////////////////////////////
+var targetAccordion = '.accordion_area dt';
+
+$(targetAccordion).on('click',function(){
+	$(this).next().slideToggle();
+})
+
 ///////////////////////////////
 // タブ切り替え
 //////////////////////////////
-var target = '.tab_area a[href^=#]';
+var targetTab = '.tab_area a[href^=#]';
 
-$(target).on('click',function(){
-	var targetIndex = $(target).index(this) + 1;
-	$('.nav_area').removeClass('active');
-	$('.body_area').fadeOut();
+$(targetTab).on('click',function(){
+	var targetIndex = $(targetTab).index(this) + 1;
 
-	$('#nav'+targetIndex).addClass('active');
-	$('#tab'+targetIndex).fadeIn();
+	// アコーディンが全て閉じてから表示切り替え
+	$(targetAccordion).next().slideUp();
+	$.when($(targetAccordion).next()).done(function(){
+		// ターゲット非表示
+		$('.nav_area').removeClass('active');
+		$('.body_area').fadeOut();
 
+		// ターゲット表示
+		$('#nav'+targetIndex).addClass('active');
+		$('#tab'+targetIndex).fadeIn();
+	});
 	return false;
 })
 
