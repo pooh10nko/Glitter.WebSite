@@ -67,7 +67,7 @@
 //////////////////////////////////////////////////
 @mixin arrow($size:10px, $color:$color_brown, $positionL:30px){
 	position: relative;
-	&:after {
+	&:before {
 		position: absolute;
 		left: $positionL;
 		top: 50%;

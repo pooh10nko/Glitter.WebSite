@@ -13,7 +13,6 @@ Module :共通レイアウト _layout.scss
 	box-sizing: border-box;
 }
 html{
-	height: 100%;
 }
 
 body{
@@ -109,6 +108,23 @@ a{
 
 .slider,
 .item_list{
+	*zoom: 1;
+	&:after {
+		content: "\0020";
+		display: block;
+		height: 0;
+		clear: both;
+		overflow: hidden;
+		visibility: hidden;
+	}
+	&:not(.slider){
+		& > div{
+			width: 25%;
+			float: left;
+			margin-bottom: 40px;
+			padding: 0 10px;
+		}
+	}
 	.img{
 		margin-bottom: 25px;
 		img{
@@ -140,10 +156,6 @@ a{
 	}
 	.text{
 		text-decoration: underline;
-	}
-	// 各コンテンツ
-	.slick-slide{
-		padding: 0 20px;
 	}
 	//現在地カレント
 	.slick-dots{
@@ -278,7 +290,7 @@ a{
 ////////////////////////////
 // layout main
 ////////////////////////////
-}
+
 
 ////////////////////////////
 // Slider or ItemList
@@ -286,6 +298,12 @@ a{
 
 .slider,
 .item_list{
+
+	&:not(.slider){
+		& > div{
+			width: 50%;
+		}
+	}
 	.img{
 		margin-bottom: 10px;
 	}
@@ -300,4 +318,11 @@ a{
 	.slick-slide{
 		padding: 0 10px;
 	}
+}
+
+
+
+
+
+
 }

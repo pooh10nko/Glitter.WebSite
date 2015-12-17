@@ -62,6 +62,23 @@ $('.icon_close').on('click',function(){
 	$('body').removeClass('showNavi');
 })
 
+///////////////////////////////
+// カテゴリ検索　プルダウン
+//////////////////////////////
+$('.search_category a').on('click',function(){
+	$(this).toggleClass('active');
+	$('.search_pulldown').slideToggle();
+	return false;
+})
 
+///////////////////////////////
+// heightLine.jp 呼び出し
+//////////////////////////////
+
+
+
+$(window).on("load resize",function(){
+	$("#galleryPage .item_list > div").heightLine();
+})
 
 })

@@ -1,0 +1,164 @@
+@charset "utf-8";
+
+/* ----------------------------------------------------------------------------------
+
+Page : GalleryPage _gallery.scss
+
+----------------------------------------------------------------------------------*/
+#galleryPage{
+
+	////////////////////////////
+	// visual
+	////////////////////////////
+
+	.visual{	
+		position: relative;
+		background: url('/assets/img/gallery/gallery_visual_bg_pc.jpg') no-repeat 50% 50%;
+		background-size: cover;
+		min-height: 240px;
+		display: table;
+		width: 100%;
+		.visual_inner{
+			display: table-cell;
+			vertical-align: middle;
+			h1{
+				@include font-family($type:Futura-Light,$space:10);
+				font-size: 40px;
+				color: $color_white;
+			}
+		}
+	}
+
+	.navi_search{
+		background: $color_brown;
+		.inner{
+			padding-left: 0;
+			padding-right: 0;
+		}
+		.search_category,
+		.search_customer{
+			text-align: center;
+			width: 50%;
+			a{
+				color: $color_white;
+				position: relative;
+				line-height: 80px;
+				font-size: 18px;
+				display: block;
+				@include font-family($type:SourceHanSans,$space:4);
+				// 閉じるアイコン
+				.icon_close{
+					display: none;
+				}
+				// 通常時
+				&:not(.active){
+					@include arrow($color:$color_white);
+					&:before{
+						position: relative;
+						top: 0;
+						left: -20px;
+					}
+				}
+				&.active{
+					background: $color_gray;
+					color: $font_color_base;
+					.icon_close{
+						position: relative;
+						top: -9px;
+						left: -17px;
+						width: 10px;
+						height: 10px;
+						display: inline-block;
+						span{
+							&.line{
+								display: inline-block;
+								background: $font_color_base;
+								position: absolute;
+								left: -5px;
+								top: 2px;
+								transform: rotate(45deg);
+								&:nth-child(1){
+									width: 19px;
+									height: 1px;
+									margin-top: 9px;
+								}
+								&:nth-child(2){
+									width: 1px;
+									height: 19px;
+									margin-left: 9px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		.search_category{
+			a{
+				border-right: 1px solid $color_white;
+				&:before{
+					transition: 0.2s;
+					transform: rotate(135deg);
+				}
+			}
+		}
+		// プルダウン
+		.search_pulldown{
+			display: none;
+			position: absolute;
+			width: 100%;
+			background: $color_gray;
+			padding: 50px 0;
+			border-top: 1px solid #d5d1ce;
+			.search_list{
+				float: left;
+				width: 33.33%;
+				padding: 0 10px;
+				text-align: center;
+				.title{
+					display: inline-block;
+					color: $color_brown;
+					font-size: 24px;
+					margin-bottom: 15px;
+					@include font-family($type:Futura-Light, $space:6);
+				}
+				label{
+					cursor: pointer;
+					background: $color_white;
+					color: #84786e;
+					display: block;
+					line-height: 60px;
+					border-bottom: 1px solid #ebe9e8;
+					&.active{
+						background: #aca49f;
+						color: $color_white;
+					}
+
+				}
+				input[type="radio"]{
+					-webkit-appearance: none;
+					margin: 0;
+					padding: 0;
+					width: 100%;
+					display: inline;
+				}
+
+				// アイコン
+				$navilist: design, parts, order;
+				@each $navi in $navilist{
+					&.#{$navi}{
+						.title{
+							background: url('/assets/img/icon/icon_#{$navi}.png') no-repeat 0 50%;
+							padding-left: 40px;
+						}
+					}
+				}
+			}
+			.btn_area{
+				margin-top: 40px;
+
+			}
+		}
+	}
+
+}

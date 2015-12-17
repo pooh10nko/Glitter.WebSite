@@ -8,8 +8,22 @@ Parts : Footer _footer.scss
 
 .footer{
 	padding: 80px 0;
-	background: url('/assets/img/footer_bg.png') no-repeat 0 100%;
+	background: url('/assets/img/footer/footer_bg.png') no-repeat 0 100%;
 	background: 100% auto;
+	.pagetop{
+		margin-bottom: 80px;
+		a{
+			@include arrow($size:12px, $color:$color_brown, $positionL:0px);
+			background: $color_gray;
+			height: 80px;
+			display: block;
+			&:before{
+				left: 50%;
+				margin-left: -6px;
+				transform : rotate(-45deg);
+			}
+		}
+	}
 	.logo{
 		padding: 0 0 30px;
 	}

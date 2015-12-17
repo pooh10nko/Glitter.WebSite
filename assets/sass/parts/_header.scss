@@ -33,6 +33,13 @@ Parts : Header _header.scss
 		padding-top: 0;
 		transform: translateY(-50%);
 		width: 232px;
+		.btn{
+			padding-left: 65px;
+			text-align: left;
+			&:before{
+				border-color: $color_white;
+			}
+		}
 	}
 	// ハンバーガーメニュー
 	.icon_menu{
