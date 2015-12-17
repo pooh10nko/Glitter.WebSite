@@ -30,7 +30,7 @@ Module :共通レイアウト _layout.scss
 ----------------------------------------------------------------------------------*/
 * { box-sizing: border-box; }
 
-html { height: 100%; }
+html { width: 100%; height: 100%; }
 
 body { font-size: 13px; font-family: YuGothic, "游ゴシック", "SourceHanSans", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif; line-height: 1.7; word-wrap: break-word; word-break: break-all; overflow-wrap: break-word; -webkit-text-size-adjust: 100%; box-sizing: border-box; color: #59493f; text-align: center; -webkit-transition: 0.4s; transition: 0.4s; }
 

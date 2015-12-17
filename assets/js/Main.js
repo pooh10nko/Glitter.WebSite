@@ -1,5 +1,88 @@
 $(function()
 {
+/*
+--------------------------------------------
+Utilities
+--------------------------------------------
+*/
+
+// SP表示であるかどうか
+function isSPMode()
+{
+    // ヘッダメニューが表示されているかどうかでSP表示かPC表示かを判定する
+    return $('.icon_menu').css('display') != 'none';
+}
+
+// 現在表示されているページを取得する
+function getPageName()
+{
+    return $('body').attr('id');
+}
+
+// ナビゲーションが開かれているかどうか
+function isNaviOpened()
+{
+    // ヘッダナビがativeクラス(CSS)を持っているかどうかでナビゲーション開閉を判定する
+    // (持っている場合はナビゲーションが開かれている)
+    return $('body').hasClass('showNavi');
+}
+
+// // スクロール量を取得する
+// function getScrollTop()
+// {
+//     return $(window).scrollTop();
+// }
+
+// // ウインドウの高さを取得する
+// function getWindowHeight()
+// {
+//     return $(window).height();
+// }
+
+//------------------------------------------------------------//
+// 画像をPCとSPで表示切り替え
+//------------------------------------------------------------//
+
+
+$(window).on('load resize', function(){
+	$('.imgChange').fadeIn(1);
+    if(isSPMode())
+    {
+        // SP表示の場合
+        $('.imgChange').each(function(){
+            $(this).attr("src",$(this).attr("src").replace('_pc', '_sp'));
+        });
+    }else{
+        // PC表示の場合
+        $('.imgChange').each(function(){
+            $(this).attr("src",$(this).attr("src").replace('_sp', '_pc'));
+        }); 
+    }
+});
+
+
+/*
+--------------------------------------------
+スムーズスクロール
+--------------------------------------------
+*/
+$("a[href^=#]").on('click',function(){
+	var Hash = $(this.hash);
+	var HashOffset;
+	
+	if(isSPMode())
+    {
+        // SP表示の場合
+            HashOffset = $(Hash).offset().top - 82;
+    }else{
+        // PC表示の場合
+            HashOffset = $(Hash).offset().top - 82;
+    }
+	$("html,body").animate({
+		scrollTop: HashOffset
+	}, 800, 'easeInOutQuart');
+	return false;
+});
 
 
 ///////////////////////////////
@@ -51,15 +134,42 @@ $('.slider_shop').slick({
 ///////////////////////////////
 // ヘッダーナビ開閉
 //////////////////////////////
-$('.icon_menu').on('click',function(){
-	if($('body').hasClass('showNavi')){
-		$('body').removeClass('showNavi');
-	}else{
-		$('body').addClass('showNavi');
+var thisScrollTop;
+
+$('.icon_menu,.icon_close').on('click',function(){
+	// 開いている時
+	if(isNaviOpened()){
+		closeMenu();
+	}
+	// 閉じている時
+	else{
+		openMenu();
 	}
 })
-$('.icon_close').on('click',function(){
+
+// 開いている場合は.pageをクリックした際にも閉じる
+$('.page').on('click',function(){
+	if(isNaviOpened()){
+		closeMenu();
+	}
+});
+
+var closeMenu = function(){
 	$('body').removeClass('showNavi');
+	$('html').css({
+		'position':'static'
+	});
+	$(window).scrollTop(thisScrollTop);
+}
+var openMenu = function(){
+	thisScrollTop = $(window).scrollTop();
+	$('body').addClass('showNavi');
+	$('html').css({
+		'position':'fixed',
+		'top': -thisScrollTop
+	});
+}
+
 ///////////////////////////////
 // タブ切り替え
 //////////////////////////////
