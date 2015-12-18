@@ -29,7 +29,11 @@ Page : GalleryPage _gallery.scss
 		}
 	}
 
-	.navi_search{
+	////////////////////////////
+	// ネイル検索機能
+	////////////////////////////
+
+	.search_category{
 		background: $color_brown;
 		.inner{
 			padding-left: 0;
@@ -106,6 +110,7 @@ Page : GalleryPage _gallery.scss
 		.search_pulldown{
 			display: none;
 			position: absolute;
+			z-index: 10;
 			width: 100%;
 			background: $color_gray;
 			padding: 50px 0;
@@ -120,6 +125,7 @@ Page : GalleryPage _gallery.scss
 					color: $color_brown;
 					font-size: 24px;
 					margin-bottom: 15px;
+					padding-left: 40px;
 					@include font-family($type:Futura-Light, $space:6);
 				}
 				label{
@@ -129,6 +135,7 @@ Page : GalleryPage _gallery.scss
 					display: block;
 					line-height: 60px;
 					border-bottom: 1px solid #ebe9e8;
+					transition: 0.2s;
 					&.active{
 						background: #aca49f;
 						color: $color_white;
@@ -141,6 +148,8 @@ Page : GalleryPage _gallery.scss
 					padding: 0;
 					width: 100%;
 					display: inline;
+					border: none;
+					border-radius: 0;
 				}
 
 				// アイコン
@@ -149,16 +158,107 @@ Page : GalleryPage _gallery.scss
 					&.#{$navi}{
 						.title{
 							background: url('/assets/img/icon/icon_#{$navi}.png') no-repeat 0 50%;
-							padding-left: 40px;
 						}
 					}
 				}
 			}
 			.btn_area{
-				margin-top: 40px;
-
+				padding-top: 40px;
 			}
 		}
 	}
 
+	.detail{
+		.detail_main{
+			width: 74%;
+			padding-right: 35px;
+			border-right: 1px solid #eeeceb;
+			background: #f4f3f2;
+			padding: 40px;
+			h1{
+				font-size: 22px;
+				margin-bottom: 15px;
+			}
+			.data{
+				width: 100%;
+				float: none;
+				padding: 0;
+				dl{
+					display: table;
+					width: 100%;
+					dt,dd{
+						display: table-cell;
+						vertical-align: middle;
+						text-align: left;
+						padding: 15px 20px;
+					}
+					dt{
+						width: 128px;
+						background: $color_brown;
+						color: $color_white;
+						font-size: 14px;
+						border-bottom: 1px solid #f8f7f7;
+					}
+					dd{
+						background: $color_white;
+						border-bottom: 1px solid #eeeceb;
+					}
+				}
+			}
+		}
+		.detail_side{
+			padding-left: 35px;
+		}
+	}
 }
+
+
+@media screen and (max-width: $width_sp){
+
+#galleryPage{
+	////////////////////////////
+	// ネイル検索機能
+	////////////////////////////
+
+	.search_category{
+		.search_category,
+		.search_customer{
+			a{
+				line-height: 70px;
+			}
+		}
+
+		.search_category{
+			a{
+				border-right: none;
+				border-top: 1px solid $color_white;
+			}
+		}
+		// プルダウン
+		.search_pulldown{
+			padding: 30px 0;
+			.search_list{
+				width: 50%;
+				padding-bottom: 30px;
+				.title{
+					font-size: 20px;
+					padding-left: 28px;
+					background-size: 20px auto;
+				}
+				label{
+					line-height: 40px;
+				}
+			}
+			.btn_area{
+				padding-top: 0;
+			}
+		}
+	}
+}
+
+
+
+
+}
+
+

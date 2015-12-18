@@ -1,0 +1,380 @@
+<h1 id="introducing-multi-device-switcher">Introducing Multi Device Switcher</h1>
+<p>This WordPress plugin allows you to set a separate theme for device (Smart Phone, Tablet PC, Mobile Phone, Game and custom).
+This plugin detects if your site is being viewed by UserAgent, and switches to selected theme. The Custom Switcher can add every device.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Set a separate theme for device (Smart Phone, Tablet PC, Mobile Phone, Game), switches to selected theme.</li>
+<li>Add every device by the <strong>Custom Switcher</strong>.</li>
+<li>Add links &#39;Mobile&#39; or &#39;PC&#39; in the theme by the <strong>PC Switcher</strong>, switch to the default theme.</li>
+<li>Switch the content of the post or page for each device by the <strong>Display Switcher</strong> Shortcode.</li>
+<li>Disable the switching of the theme by a particular URL by the <strong>Disable Switcher</strong>.</li>
+<li>Can be using is_multi_device() function that detect of the device.</li>
+<li><strong>Multi Device Switcher Command</strong> command-line tool (required WP-CLI)</li>
+</ul>
+<h2 id="how-do-i-use-it-">How do I use it ?</h2>
+<ol>
+<li>Download and unzip files. Or install multi-device-switcher using the WordPress plugin installer. In that case, skip 2.</li>
+<li>Upload &quot;multi-device-switcher&quot; to the &quot;/wp-content/plugins/&quot; directory.</li>
+<li>Activate the plugin through the &#39;Plugins&#39; menu in WordPress.</li>
+<li>Upload a separate theme to the &quot;/wp-content/themes/&quot; directory.</li>
+<li>Go to the &quot;Multi Device Switcher&quot; options page through the &#39;Appearance&#39; menu in WordPress.</li>
+<li>Configure settings to your needs. Select Theme by Theme option. Add and fix UserAgent by UserAgent option if necessary.</li>
+<li>Have fun!</li>
+</ol>
+<h2 id="screenshot">Screenshot</h2>
+<p><img src="screenshot-1.png">
+<img src="screenshot-2.png">
+<img src="screenshot-3.png">
+<img src="screenshot-4.png">
+<img src="screenshot-5.png"></p>
+<h2 id="how-to-add-the-custom-switcher">How to add the Custom Switcher</h2>
+<ol>
+<li>Go to the &quot;Multi Device Switcher&quot; options page through the &#39;Appearance&#39; menu in WordPress.</li>
+<li>Enter the name of the Custom Switcher (20 characters max, alphanumeric) to the &#39;Add Custom Switcher&#39;. Push the button &#39;Add&#39;.</li>
+<li>Configure settings. Select Theme by Theme option. Add UserAgent by UserAgent option.</li>
+<li>Have fun!</li>
+</ol>
+<h2 id="setting-and-using-the-pc-switcher">Setting and Using the PC Switcher</h2>
+<p>There are three ways how to Using the PC Switcher.</p>
+<p><img src="screenshot-4.png"></p>
+<h3 id="1-add-a-pc-switcher-to-the-footer">1. Add a PC Switcher to the footer</h3>
+<ol>
+<li>Go to the &quot;Multi Device Switcher&quot; options page through the &#39;Appearance&#39; menu in WordPress.</li>
+<li>Configure settings. Check the checkbox &#39;Add a PC Switcher to the footer.&#39; by PC Switcher option.</li>
+<li>Have fun!</li>
+</ol>
+<h3 id="2-add-a-pc-switcher-to-your-sidebars-widget-areas">2. Add a PC Switcher to your sidebars/widget areas</h3>
+<ol>
+<li>Add-on the widget &#39;PC Switcher&#39;, when you activate the plugin &quot;Multi Device Switcher&quot;.</li>
+<li>Go to the &quot;Widgets&quot; options page through the &#39;Appearance&#39; menu in WordPress.</li>
+<li>Drag and drop the title bars &#39;PC Switcher&#39; into the desired area.</li>
+<li>Have fun!</li>
+</ol>
+<h3 id="3-for-the-theme-authors-and-developers-add-a-pc-switcher-to-your-theme-">3. For the theme authors and developers, add a PC Switcher to your theme.</h3>
+<ol>
+<li>Add the following code into the PHP files, when you develop your theme.<pre><code>&lt;?php if ( function_exists(&#39;multi_device_switcher_add_pc_switcher&#39;) ) { multi_device_switcher_add_pc_switcher(); } ?&gt;
+</code></pre></li>
+<li>Have fun!</li>
+</ol>
+<h3 id="using-default-css-and-customized-css">Using default CSS and customized CSS</h3>
+<ol>
+<li>Go to the &quot;Multi Device Switcher&quot; options page through the &#39;Appearance&#39; menu in WordPress.</li>
+<li>Configure settings. Check the checkbox &#39;Add a default CSS.&#39; by PC Switcher option. If you want to customize CSS, uncheck the checkbox.</li>
+<li>Have fun!</li>
+</ol>
+<p>You can design the PC Switcher in the Style Sheet.</p>
+<h4 id="html-output-of-the-pc-switcher">HTML output of the PC Switcher</h4>
+<pre><code> &lt;div class=&quot;pc-switcher&quot;&gt;&lt;span class=&quot;active&quot;&gt;Mobile&lt;/span&gt;&lt;a href=&quot;http://DOMEIN/PATH/TO/?pc-switcher=1&quot;&gt;PC&lt;/a&gt;&lt;/div&gt;
+</code></pre><h4 id="html-output-of-the-pc-switcher-when-switched">HTML output of the PC Switcher when switched</h4>
+<pre><code> &lt;div class=&quot;pc-switcher&quot;&gt;&lt;a href=&quot;http://DOMEIN/PATH/TO/?pc-switcher=0&quot;&gt;Mobile&lt;/a&gt;&lt;span class=&quot;active&quot;&gt;PC&lt;/span&gt;&lt;/div&gt;
+</code></pre><h2 id="how-to-use-the-display-switcher-shortcode">How to use the Display Switcher Shortcode</h2>
+<p>The <strong>Display Switcher</strong> Shortcode switch the content of the post or page through the detection of the device.</p>
+<p>Add the shortcode <code>[multi]</code> in a post or page and use the <code>device</code> attribute to device name. if the device attribute is empty, detect the desktop PC.</p>
+<h3 id="attributes">Attributes</h3>
+<p><strong>device</strong></p>
+<p>(string | empty) The name of the device</p>
+<ul>
+<li>smart</li>
+<li>tablet</li>
+<li>mobile</li>
+<li>game</li>
+<li>the name of the Custom Switcher</li>
+</ul>
+<p>if empty, detect the desktop PC</p>
+<h3 id="example-shortcode">Example Shortcode</h3>
+<pre><code>[multi]pc or other specific stuff here[/multi]
+[multi device=&quot;smart&quot;]smartphone specific stuff here[/multi]
+[multi device=&quot;tablet&quot;]tablet specific stuff here[/multi]
+[multi device=&quot;test&quot;]test Custom Switcher specific stuff here[/multi]
+</code></pre><p>For theme or plugin developers. Filters The Display Switcher Shortcode through hooks. In that case, edit theme or plugin files.</p>
+<pre><code>&lt;?php
+echo do_shortcode(&#39;[multi device=&quot;smart&quot;]smartphone specific stuff here[/multi]&#39;);
+?&gt;
+</code></pre><h2 id="how-to-use-the-disable-switcher">How to use the Disable Switcher</h2>
+<p>The <strong>Disable Switcher</strong> disable the switching of the theme by a particular URL. If you match the access the url and a string or a regular expression (Regex mode), disable the switching of the theme. Regex mode is for advanced users.</p>
+<ol>
+<li>Go to the &quot;Multi Device Switcher&quot; options page through the &#39;Appearance&#39; menu in WordPress.</li>
+<li>Enter the path to the line by line where you want to disable by Disable Switcher option. Check the checkbox &#39;Enable Regex&#39;, if you want to use a regular expression.</li>
+<li>Have fun!</li>
+</ol>
+<h3 id="example">Example</h3>
+<pre><code>/sample-page
+/2015/01/hello-world
+</code></pre><h5 id="regex-mode-in-the-case-of-regular-expression-">Regex mode (in the case of regular expression)</h5>
+<pre><code>\/sample\-
+\/2015\/01
+</code></pre><h2 id="useragent-option-samples">UserAgent option Samples</h2>
+<ul>
+<li><a href="https://github.com/thingsym/multi-device-switcher/wiki/Default-UserAgent">Default UserAgent</a></li>
+</ul>
+<h2 id="detect-the-device-by-javascript">Detect the device by JavaScript</h2>
+<p>Multi Device Switcher set the Cookie that holds the state of the switch. You can get the Cookie and detect the device by JavaScript.</p>
+<h3 id="cookies">Cookies</h3>
+<ul>
+<li><code>multi-device-switcher</code> The name of the device is switched (value: null | device name)</li>
+<li><code>disable-switcher</code> State of disabled (value: null | 1)</li>
+<li><code>pc-switcher</code> State of the PC Switcher when switched (value: null | 1)</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre><code> &lt;script src=&quot;http://DOMEIN/PATH/TO/jquery.cookie.js&quot;&gt;&lt;/script&gt;
+ &lt;script&gt;
+ (function($) {
+     $(function() {
+         if ( $.cookie( &#39;multi-device-switcher&#39; ) == &#39;smart&#39; ) {
+             /* smartphone specific stuff here */
+         } else if ( $.cookie( &#39;multi-device-switcher&#39; ) == &#39;tablet&#39; ) {
+             /* tablet specific stuff here */
+         } else {
+             /* pc or other specific stuff here */
+         }
+     });
+ })(jQuery);
+ &lt;/script&gt;
+</code></pre><h2 id="is_multi_device-function">is_multi_device() function</h2>
+<p><strong>is_multi_device()</strong> function is a boolean function, meaning it returns either TRUE or FALSE. Works through the detection of the device by the Multi_Device_Switcher class.</p>
+<h3 id="usage">Usage</h3>
+<pre><code>&lt;?php is_multi_device(&#39;smart&#39;); ?&gt;
+</code></pre><h3 id="example">Example</h3>
+<pre><code>&lt;?php
+if ( function_exists( &#39;is_multi_device&#39; ) ) {
+    if ( is_multi_device(&#39;smart&#39;) ) {
+        /* Display and echo smartphone specific stuff here */
+    } elseif ( is_multi_device(&#39;tablet&#39;) ) {
+        /* Display and echo tablet specific stuff here */
+    } else {
+        /* Display and echo pc or other specific stuff here */
+    }
+}
+?&gt;
+</code></pre><h3 id="parameters">Parameters</h3>
+<p><strong>device name</strong> (required)</p>
+<p>(string) The name of the device</p>
+<ul>
+<li>smart</li>
+<li>tablet</li>
+<li>mobile</li>
+<li>game</li>
+<li>the name of the Custom Switcher</li>
+</ul>
+<h3 id="return-values">Return Values</h3>
+<p>(boolean) Return boolean whether a particular device.</p>
+<h2 id="is_pc_switcher-function">is_pc_switcher() function</h2>
+<p><strong>is_pc_switcher()</strong> function is a boolean function, meaning it returns either TRUE or FALSE. Return the the state of PC Switcher by the Multi_Device_Switcher class. Return true if the theme has switched by the PC Switcher.</p>
+<h3 id="usage">Usage</h3>
+<pre><code>&lt;?php is_pc_switcher(); ?&gt;
+</code></pre><h3 id="example">Example</h3>
+<pre><code>&lt;?php
+if ( function_exists( &#39;is_pc_switcher&#39; ) ) {
+    if ( is_pc_switcher() ) {
+        /* Theme switched by the PC Switcher. Display and echo specific stuff here */
+    } else {
+        /* Display and echo specific stuff here */
+    }
+}
+?&gt;
+</code></pre><h3 id="parameters">Parameters</h3>
+<p>None</p>
+<h3 id="return-values">Return Values</h3>
+<p>(boolean) Return the state of PC Switcher.</p>
+<h2 id="is_disable_switcher-function">is_disable_switcher() function</h2>
+<p><strong>is_disable_switcher()</strong> function is a boolean function, meaning it returns either TRUE or FALSE. Return the state of disabled by the Multi_Device_Switcher class.</p>
+<h3 id="usage">Usage</h3>
+<pre><code>&lt;?php is_disable_switcher(); ?&gt;
+</code></pre><h3 id="example">Example</h3>
+<pre><code>&lt;?php
+if ( function_exists( &#39;is_disable_switcher&#39; ) ) {
+    if ( is_disable_switcher() ) {
+        /* Disabled. Display and echo specific stuff here */
+    } else {
+        /* Display and echo specific stuff here */
+    }
+}
+?&gt;
+</code></pre><h3 id="parameters">Parameters</h3>
+<p>None</p>
+<h3 id="return-values">Return Values</h3>
+<p>(boolean) Return the state of disabled.</p>
+<h2 id="multi-device-switcher-command">Multi Device Switcher Command</h2>
+<p>The <strong>Multi Device Switcher Command</strong> is command-line tool.</p>
+<p>Add-on the Multi Device Switcher Command, when you activate the plugin &quot;Multi Device Switcher&quot;. To use the Multi Device Switcher Command is WP-CLI required.</p>
+<h3 id="name">NAME</h3>
+<pre><code>wp multi-device
+</code></pre><h3 id="description">DESCRIPTION</h3>
+<pre><code>Multi Device Switcher Command
+</code></pre><h3 id="synopsis">SYNOPSIS</h3>
+<pre><code>wp multi-device &lt;command&gt;
+</code></pre><h3 id="subcommands">SUBCOMMANDS</h3>
+<pre><code>add              add Custom Switcher
+css              turn on/off default CSS
+delete           delete Custom Switcher
+pc-switcher      turn on/off PC Switcher
+reset            reset Settings to Default UserAgent
+status           get status of settings
+theme            get or switch a theme
+useragent        get or set UserAgent
+</code></pre><p>For more information about the Multi Device Switcher Command, see <code>wp help multi-device &lt;SUBCOMMANDS&gt;</code>.</p>
+<h3 id="command-examples">Command examples</h3>
+<p>get status of settings</p>
+<pre><code>wp multi-device status
+
+Active Theme: Twenty Fifteen | twentyfifteen
++--------------------------+-----------------+----------------+-------------------------------------------------------------------------+
+| Device                   | Theme           | Slug           | UserAgent                                                               |
++--------------------------+-----------------+----------------+-------------------------------------------------------------------------+
+| smartphone (Smart Phone) | Twenty Fourteen | twentyfourteen | iPhone, iPod, Android, dream, CUPCAKE, Windows Phone, webOS, BB10, Blac |
+|                          |                 |                | kBerry8707, BlackBerry9000, BlackBerry9300, BlackBerry9500, BlackBerry9 |
+|                          |                 |                | 530, BlackBerry9520, BlackBerry9550, BlackBerry9700, BlackBerry 93, Bla |
+|                          |                 |                | ckBerry 97, BlackBerry 99, BlackBerry 98                                |
+| tablet (Tablet PC)       | Twenty Thirteen | twentythirteen | iPad, Kindle, Sony Tablet, Nexus 7                                      |
+| mobile (Mobile Phone)    | Twenty Twelve   | twentytwelve   | DoCoMo, SoftBank, J-PHONE, Vodafone, KDDI, UP.Browser, WILLCOM, emobile |
+|                          |                 |                | , DDIPOCKET, Windows CE, BlackBerry, Symbian, PalmOS, Huawei, IAC, Noki |
+|                          |                 |                | a                                                                       |
+| game (Game Platforms)    | Twenty Eleven   | twentyeleven   | PlayStation Portable, PlayStation Vita, PSP, PS2, PLAYSTATION 3, PlaySt |
+|                          |                 |                | ation 4, Nitro, Nintendo 3DS, Nintendo Wii, Nintendo WiiU, Xbox         |
++--------------------------+-----------------+----------------+-------------------------------------------------------------------------+
+PC Switcher: on
+default CSS: on
+</code></pre><p>switch twentyfifteen in theme of smartphone using theme slug</p>
+<pre><code>wp multi-device theme smartphone twentyfifteen
+</code></pre><p>set UserAgent in theme of tablet</p>
+<pre><code>wp multi-device useragent tablet &#39;iPad, Kindle, Sony Tablet, Nexus 7&#39;
+</code></pre><p>add example Custom Switcher</p>
+<pre><code>wp multi-device add example
+</code></pre><p>add example Custom Switcher. set twentyfifteen theme and UserAgent using theme slug</p>
+<pre><code>wp multi-device add example twentyfifteen &#39;iPad, Kindle, Sony Tablet, Nexus 7&#39;
+</code></pre><p>delete example Custom Switcher</p>
+<pre><code>wp multi-device delete example
+</code></pre><p>turn on default CSS</p>
+<pre><code>wp multi-device css on
+</code></pre><h2 id="contributing">Contributing</h2>
+<h3 id="patches-and-bug-fixes">Patches and Bug Fixes</h3>
+<p>Small patches and bug reports can be submitted a issue tracker in Github. Forking on Github is another good way. You can send a pull request.</p>
+<h4 id="contributors">Contributors</h4>
+<ul>
+<li>hykw <a href="https://github.com/hykw/multi-device-switcher">Github</a></li>
+</ul>
+<h3 id="translations">Translations</h3>
+<p>Translating a plugin takes a lot of time, effort, and patience. I really appreciate the hard work from these contributors.</p>
+<p>If you have created or updated your own language pack, you can send <a href="http://codex.wordpress.org/Translating_WordPress">gettext PO and MO files</a> to author. I can bundle it into Multi Device Switcher.</p>
+<h4 id="translator">Translator</h4>
+<ul>
+<li>Japanese (ja) - <a href="http://global.thingslabo.com/blog/">Thingsym</a></li>
+</ul>
+<h5 id="the-latest-po-and-mo-files">The latest PO and MO files</h5>
+<ul>
+<li><a href="http://plugins.svn.wordpress.org/multi-device-switcher/trunk/languages/multi-device-switcher.pot">POT file</a></li>
+<li><a href="http://plugins.svn.wordpress.org/multi-device-switcher/trunk/languages/">PO files</a></li>
+</ul>
+<h5 id="send-your-own-language-pack">Send your own language pack</h5>
+<p>You can send your own language pack to author.</p>
+<ul>
+<li><a href="https://github.com/thingsym/multi-device-switcher">multi-device-switcher - GitHub</a></li>
+<li><a href="http://global.thingslabo.com/blog/">http://global.thingslabo.com/blog/ (en)</a></li>
+<li><a href="http://blog.thingslabo.com">http://blog.thingslabo.com (ja)</a></li>
+</ul>
+<h2 id="changelog">Changelog</h2>
+<ul>
+<li>Version 1.4.2<ul>
+<li>edited: edit readme</li>
+<li>new features: Display Switcher Shortcode</li>
+<li>updated: update default UserAgent</li>
+<li>fixed: fix pc-switcher ssl url</li>
+</ul>
+</li>
+<li>Version 1.4.1<ul>
+<li>edited: edit readme</li>
+<li>new features: is_disable_switcher() function</li>
+<li>new features: is_pc_switcher() function</li>
+<li>fixed: fix redirect url and pc-switcher url</li>
+</ul>
+</li>
+<li>Version 1.4.0<ul>
+<li>edited: edit readme</li>
+<li>added: add cookies &#39;multi-device-switcher&#39;, &#39;disable-switcher&#39;</li>
+<li>new features: Disable Switcher</li>
+<li>fixed: fix get_options_userAgent(), multi_device_switcher_get_options()</li>
+<li>fixed: add reserved words validate</li>
+<li>new features: Multi Device Switcher Command</li>
+<li>added: add option settings into Theme Customizer</li>
+<li>fixed: refactoring by the PHP_CodeSniffer</li>
+</ul>
+</li>
+<li>Version 1.3.0<ul>
+<li>fixed: fix script, style, html and readme</li>
+<li>new features: is_multi_device() function</li>
+<li>fixed: fix translation</li>
+<li>updated: update default UserAgent</li>
+<li>fixed: replace WP_PLUGIN_URL with plugins_url()</li>
+<li>fixed: using Page Hook Suffix</li>
+<li>merged: pull request <a href="https://github.com/thingsym/multi-device-switcher/pull/3">#3</a></li>
+</ul>
+</li>
+<li>Version 1.2.3<ul>
+<li>fixed: fix redirect uri with query string, using add_query_arg</li>
+<li>fixed: fix translation</li>
+<li>fixed: fix readme</li>
+</ul>
+</li>
+<li>Version 1.2.2<ul>
+<li>improved: improve responsiveness UI</li>
+<li>fixed: fix html</li>
+</ul>
+</li>
+<li>Version 1.2.1<ul>
+<li>fixed: delete add_contextual_help</li>
+<li>fixed: fix readme and html</li>
+</ul>
+</li>
+<li>Version 1.2.0<ul>
+<li>added: add PC Switcher Widget</li>
+<li>new features: PC Switcher</li>
+<li>added: add the settings link to the plugin page</li>
+</ul>
+</li>
+<li>Version 1.1.2<ul>
+<li>required: at least version 3.4</li>
+<li>fixed: fix tabs and buttons</li>
+</ul>
+</li>
+<li>Version 1.1.1<ul>
+<li>fixed: change the order of the UserAgent detection</li>
+<li>updated: update default UserAgent</li>
+<li>added: add HTTP/1.1 Vary header</li>
+</ul>
+</li>
+<li>Version 1.1.0<ul>
+<li>new features: Custom Switcher</li>
+</ul>
+</li>
+<li>Version 1.0.4<ul>
+<li>fixed: fix the object model PHP5, __construct() to replace Multi_Device_Switcher</li>
+<li>fixed: wp_get_themes(), and wp_get_theme() to replace get_themes(), get_theme()</li>
+</ul>
+</li>
+<li>Version 1.0.3<ul>
+<li>updated: update screenshots</li>
+<li>fixed: fix reset button</li>
+</ul>
+</li>
+<li>Version 1.0.2<ul>
+<li>added: add file uninstall.php</li>
+<li>fixed: split admin_enqueue_scripts() into two functions</li>
+<li>fixed: detects is_admin()</li>
+</ul>
+</li>
+<li>Version 1.0.1<ul>
+<li>fixed: split multi_device_switcher_init() into two functions</li>
+</ul>
+</li>
+<li>Version 1.0.0<ul>
+<li>Initial release.</li>
+</ul>
+</li>
+</ul>
+<h2 id="upgrade-notice">Upgrade Notice</h2>
+<ul>
+<li>1.1.2<ul>
+<li>Requires at least version 3.4 of the Wordpress</li>
+</ul>
+</li>
+</ul>

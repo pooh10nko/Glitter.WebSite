@@ -80,6 +80,11 @@ Module :共通レイアウト _layout.scss
   box-sizing: border-box;
 }
 
+html {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   font-size: 13px;
   font-family: YuGothic, "游ゴシック", "SourceHanSans", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
@@ -111,6 +116,16 @@ a.tel {
   pointer-events: none;
 }
 
+.icon_menu,
+.icon_close,
+.btn,
+a,
+label,
+input,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .sp {
   display: none;
 }
@@ -125,6 +140,15 @@ a.tel {
 
 .col_R {
   float: right;
+}
+
+.col_Table {
+  display: table;
+  width: 100%;
+}
+
+.col_Cell {
+  display: table-cell;
 }
 
 .page {
@@ -149,11 +173,13 @@ a.tel {
 }
 
 .slider,
-.item_list {
+.item_list,
+.detail_main {
   *zoom: 1;
 }
 .slider:after,
-.item_list:after {
+.item_list:after,
+.detail_main:after {
   content: "\0020";
   display: block;
   height: 0;
@@ -162,26 +188,31 @@ a.tel {
   visibility: hidden;
 }
 .slider:not(.slider) > div,
-.item_list:not(.slider) > div {
+.item_list:not(.slider) > div,
+.detail_main:not(.slider) > div {
   width: 25%;
   float: left;
   margin-bottom: 40px;
   padding: 0 10px;
 }
 .slider .img,
-.item_list .img {
+.item_list .img,
+.detail_main .img {
   margin-bottom: 25px;
 }
 .slider .img img,
-.item_list .img img {
+.item_list .img img,
+.detail_main .img img {
   margin: 0 auto;
 }
 .slider .label,
-.item_list .label {
+.item_list .label,
+.detail_main .label {
   margin-bottom: 15px;
 }
 .slider .label span,
-.item_list .label span {
+.item_list .label span,
+.detail_main .label span {
   margin-bottom: 5px;
   border: 1px solid #97887c;
   border-radius: 16px;
@@ -191,30 +222,36 @@ a.tel {
   margin-left: 8px;
 }
 .slider .label span:first-child,
-.item_list .label span:first-child {
+.item_list .label span:first-child,
+.detail_main .label span:first-child {
   margin-left: 0;
 }
 .slider .price,
-.item_list .price {
+.item_list .price,
+.detail_main .price {
   text-decoration: underline;
 }
 .slider .date,
-.item_list .date {
+.item_list .date,
+.detail_main .date {
   text-decoration: underline;
   font-size: 12px;
   padding-bottom: 10px;
 }
 .slider .text,
-.item_list .text {
+.item_list .text,
+.detail_main .text {
   text-decoration: underline;
 }
 .slider .slick-dots,
-.item_list .slick-dots {
+.item_list .slick-dots,
+.detail_main .slick-dots {
   text-align: center;
   padding-top: 45px;
 }
 .slider .slick-dots li,
-.item_list .slick-dots li {
+.item_list .slick-dots li,
+.detail_main .slick-dots li {
   display: inline-block;
   width: 24px;
   height: 16px;
@@ -222,7 +259,8 @@ a.tel {
   position: relative;
 }
 .slider .slick-dots li button,
-.item_list .slick-dots li button {
+.item_list .slick-dots li button,
+.detail_main .slick-dots li button {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -240,14 +278,16 @@ a.tel {
   cursor: pointer;
 }
 .slider .slick-dots li.slick-active button,
-.item_list .slick-dots li.slick-active button {
+.item_list .slick-dots li.slick-active button,
+.detail_main .slick-dots li.slick-active button {
   width: 16px;
   height: 16px;
   -webkit-transition: 0.4s;
           transition: 0.4s;
 }
 .slider .slick-dots li:hover button,
-.item_list .slick-dots li:hover button {
+.item_list .slick-dots li:hover button,
+.detail_main .slick-dots li:hover button {
   opacity: 0.8;
 }
 
@@ -314,6 +354,15 @@ a.tel {
     padding-right: 0 !important;
   }
 
+  .col_Table {
+    display: none;
+  }
+
+  .col_Cell {
+    display: none;
+    width: 100% !important;
+  }
+
   .inner {
     padding-left: 20px;
     padding-right: 20px;
@@ -347,28 +396,49 @@ Module :パーツ _parts.scss
   padding: 30px 0 0;
   clear: both;
 }
-.btn_area.pager {
+
+.pager {
   display: table;
   width: 100%;
 }
-.btn_area.pager .pager_btn {
+.pager .pager_btn {
   display: table-cell;
   width: 160px;
 }
-.btn_area.pager .pager_btn .btn {
+.pager .pager_btn .btn {
   font-size: 16px;
   line-height: 48px;
   margin-left: 0;
   margin-right: 0;
 }
-.btn_area.pager .pager_btn.prev {
+.pager .pager_btn.prev {
   padding-right: 5px;
 }
-.btn_area.pager .pager_btn.next {
+.pager .pager_btn.prev .btn:before {
+  left: 25px;
+  -webkit-transform: rotate(-135deg);
+      -ms-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+}
+.pager .pager_btn.next {
   padding-left: 5px;
 }
-.btn_area.pager .pager_num {
+.pager .pager_btn.next a:before {
+  right: 25px;
+  left: inherit;
+}
+.pager .pager_num {
   display: table-cell;
+}
+.pager .pager_num a {
+  text-decoration: underline;
+  display: inline-block;
+  padding: 0 5px;
+}
+.pager .pager_num .active {
+  text-decoration: none;
+  color: #bbb2aa;
+  padding: 0 5px;
 }
 
 .btn {
@@ -470,17 +540,16 @@ h1.bold {
   .btn.short {
     max-width: 160px;
   }
+
+  .pager .pager_num {
+    display: none;
+  }
 }
 /* ----------------------------------------------------------------------------------
 
 Parts : Header _header.scss
 
 ----------------------------------------------------------------------------------*/
-.navi ul li a:hover:before, #indexPage .navi ul li.navi_index a:before, #menuPage .navi ul li.navi_menu a:before, #galleryPage .navi ul li.navi_gallery a:before, #faqPage .navi ul li.navi_faq a:before, #accessPage .navi ul li.navi_access a:before, #recruitPage .navi ul li.navi_recruit a:before, #blogPage .navi ul li.navi_blog a:before {
-  width: 56px;
-  opacity: 1;
-}
-
 .header {
   display: table;
   width: 100%;
@@ -572,6 +641,11 @@ Parts : Header _header.scss
 Parts : Navi _navi.scss
 
 ----------------------------------------------------------------------------------*/
+.navi ul li a:hover:before, #indexPage .navi ul li.navi_index a:before, #menuPage .navi ul li.navi_menu a:before, #galleryPage .navi ul li.navi_gallery a:before, #faqPage .navi ul li.navi_faq a:before, #accessPage .navi ul li.navi_access a:before, #recruitPage .navi ul li.navi_recruit a:before, #blogPage .navi ul li.navi_blog a:before {
+  width: 100%;
+  opacity: 1;
+}
+
 .navi {
   position: fixed;
   left: 0;
@@ -593,10 +667,10 @@ Parts : Navi _navi.scss
   left: -50%;
   float: left;
   height: 100%;
+  padding: 0 16px;
 }
 .navi ul li a {
   display: inline-block;
-  padding: 0 16px;
   line-height: 80px;
   position: relative;
 }
@@ -926,20 +1000,20 @@ Page : GalleryPage _gallery.scss
   font-size: 40px;
   color: #fff;
 }
-#galleryPage .navi_search {
+#galleryPage .search_category {
   background: #97887c;
 }
-#galleryPage .navi_search .inner {
+#galleryPage .search_category .inner {
   padding-left: 0;
   padding-right: 0;
 }
-#galleryPage .navi_search .search_category,
-#galleryPage .navi_search .search_customer {
+#galleryPage .search_category .search_category,
+#galleryPage .search_category .search_customer {
   text-align: center;
   width: 50%;
 }
-#galleryPage .navi_search .search_category a,
-#galleryPage .navi_search .search_customer a {
+#galleryPage .search_category .search_category a,
+#galleryPage .search_category .search_customer a {
   color: #fff;
   position: relative;
   line-height: 80px;
@@ -948,16 +1022,16 @@ Page : GalleryPage _gallery.scss
   font-family: "SourceHanSans", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
   letter-spacing: 4px;
 }
-#galleryPage .navi_search .search_category a .icon_close,
-#galleryPage .navi_search .search_customer a .icon_close {
+#galleryPage .search_category .search_category a .icon_close,
+#galleryPage .search_category .search_customer a .icon_close {
   display: none;
 }
-#galleryPage .navi_search .search_category a:not(.active),
-#galleryPage .navi_search .search_customer a:not(.active) {
+#galleryPage .search_category .search_category a:not(.active),
+#galleryPage .search_category .search_customer a:not(.active) {
   position: relative;
 }
-#galleryPage .navi_search .search_category a:not(.active):before,
-#galleryPage .navi_search .search_customer a:not(.active):before {
+#galleryPage .search_category .search_category a:not(.active):before,
+#galleryPage .search_category .search_customer a:not(.active):before {
   position: absolute;
   left: 30px;
   top: 50%;
@@ -973,19 +1047,19 @@ Page : GalleryPage _gallery.scss
   border-right: solid 1px #fff;
   vertical-align: middle;
 }
-#galleryPage .navi_search .search_category a:not(.active):before,
-#galleryPage .navi_search .search_customer a:not(.active):before {
+#galleryPage .search_category .search_category a:not(.active):before,
+#galleryPage .search_category .search_customer a:not(.active):before {
   position: relative;
   top: 0;
   left: -20px;
 }
-#galleryPage .navi_search .search_category a.active,
-#galleryPage .navi_search .search_customer a.active {
+#galleryPage .search_category .search_category a.active,
+#galleryPage .search_category .search_customer a.active {
   background: #e6e4e2;
   color: #59493f;
 }
-#galleryPage .navi_search .search_category a.active .icon_close,
-#galleryPage .navi_search .search_customer a.active .icon_close {
+#galleryPage .search_category .search_category a.active .icon_close,
+#galleryPage .search_category .search_customer a.active .icon_close {
   position: relative;
   top: -9px;
   left: -17px;
@@ -993,8 +1067,8 @@ Page : GalleryPage _gallery.scss
   height: 10px;
   display: inline-block;
 }
-#galleryPage .navi_search .search_category a.active .icon_close span.line,
-#galleryPage .navi_search .search_customer a.active .icon_close span.line {
+#galleryPage .search_category .search_category a.active .icon_close span.line,
+#galleryPage .search_category .search_customer a.active .icon_close span.line {
   display: inline-block;
   background: #59493f;
   position: absolute;
@@ -1004,85 +1078,156 @@ Page : GalleryPage _gallery.scss
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
-#galleryPage .navi_search .search_category a.active .icon_close span.line:nth-child(1),
-#galleryPage .navi_search .search_customer a.active .icon_close span.line:nth-child(1) {
+#galleryPage .search_category .search_category a.active .icon_close span.line:nth-child(1),
+#galleryPage .search_category .search_customer a.active .icon_close span.line:nth-child(1) {
   width: 19px;
   height: 1px;
   margin-top: 9px;
 }
-#galleryPage .navi_search .search_category a.active .icon_close span.line:nth-child(2),
-#galleryPage .navi_search .search_customer a.active .icon_close span.line:nth-child(2) {
+#galleryPage .search_category .search_category a.active .icon_close span.line:nth-child(2),
+#galleryPage .search_category .search_customer a.active .icon_close span.line:nth-child(2) {
   width: 1px;
   height: 19px;
   margin-left: 9px;
 }
-#galleryPage .navi_search .search_category a {
+#galleryPage .search_category .search_category a {
   border-right: 1px solid #fff;
 }
-#galleryPage .navi_search .search_category a:before {
+#galleryPage .search_category .search_category a:before {
   -webkit-transition: 0.2s;
           transition: 0.2s;
   -webkit-transform: rotate(135deg);
       -ms-transform: rotate(135deg);
           transform: rotate(135deg);
 }
-#galleryPage .navi_search .search_pulldown {
+#galleryPage .search_category .search_pulldown {
   display: none;
   position: absolute;
+  z-index: 10;
   width: 100%;
   background: #e6e4e2;
   padding: 50px 0;
   border-top: 1px solid #d5d1ce;
 }
-#galleryPage .navi_search .search_pulldown .search_list {
+#galleryPage .search_category .search_pulldown .search_list {
   float: left;
   width: 33.33%;
   padding: 0 10px;
   text-align: center;
 }
-#galleryPage .navi_search .search_pulldown .search_list .title {
+#galleryPage .search_category .search_pulldown .search_list .title {
   display: inline-block;
   color: #97887c;
   font-size: 24px;
   margin-bottom: 15px;
+  padding-left: 40px;
   font-family: "Futura-Light", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
   letter-spacing: 6px;
 }
-#galleryPage .navi_search .search_pulldown .search_list label {
+#galleryPage .search_category .search_pulldown .search_list label {
   cursor: pointer;
   background: #fff;
   color: #84786e;
   display: block;
   line-height: 60px;
   border-bottom: 1px solid #ebe9e8;
+  -webkit-transition: 0.2s;
+          transition: 0.2s;
 }
-#galleryPage .navi_search .search_pulldown .search_list label.active {
+#galleryPage .search_category .search_pulldown .search_list label.active {
   background: #aca49f;
   color: #fff;
 }
-#galleryPage .navi_search .search_pulldown .search_list input[type="radio"] {
+#galleryPage .search_category .search_pulldown .search_list input[type="radio"] {
   -webkit-appearance: none;
   margin: 0;
   padding: 0;
   width: 100%;
   display: inline;
+  border: none;
+  border-radius: 0;
 }
-#galleryPage .navi_search .search_pulldown .search_list.design .title {
+#galleryPage .search_category .search_pulldown .search_list.design .title {
   background: url("/assets/img/icon/icon_design.png") no-repeat 0 50%;
-  padding-left: 40px;
 }
-#galleryPage .navi_search .search_pulldown .search_list.parts .title {
+#galleryPage .search_category .search_pulldown .search_list.parts .title {
   background: url("/assets/img/icon/icon_parts.png") no-repeat 0 50%;
-  padding-left: 40px;
 }
-#galleryPage .navi_search .search_pulldown .search_list.order .title {
+#galleryPage .search_category .search_pulldown .search_list.order .title {
   background: url("/assets/img/icon/icon_order.png") no-repeat 0 50%;
-  padding-left: 40px;
 }
-#galleryPage .navi_search .search_pulldown .btn_area {
-  margin-top: 40px;
+#galleryPage .search_category .search_pulldown .btn_area {
+  padding-top: 40px;
+}
+#galleryPage .detail .detail_main {
+  width: 74%;
+  padding-right: 35px;
+  border-right: 1px solid #eeeceb;
+  background: #f4f3f2;
+  padding: 40px;
+}
+#galleryPage .detail .detail_main h1 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+#galleryPage .detail .detail_main .data {
+  width: 100%;
+  float: none;
+  padding: 0;
+}
+#galleryPage .detail .detail_main .data dl {
+  display: table;
+  width: 100%;
+}
+#galleryPage .detail .detail_main .data dl dt, #galleryPage .detail .detail_main .data dl dd {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: left;
+  padding: 15px 20px;
+}
+#galleryPage .detail .detail_main .data dl dt {
+  width: 128px;
+  background: #97887c;
+  color: #fff;
+  font-size: 14px;
+  border-bottom: 1px solid #f8f7f7;
+}
+#galleryPage .detail .detail_main .data dl dd {
+  background: #fff;
+  border-bottom: 1px solid #eeeceb;
+}
+#galleryPage .detail .detail_side {
+  padding-left: 35px;
 }
 
+@media screen and (max-width: 640px) {
+  #galleryPage .search_category .search_category a,
+  #galleryPage .search_category .search_customer a {
+    line-height: 70px;
+  }
+  #galleryPage .search_category .search_category a {
+    border-right: none;
+    border-top: 1px solid #fff;
+  }
+  #galleryPage .search_category .search_pulldown {
+    padding: 30px 0;
+  }
+  #galleryPage .search_category .search_pulldown .search_list {
+    width: 50%;
+    padding-bottom: 30px;
+  }
+  #galleryPage .search_category .search_pulldown .search_list .title {
+    font-size: 20px;
+    padding-left: 28px;
+    background-size: 20px auto;
+  }
+  #galleryPage .search_category .search_pulldown .search_list label {
+    line-height: 40px;
+  }
+  #galleryPage .search_category .search_pulldown .btn_area {
+    padding-top: 0;
+  }
+}
 /* ----------------------------------------------------------------------------------
 
 Setting : IE用設定 _ie.scss

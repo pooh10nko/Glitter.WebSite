@@ -5,6 +5,12 @@
 Parts : Navi _navi.scss
 
 ----------------------------------------------------------------------------------*/
+%navi-active{
+	width: 100%;
+	opacity: 1;
+}
+
+
 .navi{
 	position: fixed;
 	left: 0;
@@ -23,9 +29,9 @@ Parts : Navi _navi.scss
 			left: -50%;
 			float: left;
 			height: 100%;
+			padding: 0 16px;
 			a{
 				display: inline-block;
-				padding: 0 16px;
 				line-height: $header_height;
 				position: relative;
 				&:before{
