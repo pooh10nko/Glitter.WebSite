@@ -149,6 +149,7 @@ button {
 
 .col_Cell {
   display: table-cell;
+  vertical-align: top;
 }
 
 .page {
@@ -172,14 +173,28 @@ button {
   padding: 60px 0;
 }
 
-.slider,
-.item_list,
-.detail_main {
-  *zoom: 1;
+.visual {
+  position: relative;
+  min-height: 240px;
+  display: table;
+  width: 100%;
 }
-.slider:after,
-.item_list:after,
-.detail_main:after {
+.visual .visual_inner {
+  display: table-cell;
+  vertical-align: middle;
+}
+.visual .visual_inner h1 {
+  font-family: "Futura-Light", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
+  letter-spacing: 10px;
+  font-size: 40px;
+  color: #fff;
+}
+
+.post_area {
+  *zoom: 1;
+  padding-bottom: 30px;
+}
+.post_area:after {
   content: "\0020";
   display: block;
   height: 0;
@@ -187,32 +202,22 @@ button {
   overflow: hidden;
   visibility: hidden;
 }
-.slider:not(.slider) > div,
-.item_list:not(.slider) > div,
-.detail_main:not(.slider) > div {
+.post_area:not(.slider) > div.item {
   width: 25%;
   float: left;
   margin-bottom: 40px;
   padding: 0 10px;
 }
-.slider .img,
-.item_list .img,
-.detail_main .img {
+.post_area .img {
   margin-bottom: 25px;
 }
-.slider .img img,
-.item_list .img img,
-.detail_main .img img {
+.post_area .img img {
   margin: 0 auto;
 }
-.slider .label,
-.item_list .label,
-.detail_main .label {
+.post_area .label {
   margin-bottom: 15px;
 }
-.slider .label span,
-.item_list .label span,
-.detail_main .label span {
+.post_area .label span {
   margin-bottom: 5px;
   border: 1px solid #97887c;
   border-radius: 16px;
@@ -220,47 +225,34 @@ button {
   display: inline-block;
   padding: 0 16px;
   margin-left: 8px;
+  background: #fff;
 }
-.slider .label span:first-child,
-.item_list .label span:first-child,
-.detail_main .label span:first-child {
+.post_area .label span:first-child {
   margin-left: 0;
 }
-.slider .price,
-.item_list .price,
-.detail_main .price {
+.post_area .price {
   text-decoration: underline;
 }
-.slider .date,
-.item_list .date,
-.detail_main .date {
+.post_area .date {
   text-decoration: underline;
   font-size: 12px;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
 }
-.slider .text,
-.item_list .text,
-.detail_main .text {
+.post_area .text {
   text-decoration: underline;
 }
-.slider .slick-dots,
-.item_list .slick-dots,
-.detail_main .slick-dots {
+.post_area .slick-dots {
   text-align: center;
   padding-top: 45px;
 }
-.slider .slick-dots li,
-.item_list .slick-dots li,
-.detail_main .slick-dots li {
+.post_area .slick-dots li {
   display: inline-block;
   width: 24px;
   height: 16px;
   text-align: center;
   position: relative;
 }
-.slider .slick-dots li button,
-.item_list .slick-dots li button,
-.detail_main .slick-dots li button {
+.post_area .slick-dots li button {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -277,17 +269,13 @@ button {
   outline: none;
   cursor: pointer;
 }
-.slider .slick-dots li.slick-active button,
-.item_list .slick-dots li.slick-active button,
-.detail_main .slick-dots li.slick-active button {
+.post_area .slick-dots li.slick-active button {
   width: 16px;
   height: 16px;
   -webkit-transition: 0.4s;
           transition: 0.4s;
 }
-.slider .slick-dots li:hover button,
-.item_list .slick-dots li:hover button,
-.detail_main .slick-dots li:hover button {
+.post_area .slick-dots li:hover button {
   opacity: 0.8;
 }
 
@@ -305,6 +293,98 @@ button {
 }
 .control .slick-arrow.slick-prev {
   border-right: 1px solid #59493f;
+}
+
+.detail_area .detail_main {
+  width: 74%;
+  padding-right: 2%;
+  border-right: 1px solid #eeeceb;
+}
+.detail_area .detail_main .inner {
+  max-width: inherit;
+  padding: 40px;
+  background: #f4f3f2;
+}
+.detail_area .detail_main .label {
+  text-align: left;
+  margin-bottom: 5px;
+}
+.detail_area .detail_main h1 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  line-height: 1.4;
+  text-align: left;
+}
+.detail_area .detail_main .data {
+  width: 100%;
+  float: none;
+  padding: 0;
+}
+.detail_area .detail_main .data dl {
+  display: table;
+  width: 100%;
+}
+.detail_area .detail_main .data dl dt, .detail_area .detail_main .data dl dd {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: left;
+  padding: 15px 20px;
+}
+.detail_area .detail_main .data dl dt {
+  width: 128px;
+  background: #97887c;
+  color: #fff;
+  font-size: 14px;
+  border-bottom: 1px solid #f8f7f7;
+}
+.detail_area .detail_main .data dl dd {
+  background: #fff;
+  border-bottom: 1px solid #eeeceb;
+}
+.detail_area .detail_main .pager_area {
+  padding-bottom: 0;
+}
+.detail_area .detail_main .pager_area .pager_btn {
+  padding: 0;
+  border-top: 1px solid #c5c0bc;
+}
+.detail_area .detail_main .pager_area .pager_btn.prev {
+  border-right: 1px solid #c5c0bc;
+}
+.detail_area .detail_side {
+  padding-left: 2%;
+}
+.detail_area .detail_side h2 {
+  max-width: 215px;
+  margin: 0 auto;
+  font-size: 16px;
+  font-family: "Futura-Light", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
+  letter-spacing: 4px;
+  padding: 25px 0;
+  background: url("/assets/img/frame_mid_s.png") repeat-y 50% 0;
+  background-size: 100% auto;
+  margin-bottom: 30px;
+  position: relative;
+}
+.detail_area .detail_side h2 .frame {
+  position: absolute;
+  width: 100%;
+}
+.detail_area .detail_side h2 .frame:first-child {
+  left: 0;
+  top: 0;
+}
+.detail_area .detail_side h2 .frame:last-child {
+  left: 0;
+  bottom: 0;
+}
+.detail_area .detail_side .post_area {
+  padding-bottom: 0;
+}
+.detail_area .detail_side .post_area .item {
+  width: 100%;
+  float: none;
+  padding: 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -355,12 +435,16 @@ button {
   }
 
   .col_Table {
-    display: none;
+    display: block;
   }
 
   .col_Cell {
-    display: none;
+    display: block;
     width: 100% !important;
+  }
+
+  .page {
+    padding-top: 70px;
   }
 
   .inner {
@@ -368,22 +452,59 @@ button {
     padding-right: 20px;
   }
 
-  .slider:not(.slider) > div,
-  .item_list:not(.slider) > div {
+  .post_area:not(.slider) > div.item {
     width: 50%;
   }
-  .slider .img,
-  .item_list .img {
+  .post_area .img {
     margin-bottom: 10px;
   }
-  .slider .label span,
-  .item_list .label span {
+  .post_area .label span {
     font-size: 12px;
     line-height: 28px;
     margin-left: 0;
   }
-  .slider .slick-slide,
-  .item_list .slick-slide {
+  .post_area .slick-slide {
+    padding: 0 10px;
+  }
+
+  .detail_area {
+    padding-bottom: 0;
+  }
+  .detail_area .detail_main {
+    padding-right: 0;
+    border-right: none;
+  }
+  .detail_area .detail_main .inner {
+    padding: 20px;
+  }
+  .detail_area .detail_main .data {
+    width: 100%;
+    float: none;
+    padding: 0;
+  }
+  .detail_area .detail_main .data dl dt, .detail_area .detail_main .data dl dd {
+    padding: 15px;
+  }
+  .detail_area .detail_main .data dl dt {
+    width: 92px;
+    font-size: 12px;
+  }
+  .detail_area .detail_main .pager_area {
+    padding-bottom: 0;
+  }
+  .detail_area .detail_main .pager_area .pager_btn {
+    padding: 0;
+    border-top: 1px solid #c5c0bc;
+  }
+  .detail_area .detail_main .pager_area .pager_btn.prev {
+    border-right: 1px solid #c5c0bc;
+  }
+  .detail_area .detail_side {
+    padding-top: 30px;
+  }
+  .detail_area .detail_side .post_area .item {
+    width: 50%;
+    float: left;
     padding: 0 10px;
   }
 }
@@ -397,45 +518,50 @@ Module :パーツ _parts.scss
   clear: both;
 }
 
-.pager {
+.pager_area {
   display: table;
   width: 100%;
 }
-.pager .pager_btn {
+.pager_area .pager_btn {
   display: table-cell;
   width: 160px;
 }
-.pager .pager_btn .btn {
+.pager_area .pager_btn .btn {
   font-size: 16px;
   line-height: 48px;
   margin-left: 0;
   margin-right: 0;
+  margin-bottom: 0;
 }
-.pager .pager_btn.prev {
+.pager_area .pager_btn .btn.square {
+  line-height: 80px;
+  background: #eeeceb;
+}
+.pager_area .pager_btn.prev {
   padding-right: 5px;
 }
-.pager .pager_btn.prev .btn:before {
+.pager_area .pager_btn.prev .btn:before {
   left: 25px;
   -webkit-transform: rotate(-135deg);
       -ms-transform: rotate(-135deg);
           transform: rotate(-135deg);
 }
-.pager .pager_btn.next {
+.pager_area .pager_btn.next {
   padding-left: 5px;
 }
-.pager .pager_btn.next a:before {
+.pager_area .pager_btn.next a:before {
   right: 25px;
   left: inherit;
 }
-.pager .pager_num {
+.pager_area .pager_num {
   display: table-cell;
 }
-.pager .pager_num a {
+.pager_area .pager_num a {
   text-decoration: underline;
   display: inline-block;
   padding: 0 5px;
 }
-.pager .pager_num .active {
+.pager_area .pager_num .active {
   text-decoration: none;
   color: #bbb2aa;
   padding: 0 5px;
@@ -505,6 +631,9 @@ Module :パーツ _parts.scss
   line-height: 48px;
   font-size: 13px;
 }
+.btn.square {
+  border-radius: 0;
+}
 
 h1.base {
   font-family: "Futura-Light", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
@@ -529,10 +658,12 @@ h1.bold {
 
 @media screen and (max-width: 640px) {
   .btn {
-    margin-top: 10px;
     line-height: 60px;
     max-width: 300px;
     font-size: 15px;
+    margin-top: 10px;
+    margin-left: 0;
+    margin-right: 0;
   }
   .btn:first-child {
     margin-top: 0;
@@ -541,8 +672,12 @@ h1.bold {
     max-width: 160px;
   }
 
-  .pager .pager_num {
+  .pager_area .pager_num {
     display: none;
+  }
+  .pager_area .pager_btn .btn.square {
+    line-height: 60px;
+    background: #eeeceb;
   }
 }
 /* ----------------------------------------------------------------------------------
@@ -599,6 +734,7 @@ Parts : Header _header.scss
     -webkit-transition: 0.4s;
             transition: 0.4s;
     z-index: 400;
+    height: 70px;
   }
   .header .btn_area {
     display: none;
@@ -723,6 +859,7 @@ Parts : Navi _navi.scss
   .navi ul li {
     position: static;
     float: none;
+    padding: 0;
   }
   .navi ul li a {
     display: block;
@@ -811,7 +948,7 @@ Parts : Footer _footer.scss
 .footer {
   padding: 80px 0;
   background: url("/assets/img/footer/footer_bg.png") no-repeat 0 100%;
-  background: 100% auto;
+  background-size: 100% auto;
 }
 .footer .pagetop {
   margin-bottom: 80px;
@@ -866,14 +1003,18 @@ Page : TopPage _index.scss
 
 ----------------------------------------------------------------------------------*/
 #indexPage .visual {
-  position: relative;
-  background: url("/assets/img/top/top_visual_bg_pc.jpg") no-repeat 50% 50%;
-  background-size: cover;
   min-height: 700px;
+  display: block;
+}
+@media screen and (min-width: 640px) {
+  #indexPage .visual {
+    background: url("/assets/img/top/top_visual_bg_pc.jpg") no-repeat 50% 50%;
+  }
 }
 #indexPage .visual .visual_inner {
+  display: block;
   font-family: "Futura-Light", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
-  letter-spacing: 4pxpx;
+  letter-spacing: 4px;
   width: 100%;
   font-size: 32px;
   color: #fff;
@@ -936,17 +1077,38 @@ Page : TopPage _index.scss
 }
 #indexPage .faq .inner {
   padding: 60px 0;
-  background: url("/assets/img/top/top_faq_bg_sp.jpg") no-repeat 50% 50%;
-  background-size: cover;
   color: #fff;
+}
+@media screen and (min-width: 640px) {
+  #indexPage .faq .inner {
+    background: url("/assets/img/top/top_faq_bg_pc.jpg") no-repeat 50% 50%;
+    background-size: cover;
+  }
+}
+@media screen and (max-width: 640px) {
+  #indexPage .faq .inner {
+    background: url("/assets/img/top/top_faq_bg_sp.jpg") no-repeat 50% 50%;
+    background-size: cover;
+  }
 }
 #indexPage .blog {
   background: #e6e4e2;
 }
 #indexPage .recruit {
-  background: url("/assets/img/top/top_recruit_bg_pc.jpg") no-repeat 50% 50%;
   background-size: cover;
   color: #fff;
+}
+@media screen and (min-width: 640px) {
+  #indexPage .recruit {
+    background: url("/assets/img/top/top_recruit_bg_pc.jpg") no-repeat 50% 50%;
+    background-size: cover;
+  }
+}
+@media screen and (max-width: 640px) {
+  #indexPage .recruit {
+    background: url("/assets/img/top/top_recruit_bg_sp.jpg") no-repeat 50% 50%;
+    background-size: cover;
+  }
 }
 @media screen and (max-width: 640px) {
   #indexPage .visual {
@@ -982,38 +1144,32 @@ Page : TopPage _index.scss
 Page : GalleryPage _gallery.scss
 
 ----------------------------------------------------------------------------------*/
-#galleryPage .visual {
-  position: relative;
-  background: url("/assets/img/gallery/gallery_visual_bg_pc.jpg") no-repeat 50% 50%;
-  background-size: cover;
-  min-height: 240px;
-  display: table;
-  width: 100%;
+@media screen and (min-width: 640px) {
+  #galleryPage .visual {
+    background: url("/assets/img/gallery/gallery_visual_bg_pc.jpg") no-repeat 50% 50%;
+    background-size: cover;
+  }
 }
-#galleryPage .visual .visual_inner {
-  display: table-cell;
-  vertical-align: middle;
+@media screen and (max-width: 640px) {
+  #galleryPage .visual {
+    background: url("/assets/img/gallery/gallery_visual_bg_sp.jpg") no-repeat 50% 50%;
+    background-size: cover;
+  }
 }
-#galleryPage .visual .visual_inner h1 {
-  font-family: "Futura-Light", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
-  letter-spacing: 10px;
-  font-size: 40px;
-  color: #fff;
-}
-#galleryPage .search_category {
+#galleryPage .search {
   background: #97887c;
 }
-#galleryPage .search_category .inner {
+#galleryPage .search .inner {
   padding-left: 0;
   padding-right: 0;
 }
-#galleryPage .search_category .search_category,
-#galleryPage .search_category .search_customer {
+#galleryPage .search .search_category,
+#galleryPage .search .search_customer {
   text-align: center;
   width: 50%;
 }
-#galleryPage .search_category .search_category a,
-#galleryPage .search_category .search_customer a {
+#galleryPage .search .search_category a,
+#galleryPage .search .search_customer a {
   color: #fff;
   position: relative;
   line-height: 80px;
@@ -1022,16 +1178,16 @@ Page : GalleryPage _gallery.scss
   font-family: "SourceHanSans", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
   letter-spacing: 4px;
 }
-#galleryPage .search_category .search_category a .icon_close,
-#galleryPage .search_category .search_customer a .icon_close {
+#galleryPage .search .search_category a .icon_close,
+#galleryPage .search .search_customer a .icon_close {
   display: none;
 }
-#galleryPage .search_category .search_category a:not(.active),
-#galleryPage .search_category .search_customer a:not(.active) {
+#galleryPage .search .search_category a:not(.active),
+#galleryPage .search .search_customer a:not(.active) {
   position: relative;
 }
-#galleryPage .search_category .search_category a:not(.active):before,
-#galleryPage .search_category .search_customer a:not(.active):before {
+#galleryPage .search .search_category a:not(.active):before,
+#galleryPage .search .search_customer a:not(.active):before {
   position: absolute;
   left: 30px;
   top: 50%;
@@ -1047,19 +1203,19 @@ Page : GalleryPage _gallery.scss
   border-right: solid 1px #fff;
   vertical-align: middle;
 }
-#galleryPage .search_category .search_category a:not(.active):before,
-#galleryPage .search_category .search_customer a:not(.active):before {
+#galleryPage .search .search_category a:not(.active):before,
+#galleryPage .search .search_customer a:not(.active):before {
   position: relative;
   top: 0;
   left: -20px;
 }
-#galleryPage .search_category .search_category a.active,
-#galleryPage .search_category .search_customer a.active {
+#galleryPage .search .search_category a.active,
+#galleryPage .search .search_customer a.active {
   background: #e6e4e2;
   color: #59493f;
 }
-#galleryPage .search_category .search_category a.active .icon_close,
-#galleryPage .search_category .search_customer a.active .icon_close {
+#galleryPage .search .search_category a.active .icon_close,
+#galleryPage .search .search_customer a.active .icon_close {
   position: relative;
   top: -9px;
   left: -17px;
@@ -1067,8 +1223,8 @@ Page : GalleryPage _gallery.scss
   height: 10px;
   display: inline-block;
 }
-#galleryPage .search_category .search_category a.active .icon_close span.line,
-#galleryPage .search_category .search_customer a.active .icon_close span.line {
+#galleryPage .search .search_category a.active .icon_close span.line,
+#galleryPage .search .search_customer a.active .icon_close span.line {
   display: inline-block;
   background: #59493f;
   position: absolute;
@@ -1078,29 +1234,29 @@ Page : GalleryPage _gallery.scss
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
-#galleryPage .search_category .search_category a.active .icon_close span.line:nth-child(1),
-#galleryPage .search_category .search_customer a.active .icon_close span.line:nth-child(1) {
+#galleryPage .search .search_category a.active .icon_close span.line:nth-child(1),
+#galleryPage .search .search_customer a.active .icon_close span.line:nth-child(1) {
   width: 19px;
   height: 1px;
   margin-top: 9px;
 }
-#galleryPage .search_category .search_category a.active .icon_close span.line:nth-child(2),
-#galleryPage .search_category .search_customer a.active .icon_close span.line:nth-child(2) {
+#galleryPage .search .search_category a.active .icon_close span.line:nth-child(2),
+#galleryPage .search .search_customer a.active .icon_close span.line:nth-child(2) {
   width: 1px;
   height: 19px;
   margin-left: 9px;
 }
-#galleryPage .search_category .search_category a {
+#galleryPage .search .search_category a {
   border-right: 1px solid #fff;
 }
-#galleryPage .search_category .search_category a:before {
+#galleryPage .search .search_category a:before {
   -webkit-transition: 0.2s;
           transition: 0.2s;
   -webkit-transform: rotate(135deg);
       -ms-transform: rotate(135deg);
           transform: rotate(135deg);
 }
-#galleryPage .search_category .search_pulldown {
+#galleryPage .search .search_pulldown {
   display: none;
   position: absolute;
   z-index: 10;
@@ -1109,13 +1265,12 @@ Page : GalleryPage _gallery.scss
   padding: 50px 0;
   border-top: 1px solid #d5d1ce;
 }
-#galleryPage .search_category .search_pulldown .search_list {
-  float: left;
+#galleryPage .search .search_pulldown .search_list {
   width: 33.33%;
   padding: 0 10px;
   text-align: center;
 }
-#galleryPage .search_category .search_pulldown .search_list .title {
+#galleryPage .search .search_pulldown .search_list .title {
   display: inline-block;
   color: #97887c;
   font-size: 24px;
@@ -1124,7 +1279,7 @@ Page : GalleryPage _gallery.scss
   font-family: "Futura-Light", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
   letter-spacing: 6px;
 }
-#galleryPage .search_category .search_pulldown .search_list label {
+#galleryPage .search .search_pulldown .search_list label {
   cursor: pointer;
   background: #fff;
   color: #84786e;
@@ -1134,11 +1289,11 @@ Page : GalleryPage _gallery.scss
   -webkit-transition: 0.2s;
           transition: 0.2s;
 }
-#galleryPage .search_category .search_pulldown .search_list label.active {
+#galleryPage .search .search_pulldown .search_list label.active {
   background: #aca49f;
   color: #fff;
 }
-#galleryPage .search_category .search_pulldown .search_list input[type="radio"] {
+#galleryPage .search .search_pulldown .search_list input[type="radio"] {
   -webkit-appearance: none;
   margin: 0;
   padding: 0;
@@ -1147,87 +1302,137 @@ Page : GalleryPage _gallery.scss
   border: none;
   border-radius: 0;
 }
-#galleryPage .search_category .search_pulldown .search_list.design .title {
+#galleryPage .search .search_pulldown .search_list.design .title {
   background: url("/assets/img/icon/icon_design.png") no-repeat 0 50%;
 }
-#galleryPage .search_category .search_pulldown .search_list.parts .title {
+#galleryPage .search .search_pulldown .search_list.parts .title {
   background: url("/assets/img/icon/icon_parts.png") no-repeat 0 50%;
 }
-#galleryPage .search_category .search_pulldown .search_list.order .title {
+#galleryPage .search .search_pulldown .search_list.order .title {
   background: url("/assets/img/icon/icon_order.png") no-repeat 0 50%;
 }
-#galleryPage .search_category .search_pulldown .btn_area {
+#galleryPage .search .search_pulldown .btn_area {
   padding-top: 40px;
-}
-#galleryPage .detail .detail_main {
-  width: 74%;
-  padding-right: 35px;
-  border-right: 1px solid #eeeceb;
-  background: #f4f3f2;
-  padding: 40px;
-}
-#galleryPage .detail .detail_main h1 {
-  font-size: 22px;
-  margin-bottom: 15px;
-}
-#galleryPage .detail .detail_main .data {
-  width: 100%;
-  float: none;
-  padding: 0;
-}
-#galleryPage .detail .detail_main .data dl {
-  display: table;
-  width: 100%;
-}
-#galleryPage .detail .detail_main .data dl dt, #galleryPage .detail .detail_main .data dl dd {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: left;
-  padding: 15px 20px;
-}
-#galleryPage .detail .detail_main .data dl dt {
-  width: 128px;
-  background: #97887c;
-  color: #fff;
-  font-size: 14px;
-  border-bottom: 1px solid #f8f7f7;
-}
-#galleryPage .detail .detail_main .data dl dd {
-  background: #fff;
-  border-bottom: 1px solid #eeeceb;
-}
-#galleryPage .detail .detail_side {
-  padding-left: 35px;
 }
 
 @media screen and (max-width: 640px) {
-  #galleryPage .search_category .search_category a,
-  #galleryPage .search_category .search_customer a {
+  #galleryPage .search .search_category a,
+  #galleryPage .search .search_customer a {
     line-height: 70px;
   }
-  #galleryPage .search_category .search_category a {
+  #galleryPage .search .search_category a {
     border-right: none;
     border-top: 1px solid #fff;
   }
-  #galleryPage .search_category .search_pulldown {
+  #galleryPage .search .search_pulldown {
     padding: 30px 0;
   }
-  #galleryPage .search_category .search_pulldown .search_list {
+  #galleryPage .search .search_pulldown .search_list {
     width: 50%;
     padding-bottom: 30px;
   }
-  #galleryPage .search_category .search_pulldown .search_list .title {
+  #galleryPage .search .search_pulldown .search_list .title {
     font-size: 20px;
     padding-left: 28px;
     background-size: 20px auto;
   }
-  #galleryPage .search_category .search_pulldown .search_list label {
+  #galleryPage .search .search_pulldown .search_list label {
     line-height: 40px;
   }
-  #galleryPage .search_category .search_pulldown .btn_area {
+  #galleryPage .search .search_pulldown .btn_area {
     padding-top: 0;
   }
 }
+/* ----------------------------------------------------------------------------------
+
+Page : blogPage _blog.scss
+
+----------------------------------------------------------------------------------*/
+@media screen and (min-width: 640px) {
+  #blogPage .visual {
+    background: url("/assets/img/blog/blog_visual_bg_pc.jpg") no-repeat 50% 50%;
+    background-size: cover;
+  }
+}
+@media screen and (max-width: 640px) {
+  #blogPage .visual {
+    background: url("/assets/img/blog/blog_visual_bg_sp.jpg") no-repeat 50% 50%;
+    background-size: cover;
+  }
+}
+
+/* ----------------------------------------------------------------------------------
+
+Page : faqPage _faq.scss
+
+----------------------------------------------------------------------------------*/
+@media screen and (min-width: 640px) {
+  #faqPage .visual {
+    background: url("/assets/img/faq/faq_visual_bg_pc.jpg") no-repeat 50% 50%;
+    background-size: cover;
+  }
+}
+@media screen and (max-width: 640px) {
+  #faqPage .visual {
+    background: url("/assets/img/faq/faq_visual_bg_sp.jpg") no-repeat 50% 50%;
+    background-size: cover;
+  }
+}
+
+/* ----------------------------------------------------------------------------------
+
+Page : accessPage _access.scss
+
+----------------------------------------------------------------------------------*/
+@media screen and (min-width: 640px) {
+  #accessPage .visual {
+    background: url("/assets/img/access/access_visual_bg_pc.jpg") no-repeat 50% 50%;
+    background-size: cover;
+  }
+}
+@media screen and (max-width: 640px) {
+  #accessPage .visual {
+    background: url("/assets/img/access/access_visual_bg_sp.jpg") no-repeat 50% 50%;
+    background-size: cover;
+  }
+}
+
+/* ----------------------------------------------------------------------------------
+
+Page : menuPage _menu.scss
+
+----------------------------------------------------------------------------------*/
+@media screen and (min-width: 640px) {
+  #menuPage .visual {
+    background: url("/assets/img/menu/menu_visual_bg_pc.jpg") no-repeat 50% 50%;
+    background-size: cover;
+  }
+}
+@media screen and (max-width: 640px) {
+  #menuPage .visual {
+    background: url("/assets/img/menu/menu_visual_bg_sp.jpg") no-repeat 50% 50%;
+    background-size: cover;
+  }
+}
+
+/* ----------------------------------------------------------------------------------
+
+Page : recruitPage _recruit.scss
+
+----------------------------------------------------------------------------------*/
+@media screen and (min-width: 640px) {
+  #recruitPage .visual {
+    background: url("/assets/img/recruit/recruit_visual_bg_pc.jpg") no-repeat 50% 50%;
+    background-size: cover;
+  }
+}
+@media screen and (max-width: 640px) {
+  #recruitPage .visual {
+    background: url("/assets/img/recruit/recruit_visual_bg_sp.jpg") no-repeat 50% 50%;
+    background-size: cover;
+  }
+}
+
 /* ----------------------------------------------------------------------------------
 
 Setting : IE用設定 _ie.scss
@@ -1292,6 +1497,7 @@ Setting : IE用設定 _ie.scss
   float: left;
   height: 100%;
   min-height: 1px;
+  padding: 0 10px;
   display: none;
 }
 [dir="rtl"] .slick-slide {

@@ -11,12 +11,14 @@ Page : TopPage _index.scss
 	// visual
 	////////////////////////////
 
-	.visual{	
-		position: relative;
-		background: url('/assets/img/top/top_visual_bg_pc.jpg') no-repeat 50% 50%;
-		background-size: cover;
+	.visual{
+		@media screen and (min-width: $width_sp){
+			background: url('/assets/img/top/top_visual_bg_pc.jpg') no-repeat 50% 50%;
+		}
 		min-height: 700px;
+		display: block;
 		.visual_inner{
+			display: block;
 			@include font-family($type:Futura-Light);
 			width: 100%;
 			font-size: 32px;
@@ -86,8 +88,14 @@ Page : TopPage _index.scss
 		margin-bottom: 60px;
 		.inner{
 			padding: 60px 0;
-			background: url('/assets/img/top/top_faq_bg_sp.jpg') no-repeat 50% 50%;
-			background-size: cover;
+			@media screen and (min-width: $width_sp){
+				background: url('/assets/img/top/top_faq_bg_pc.jpg') no-repeat 50% 50%;
+				background-size: cover;
+			}
+			@media screen and (max-width: $width_sp){
+				background: url('/assets/img/top/top_faq_bg_sp.jpg') no-repeat 50% 50%;
+				background-size: cover;
+			}
 			color: $color_white;
 		}
 	}
@@ -97,7 +105,14 @@ Page : TopPage _index.scss
 	}
 
 	.recruit{
-		background: url('/assets/img/top/top_recruit_bg_pc.jpg') no-repeat 50% 50%;
+		@media screen and (min-width: $width_sp){
+			background: url('/assets/img/top/top_recruit_bg_pc.jpg') no-repeat 50% 50%;
+			background-size: cover;
+		}
+		@media screen and (max-width: $width_sp){
+			background: url('/assets/img/top/top_recruit_bg_sp.jpg') no-repeat 50% 50%;
+			background-size: cover;
+		}
 		background-size: cover;
 		color: $color_white;
 	}

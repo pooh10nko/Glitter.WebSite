@@ -9,7 +9,7 @@ Parts : Footer _footer.scss
 .footer{
 	padding: 80px 0;
 	background: url('/assets/img/footer/footer_bg.png') no-repeat 0 100%;
-	background: 100% auto;
+	background-size: 100% auto;
 	.pagetop{
 		margin-bottom: 80px;
 		a{

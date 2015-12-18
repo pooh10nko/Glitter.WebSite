@@ -84,6 +84,7 @@ button{
 }
 .col_Cell{
 	display: table-cell;
+	vertical-align: top;
 }
 
 ////////////////////////////
@@ -123,13 +124,32 @@ button{
 
 
 ////////////////////////////
-// Slider or ItemList
+// visual
 ////////////////////////////
 
-.slider,
-.item_list,
-.detail_main{
+.visual{	
+	position: relative;
+	min-height: 240px;
+	display: table;
+	width: 100%;
+	.visual_inner{
+		display: table-cell;
+		vertical-align: middle;
+		h1{
+			@include font-family($type:Futura-Light,$space:10);
+			font-size: 40px;
+			color: $color_white;
+		}
+	}
+}
+
+////////////////////////////
+// Post Area 投稿雛形
+////////////////////////////
+
+.post_area{
 	*zoom: 1;
+	padding-bottom: 30px;
 	&:after {
 		content: "\0020";
 		display: block;
@@ -139,7 +159,7 @@ button{
 		visibility: hidden;
 	}
 	&:not(.slider){
-		& > div{
+		& > div.item{
 			width: 25%;
 			float: left;
 			margin-bottom: 40px;
@@ -162,6 +182,7 @@ button{
 			display: inline-block;
 			padding: 0 16px;
 			margin-left: 8px;
+			background: $color_white;
 			&:first-child{
 				margin-left: 0;
 			}
@@ -173,7 +194,7 @@ button{
 	.date{
 		text-decoration: underline;
 		font-size: 12px;
-		padding-bottom: 10px;
+		padding-bottom: 5px;
 	}
 	.text{
 		text-decoration: underline;
@@ -235,6 +256,105 @@ button{
 		}
 	}
 }
+
+////////////////////////////
+// Detail Area
+////////////////////////////
+.detail_area{
+	.detail_main{
+		width: 74%;
+		padding-right: 2%;
+		border-right: 1px solid #eeeceb;
+		.inner{
+			max-width: inherit;
+			padding: 40px;
+			background: #f4f3f2;
+		}
+		.label{
+			text-align: left;
+			margin-bottom: 5px;
+		}
+		h1{
+			font-size: 22px;
+			margin-bottom: 15px;
+			line-height: 1.4;
+			text-align: left;
+		}
+		.data{
+			width: 100%;
+			float: none;
+			padding: 0;
+			dl{
+				display: table;
+				width: 100%;
+				dt,dd{
+					display: table-cell;
+					vertical-align: middle;
+					text-align: left;
+					padding: 15px 20px;
+				}
+				dt{
+					width: 128px;
+					background: $color_brown;
+					color: $color_white;
+					font-size: 14px;
+					border-bottom: 1px solid #f8f7f7;
+				}
+				dd{
+					background: $color_white;
+					border-bottom: 1px solid #eeeceb;
+				}
+			}
+		}
+		.pager_area{
+			padding-bottom: 0;
+			.pager_btn{
+				padding: 0;
+				border-top: 1px solid #c5c0bc;
+				&.prev{
+					border-right: 1px solid #c5c0bc;
+				}
+			}
+		}
+	}
+	.detail_side{
+		padding-left: 2%;
+		h2{
+			max-width: 215px;
+			margin: 0 auto;
+			font-size: 16px;
+			@include font-family($type:Futura-Light,$space:4);
+			padding: 25px 0;
+			background: url('/assets/img/frame_mid_s.png') repeat-y 50% 0;
+			background-size: 100% auto;
+			margin-bottom: 30px;
+			position: relative;
+			.frame{
+				position: absolute;
+				width: 100%;
+				&:first-child{
+					left: 0;
+					top: 0;
+				}
+				&:last-child{
+					left: 0;
+					bottom: 0;
+				}
+			}
+		}
+		.post_area{
+			padding-bottom: 0;
+			.item{
+				width: 100%;
+				float: none;
+				padding: 0;
+			}
+		}
+	}
+}
+
+
+
 
 @media screen and (max-width: $width_tb){
 
@@ -299,12 +419,21 @@ a{
 	padding-right: 0 !important;
 }
 .col_Table{
-	display: none;
+	display: block;
 }
 .col_Cell{
-	display: none;
+	display: block;
 	width: 100% !important;
 }
+
+////////////////////////////
+// Page
+////////////////////////////
+
+.page{
+	padding-top: $header_height_sp;
+}
+
 
 ////////////////////////////
 // Inner
@@ -315,21 +444,13 @@ a{
 	padding-right: 20px;
 }
 
-
-////////////////////////////
-// layout main
-////////////////////////////
-
-
 ////////////////////////////
 // Slider or ItemList
 ////////////////////////////
 
-.slider,
-.item_list{
-
+.post_area{
 	&:not(.slider){
-		& > div{
+		& > div.item{
 			width: 50%;
 		}
 	}
@@ -349,6 +470,56 @@ a{
 	}
 }
 
+
+////////////////////////////
+// Detail Area
+////////////////////////////
+.detail_area{
+	padding-bottom: 0;
+	.detail_main{
+		padding-right: 0;
+		border-right: none;
+		.inner{
+			padding: 20px;
+		}
+		.data{
+			width: 100%;
+			float: none;
+			padding: 0;
+			dl{
+				dt,dd{
+					padding: 15px;
+				}
+				dt{
+					width: 92px;
+					font-size: 12px;
+				}
+				dd{
+				}
+			}
+		}
+		.pager_area{
+			padding-bottom: 0;
+			.pager_btn{
+				padding: 0;
+				border-top: 1px solid #c5c0bc;
+				&.prev{
+					border-right: 1px solid #c5c0bc;
+				}
+			}
+		}
+	}
+	.detail_side{
+		padding-top: 30px;
+		.post_area{
+			.item{
+				width: 50%;
+				float: left;
+				padding: 0 10px;
+			}
+		}
+	}
+}
 
 
 

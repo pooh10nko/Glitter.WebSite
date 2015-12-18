@@ -11,29 +11,23 @@ Page : GalleryPage _gallery.scss
 	// visual
 	////////////////////////////
 
-	.visual{	
-		position: relative;
-		background: url('/assets/img/gallery/gallery_visual_bg_pc.jpg') no-repeat 50% 50%;
-		background-size: cover;
-		min-height: 240px;
-		display: table;
-		width: 100%;
-		.visual_inner{
-			display: table-cell;
-			vertical-align: middle;
-			h1{
-				@include font-family($type:Futura-Light,$space:10);
-				font-size: 40px;
-				color: $color_white;
-			}
+	.visual{
+		@media screen and (min-width: $width_sp){
+			background: url('/assets/img/gallery/gallery_visual_bg_pc.jpg') no-repeat 50% 50%;
+			background-size: cover;
+		}
+		@media screen and (max-width: $width_sp){
+			background: url('/assets/img/gallery/gallery_visual_bg_sp.jpg') no-repeat 50% 50%;
+			background-size: cover;
 		}
 	}
+
 
 	////////////////////////////
 	// ネイル検索機能
 	////////////////////////////
 
-	.search_category{
+	.search{
 		background: $color_brown;
 		.inner{
 			padding-left: 0;
@@ -116,7 +110,6 @@ Page : GalleryPage _gallery.scss
 			padding: 50px 0;
 			border-top: 1px solid #d5d1ce;
 			.search_list{
-				float: left;
 				width: 33.33%;
 				padding: 0 10px;
 				text-align: center;
@@ -167,49 +160,6 @@ Page : GalleryPage _gallery.scss
 			}
 		}
 	}
-
-	.detail{
-		.detail_main{
-			width: 74%;
-			padding-right: 35px;
-			border-right: 1px solid #eeeceb;
-			background: #f4f3f2;
-			padding: 40px;
-			h1{
-				font-size: 22px;
-				margin-bottom: 15px;
-			}
-			.data{
-				width: 100%;
-				float: none;
-				padding: 0;
-				dl{
-					display: table;
-					width: 100%;
-					dt,dd{
-						display: table-cell;
-						vertical-align: middle;
-						text-align: left;
-						padding: 15px 20px;
-					}
-					dt{
-						width: 128px;
-						background: $color_brown;
-						color: $color_white;
-						font-size: 14px;
-						border-bottom: 1px solid #f8f7f7;
-					}
-					dd{
-						background: $color_white;
-						border-bottom: 1px solid #eeeceb;
-					}
-				}
-			}
-		}
-		.detail_side{
-			padding-left: 35px;
-		}
-	}
 }
 
 
@@ -220,7 +170,7 @@ Page : GalleryPage _gallery.scss
 	// ネイル検索機能
 	////////////////////////////
 
-	.search_category{
+	.search{
 		.search_category,
 		.search_customer{
 			a{

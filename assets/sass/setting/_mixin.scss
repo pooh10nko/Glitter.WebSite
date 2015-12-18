@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-@mixin font-family($type:base,$space:4px){
+@mixin font-family($type:base,$space:4){
 	@if $type == Futura {
 		font-family: $font_family-Futura;
 		letter-spacing: $space + px;

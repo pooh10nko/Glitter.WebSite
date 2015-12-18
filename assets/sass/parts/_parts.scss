@@ -10,11 +10,14 @@ Module :パーツ _parts.scss
 // btn
 ////////////////////////////
 
+// ボタンエリア
 .btn_area{
 	padding: 30px 0 0;
 	clear: both;
 }
-.pager{
+
+// ボタンエリア（ページャー用）
+.pager_area{
 	display: table;
 	width: 100%;
 	.pager_btn{
@@ -25,6 +28,11 @@ Module :パーツ _parts.scss
 			line-height: 48px;
 			margin-left: 0;
 			margin-right: 0;
+			margin-bottom: 0;
+			&.square{
+				line-height: 80px;
+				background: #eeeceb;
+			}
 		}
 		&.prev{
 			padding-right: 5px;
@@ -59,6 +67,8 @@ Module :パーツ _parts.scss
 		}
 	}
 }
+
+// ボタン単体
 .btn{
 	@include font-family($type:SourceHanSans,$space:1);
 	width: 100%;
@@ -107,6 +117,10 @@ Module :パーツ _parts.scss
 		line-height: 48px;
 		font-size: $font_size-btn - 4px;
 	}
+	//四角
+	&.square{
+		border-radius: 0;
+	}
 }
 
 
@@ -142,11 +156,15 @@ h1{
 ////////////////////////////
 // btn
 ////////////////////////////
+
+//ボタン単体
 .btn{
-	margin-top: 10px;
 	line-height: 60px;
 	max-width: 300px;
 	font-size: $font_size-btn - 2;
+	margin-top: 10px;
+	margin-left: 0;
+	margin-right: 0;
 	&:first-child{
 		margin-top: 0;
 	}
@@ -155,9 +173,18 @@ h1{
 		max-width: 160px;
 	}
 }
-.pager{
+// ボタンエリア（ページャー用）
+.pager_area{
 	.pager_num{
 		display: none;
+	}
+	.pager_btn{
+		.btn{
+			&.square{
+				line-height: 60px;
+				background: #eeeceb;
+			}
+		}
 	}
 }
 

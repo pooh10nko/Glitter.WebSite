@@ -121,6 +121,7 @@ $('.slider_gallery,.slider_blog').slick({
 	]
 });
 
+
 $('.slider_shop').slick({
 	autoplay: true,
 	arrows: false,
@@ -237,7 +238,7 @@ $('.input_all').on('change',function(){
 ///////////////////////////////
 // lazyload.js 呼び出し 遅延ロード
 //////////////////////////////
-$('.item_list img').lazyload({
+$('.post_area img').lazyload({
     effect: 'fadeIn',
     effectspeed: 1000
 });
@@ -254,7 +255,7 @@ $(window).on('load', function(){
 // heightLine.jp 呼び出し
 //////////////////////////////
 $(window).on("load resize",function(){
-	$("#galleryPage .item_list > div").heightLine();
+	$(".list_area .item").heightLine();
 })
 
 })
