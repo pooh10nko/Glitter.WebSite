@@ -34,6 +34,7 @@ Parts : Navi _navi.scss
 				display: inline-block;
 				line-height: $header_height;
 				position: relative;
+				transition: 0.5s;
 				&:before{
 					content: '';
 					transition: 0.5s;
@@ -85,10 +86,8 @@ $navilist: index, menu, gallery, faq, access, recruit, blog;
 	.navi{
 		ul{
 			li{
-				a{
-					padding-left: 8px;
-					padding-right: 8px;
-				}
+				padding-left: 8px;
+				padding-right: 8px;
 			}
 		}
 	}
@@ -136,20 +135,24 @@ $navilist: index, menu, gallery, faq, access, recruit, blog;
 					padding-right: 0;
 					border-bottom: 1px solid #cbc4be;
 					@include arrow($size:6px, $color:#c2b9b2);
-					&:before{
-						content: none;
-					}
 				}
 				&.navi_index{
 					a{
+						&:before{
+							content: none;
+						}
 						&:after{
+							display: inline-block;
+							position: absolute;
+							content: '';
 							border: none;
-							background: url('/assets/img/header_icon_index.png') no-repeat 0 50%;
+							background: url('/assets/img/icon/icon_home.png') no-repeat 0 50%;
 							background-size: cover;
 							width: 14px;
 							height: 13px;
 							margin-top: -6px;
 							left: 27px;
+							top: 50%;
 						}
 					}
 				}

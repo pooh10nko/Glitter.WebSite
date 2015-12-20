@@ -16,6 +16,10 @@ Module :パーツ _parts.scss
 	clear: both;
 }
 
+.btn_sns{
+	padding-top: 10px;
+}
+
 // ボタンエリア（ページャー用）
 .pager_area{
 	display: table;
@@ -87,7 +91,14 @@ Module :パーツ _parts.scss
 	&.brown{
 		background: $color_brown;
 		color: $color_white;
-		&:after{
+		&:before{
+			border-color: $color_white;
+		}
+	}
+	&.brown_dark{
+		background: #84786e;
+		color: $color_white;
+		&:before{
 			border-color: $color_white;
 		}
 	}
@@ -106,6 +117,32 @@ Module :パーツ _parts.scss
 	&.gray{
 		background: $color_gray;
 		@include font-family($type:Futura,$space:3);
+	}
+	&.gray_light{
+		background: #ebe9e8;
+	}
+	&.facebook{
+		background: #d8dee9;
+		width: 80px;
+		max-width: inherit;
+		&:before{
+			content: none;
+		}
+	}
+	&.tel{
+		letter-spacing: 2px;
+		background-image: url('/assets/img/faq/faq_icon_tel.png');
+		background-repeat: no-repeat;
+		background-position: 35px 50%;
+		line-height: 130%;
+		padding: 18px 0;
+		&:before{
+			content: none;
+		}
+		small{
+			font-size: $font_size-btn - 4;
+			display: block;
+		}
 	}
 	// 長さ
 	&.short{
@@ -134,12 +171,19 @@ h1{
 		padding: 0 0 25px;
 		color: $color_brown;
 	}
+	// 色
 	&.white{
 		color: $color_white;
 	}
+	// 太さ
 	&.bold{
 		font-weight: bold;
 		font-size: 16px;
+	}
+	// サイズ
+	&.large{
+		font-size: 40px;
+		letter-spacing: 8px;
 	}
 }
 
@@ -172,7 +216,19 @@ h1{
 	&.short{
 		max-width: 160px;
 	}
+
+	&.tel{
+		padding: 10px 0;
+		&:before{
+			content: none;
+		}
+	}
+	&.facebook{
+		transform: scale(0.8);
+	}
 }
+
+
 // ボタンエリア（ページャー用）
 .pager_area{
 	.pager_num{

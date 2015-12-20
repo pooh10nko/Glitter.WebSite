@@ -14,6 +14,7 @@ Page : TopPage _index.scss
 	.visual{
 		@media screen and (min-width: $width_sp){
 			background: url('/assets/img/top/top_visual_bg_pc.jpg') no-repeat 50% 50%;
+			background-size: cover;
 		}
 		min-height: 700px;
 		display: block;
@@ -38,7 +39,6 @@ Page : TopPage _index.scss
 	}
 
 	.gallery{
-
 	}
 
 	.access{

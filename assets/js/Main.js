@@ -173,35 +173,56 @@ var openMenu = function(){
 
 
 ///////////////////////////////
-// アコーディオン
+// タブ切り替え
 //////////////////////////////
-var targetAccordion = '.accordion_area dt';
+var targetTab = '.nav_area';
 
-$(targetAccordion).on('click',function(){
-	$(this).next().slideToggle();
+// .tab_bodyの高さを設定
+var resizeTabBody = function(){
+	$('.tab_area').each(function(){
+		if($(this).is(':visible')){
+			$('.tab_body').css('height',$(this).outerHeight());
+		}
+	})
+}
+$(targetTab).on('click',function(){
+	var targetIndex = $(targetTab).index(this) + 1;
+	// ターゲット非表示
+	$('.nav_area').removeClass('active');
+	$('.tab_area').fadeOut();
+
+	// ターゲット表示
+	$('#nav'+targetIndex).addClass('active');
+	$('#tab'+targetIndex).fadeIn(function(){
+		resizeTabBody();
+	});
+	resizeTabBody(); // 背景が追いつかないのを防ぐためにcallback前にも呼ぶ
+	
+
+	return false;
+});
+$('#nav1').trigger('click');
+
+$(window).on("load resize",function(){
+	resizeTabBody();
 })
 
 ///////////////////////////////
-// タブ切り替え
+// アコーディオン
 //////////////////////////////
-var targetTab = '.tab_area a[href^=#]';
+var targetAccordion = '.accordion dt';
+var targetAccordionBody = '.accordion dd';
 
-$(targetTab).on('click',function(){
-	var targetIndex = $(targetTab).index(this) + 1;
+$(targetAccordionBody).hide();
 
-	// アコーディンが全て閉じてから表示切り替え
-	$(targetAccordion).next().slideUp();
-	$.when($(targetAccordion).next()).done(function(){
-		// ターゲット非表示
-		$('.nav_area').removeClass('active');
-		$('.body_area').fadeOut();
-
-		// ターゲット表示
-		$('#nav'+targetIndex).addClass('active');
-		$('#tab'+targetIndex).fadeIn();
+$(targetAccordion).on('click',function(){
+	$(this).toggleClass('active');
+	$(this).next().slideToggle(function(){
+		resizeTabBody();
 	});
-	return false;
-})
+	resizeTabBody(); // 背景が追いつかないのを防ぐためにcallback前にも呼ぶ
+	
+});
 
 ///////////////////////////////
 // カテゴリ検索
@@ -255,7 +276,7 @@ $(window).on('load', function(){
 // heightLine.jp 呼び出し
 //////////////////////////////
 $(window).on("load resize",function(){
-	$(".list_area .item").heightLine();
+	$(".list_area .item, .heightLine").heightLine();
 })
 
 })

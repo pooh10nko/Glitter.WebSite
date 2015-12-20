@@ -65,7 +65,7 @@
 //////////////////////////////////////////////////
 //  Arrow
 //////////////////////////////////////////////////
-@mixin arrow($size:10px, $color:$color_brown, $positionL:30px){
+@mixin arrow($size:10px, $color:$color_brown, $positionL:30px, $direction:right){
 	position: relative;
 	&:before {
 		position: absolute;
@@ -75,11 +75,28 @@
 		content: "";
 		width: $size;
 		height: $size;
-		transform: rotate(45deg);
 		display: inline-block;
 		border-top: solid 1px $color;
 		border-right: solid 1px $color;
 		vertical-align: middle;
+		transition: 0.4s;
+	}
+	@if($direction == right){
+		&:before{
+			transform: rotate(45deg);
+		}
+	}@elseif($direction == top){
+		&:before{
+			transform: rotate(-45deg);
+		}
+	}@elseif($direction == left){
+		&:before{
+			transform: rotate(-135deg);
+		}
+	}@elseif($direction == bottom){
+		&:before{
+			transform: rotate(-225deg);
+		}
 	}
 }
 

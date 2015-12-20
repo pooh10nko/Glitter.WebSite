@@ -143,6 +143,9 @@ Page : GalleryPage _gallery.scss
 					display: inline;
 					border: none;
 					border-radius: 0;
+					&:focus{
+						outline: none;
+					}
 				}
 
 				// アイコン
@@ -188,8 +191,9 @@ Page : GalleryPage _gallery.scss
 		.search_pulldown{
 			padding: 30px 0;
 			.search_list{
-				width: 50%;
+				width: 80% !important;
 				padding-bottom: 30px;
+				margin: 0 auto;
 				.title{
 					font-size: 20px;
 					padding-left: 28px;

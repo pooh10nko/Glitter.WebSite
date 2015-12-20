@@ -32,9 +32,7 @@ Parts : Header _header.scss
 		.btn{
 			padding-left: 65px;
 			text-align: left;
-			&:before{
-				border-color: $color_white;
-			}
+			margin: 0;
 		}
 	}
 	// ハンバーガーメニュー

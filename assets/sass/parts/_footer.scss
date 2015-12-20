@@ -32,6 +32,13 @@ Parts : Footer _footer.scss
 			padding-bottom: 10px;
 		}
 	}
+	.shop{
+		padding-bottom: 10px;
+		line-height: 2;
+		h2{
+			font-weight: bold;
+		}
+	}
 	.copyright{
 		padding: 40px 0 0;
 	}
@@ -40,6 +47,13 @@ Parts : Footer _footer.scss
 
 @media screen and (max-width: $width_sp) {
 	.footer{
-		padding: 40px 0;
+		padding: 20px 0;
+		.shop{
+			a{
+				&.map{
+					text-decoration: underline;
+				}
+			}
+		}
 	}
 }

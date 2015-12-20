@@ -11,7 +11,7 @@ $width_sp: '640px';
 // ページ全体横幅
 //////////////////////////////////////////////////
 $width_max: 1024px;
-$width_base: 960px;
+$width_base: 960px + 40px;
 $width_min: 320px;
 
 //////////////////////////////////////////////////
@@ -24,7 +24,7 @@ $header_height_sp: 70px;
 $header_btn_width: 232px;
 $header_btn_width_view: 176px;
 $header_btn_width-min: 232px;
-$header_btn_width_view-min: 68px;
+$header_btn_width_view-min: 63px;
 
 //////////////////////////////////////////////////
 // フォント
@@ -80,6 +80,10 @@ $color_green: #d4e6aa;
 $color_yellow: #fffccb;
 $color_pink: #fadae8;
 $color_gray: #e6e4e2;
+
+
+$color_gray-bg: #f4f3f2;
+$color_gray-border: #c5c0bc;
 
 
 //////////////////////////////////////////////////

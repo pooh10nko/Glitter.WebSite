@@ -11,6 +11,7 @@ Module :共通レイアウト _layout.scss
 ////////////////////////////
 *{
 	box-sizing: border-box;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 html{
 	width: 100%;
@@ -46,18 +47,6 @@ a{
 		pointer-events: none;
 	}
 }
-
-// タップ領域を消す
-.icon_menu,
-.icon_close,
-.btn,
-a,
-label,
-input,
-button{
-	-webkit-tap-highlight-color:rgba(0,0,0,0);
-}
-
 
 .sp{
 	display: none;
@@ -104,6 +93,7 @@ button{
 .inner{
 	max-width: $width_base;
 	margin: 0 auto;
+	padding: 0 20px;
 	&:after {
 		content: ".";
 		display: block;
@@ -246,7 +236,7 @@ button{
 		color: $font_color_base;
 		@include font-family($type:Futura,$space:6);
 		font-size: 16px;
-		background: #f4f3f2;
+		background: $color_gray-bg;
 		line-height: 80px;
 		width: 50%;
 		border-top: 1px solid $font_color_base;
@@ -268,7 +258,7 @@ button{
 		.inner{
 			max-width: inherit;
 			padding: 40px;
-			background: #f4f3f2;
+			background: $color_gray-bg;
 		}
 		.label{
 			text-align: left;
@@ -280,39 +270,13 @@ button{
 			line-height: 1.4;
 			text-align: left;
 		}
-		.data{
-			width: 100%;
-			float: none;
-			padding: 0;
-			dl{
-				display: table;
-				width: 100%;
-				dt,dd{
-					display: table-cell;
-					vertical-align: middle;
-					text-align: left;
-					padding: 15px 20px;
-				}
-				dt{
-					width: 128px;
-					background: $color_brown;
-					color: $color_white;
-					font-size: 14px;
-					border-bottom: 1px solid #f8f7f7;
-				}
-				dd{
-					background: $color_white;
-					border-bottom: 1px solid #eeeceb;
-				}
-			}
-		}
 		.pager_area{
 			padding-bottom: 0;
 			.pager_btn{
 				padding: 0;
-				border-top: 1px solid #c5c0bc;
+				border-top: 1px solid $color_gray-border;
 				&.prev{
-					border-right: 1px solid #c5c0bc;
+					border-right: 1px solid $color_gray-border;
 				}
 			}
 		}
@@ -354,7 +318,147 @@ button{
 }
 
 
+////////////////////////////
+// Tab
+////////////////////////////
+.tab{
+	nav.tab_header{
+		text-align: center;
+		font-size: 0;
+		.nav_area{
+			display: inline-block;
+			background: $color_brown;
+			color: $color_white;
+			font-size: 18px;
+			line-height: 70px;
+			padding: 0 23px;
+			border-right: 1px solid $color_white;
+			cursor: pointer;
+			&:last-child{
+				border-right: 0;
+			}
+			&.active{
+				background: $color_gray;
+				color: $font_color_base;
+			}
+		}
+	}
+	.tab_body{
+		position: relative;
+		transition: 0.4s;
+		background: $color_gray;
+		border-top: 1px solid #d5d1ce;
+		box-sizing: content-box;
+		.tab_area{
+			display: none;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			padding: 55px 0;
+			box-sizing: content-box;
+		}
+	}
+}
 
+////////////////////////////
+// accordion
+////////////////////////////
+.accordion{
+	margin-bottom: 20px;
+	text-align: left;
+	&:after {
+		content: ".";
+		display: block;
+		height: 0;
+		clear: both;
+		visibility: hidden;
+	}
+	dt,dd{
+		padding: 0 72px;
+		.line{
+			border-left: 1px solid $color_gray;
+			border-right: 1px solid $color_gray;
+			padding: 25px 30px;
+			display: block;
+		}
+	}
+	dt{
+		color: $color_white;
+		font-weight: bold;
+		position: relative;
+		background: url('/assets/img/faq/faq_text_q.png') no-repeat 26px 26px $color_brown;
+		@include arrow($color:$color_gray,$direction:bottom);
+		&:before{
+			left: inherit !important;
+			right: 30px !important;
+		}
+		&.active{
+			@include arrow($color:$color_gray,$direction:top);
+		}
+	}
+	dd{
+		background: url('/assets/img/faq/faq_text_a.png') no-repeat 26px 26px $color_white;
+		padding-right: 0 !important;
+		.line{
+			border-right: 0 !important;
+		}
+	}
+}
+
+.tel_area{
+	padding-top: 20px;
+	.btn_area{
+		padding-top: 0;
+	}
+}
+////////////////////////////
+// table
+////////////////////////////
+.data_table{
+	width: 100%;
+	float: none;
+	dl{
+		display: table;
+		width: 100%;
+		dt,dd{
+			display: table-cell;
+			vertical-align: middle;
+			text-align: left;
+			padding: 15px 20px;
+		}
+		dt{
+			width: 128px;
+			background: $color_brown;
+			color: $color_white;
+			font-size: 14px;
+			border-bottom: 1px solid #f8f7f7;
+		}
+		dd{
+			background: $color_white;
+			border-bottom: 1px solid #eeeceb;
+		}
+	}
+}
+
+////////////////////////////
+// 背景画像のあるコンテンツ
+////////////////////////////
+.bg_area{
+	.text_read{
+		color: $color_white;
+		padding-bottom: 27px;
+		&.large{
+			padding-top: 0;
+		}
+	}
+	.post_area{
+		padding-bottom: 0;
+	}
+	.btn_area{
+		padding-top: 0;
+	}
+}
 
 @media screen and (max-width: $width_tb){
 
@@ -364,7 +468,7 @@ button{
 
 .page{
 	transition: 0.4s;
-	padding-top: $header_height;
+	padding-top: $header_height_sp;
 	position: relative;
 	z-index: 300;
 }
@@ -440,15 +544,31 @@ a{
 ////////////////////////////
 
 .inner{
-	padding-left: 20px;
-	padding-right: 20px;
 }
+
+
+
+
+////////////////////////////
+// visual
+////////////////////////////
+
+.visual{	
+	min-height: 180px;
+	.visual_inner{
+		h1{
+			font-size: 32px;
+		}
+	}
+}
+
 
 ////////////////////////////
 // Slider or ItemList
 ////////////////////////////
 
 .post_area{
+	margin: 0 -10px;
 	&:not(.slider){
 		& > div.item{
 			width: 50%;
@@ -482,35 +602,20 @@ a{
 		.inner{
 			padding: 20px;
 		}
-		.data{
-			width: 100%;
-			float: none;
-			padding: 0;
-			dl{
-				dt,dd{
-					padding: 15px;
-				}
-				dt{
-					width: 92px;
-					font-size: 12px;
-				}
-				dd{
-				}
-			}
-		}
 		.pager_area{
 			padding-bottom: 0;
 			.pager_btn{
 				padding: 0;
-				border-top: 1px solid #c5c0bc;
+				border-top: 1px solid $color_gray-border;
 				&.prev{
-					border-right: 1px solid #c5c0bc;
+					border-right: 1px solid $color_gray-border;
 				}
 			}
 		}
 	}
 	.detail_side{
 		padding-top: 30px;
+		padding-left: 0;
 		.post_area{
 			.item{
 				width: 50%;
@@ -521,6 +626,103 @@ a{
 	}
 }
 
+
+
+
+////////////////////////////
+// Tab
+////////////////////////////
+.tab{
+	nav.tab_header{
+		border-top: 1px solid $color_white;
+		.nav_area{
+			line-height: 40px;
+			font-size: 14px;
+			padding: 0 11px;
+			width: 50%;
+			border-bottom: 1px solid $color_white;
+			@include arrow($size:8px, $color:$color_white, $positionL:20px);
+			&:nth-child(even){
+				border-right: 0;
+			}
+			&.active{
+				@include arrow($size:8px, $color:$font_color_base, $positionL:20px, $direction:bottom);
+				&:before{
+					transform: rotate(135deg);
+				}
+			}
+		}
+	}
+	.tab_body{
+		.tab_area{
+			padding: 30px 0;
+		}
+	}
+}
+
+////////////////////////////
+// accordion
+////////////////////////////
+.accordion{
+	margin-bottom: 10px;
+	dt,dd{
+		padding: 0 50px;
+		.line{
+			border-left: 1px solid $color_gray;
+			border-right: 1px solid $color_gray;
+			padding: 15px 20px;
+			display: block;
+		}
+	}
+	dt{
+		color: $color_white;
+		background-position: 15px 18px;
+		background-size: 15px auto;
+		@include arrow($color:$color_gray,$direction:bottom,$size:8px);
+		&:before{
+			left: inherit;
+			right: 20px !important;
+		}
+		&.active{
+			@include arrow($color:$color_gray,$direction:top,$size:8px);
+		}
+	}
+	dd{
+		background-position: 15px 18px;
+		background-size: 15px auto;
+	}
+}
+
+////////////////////////////
+// table
+////////////////////////////
+.data_table{
+	width: 100%;
+	float: none;
+	dl{
+		dt,dd{
+			padding: 15px;
+		}
+		dt{
+			width: 92px;
+			font-size: 12px;
+		}
+		dd{
+		}
+	}
+}
+
+////////////////////////////
+// 背景画像のあるコンテンツ
+////////////////////////////
+.bg_area{
+	padding-top: 35px;
+	h1{
+		&.base{
+			padding-bottom: 15px;
+		}
+	}
+}
 
 
 

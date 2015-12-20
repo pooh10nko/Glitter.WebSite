@@ -7,11 +7,13 @@ Page : recruitPage _recruit.scss
 ----------------------------------------------------------------------------------*/
 #recruitPage{
 
+
 	////////////////////////////
 	// visual
 	////////////////////////////
 
 	.visual{
+		margin-bottom: 80px;
 		@media screen and (min-width: $width_sp){
 			background: url('/assets/img/recruit/recruit_visual_bg_pc.jpg') no-repeat 50% 50%;
 			background-size: cover;
@@ -22,6 +24,19 @@ Page : recruitPage _recruit.scss
 		}
 	}
 
+
+	////////////////////////////
+	// welcome
+	////////////////////////////
+
+	.welcome{
+		@media screen and (min-width: $width_sp){
+			background: url('/assets/img/recruit/recruit_welcome_bg_pc.jpg') no-repeat 50% 0;
+		}
+		@media screen and (max-width: $width_sp){
+			background: url('/assets/img/recruit/recruit_welcome_bg_sp.jpg') no-repeat 50% 0;
+		}
+	}
 	
 }
 
@@ -30,6 +45,20 @@ Page : recruitPage _recruit.scss
 
 #recruitPage{
 
+
+	////////////////////////////
+	// 背景画像のあるコンテンツ
+	////////////////////////////
+	.bg_area{
+		position: relative;
+		margin-bottom: 120px;
+		.img{
+			position: absolute;
+			top: 310px;
+			left: 0;
+			padding: 0 20px;
+		}
+	}
 }
 
 
