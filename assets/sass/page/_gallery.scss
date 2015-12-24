@@ -52,9 +52,9 @@ Page : GalleryPage _gallery.scss
 				&:not(.active){
 					@include arrow($color:$color_white);
 					&:before{
-						position: relative;
+						position: relative !important;
 						top: 0;
-						left: -20px;
+						left: -20px !important;
 					}
 				}
 				&.active{
@@ -177,7 +177,21 @@ Page : GalleryPage _gallery.scss
 		.search_category,
 		.search_customer{
 			a{
-				line-height: 70px;
+				line-height: 55px;
+				font-size: 14px;
+				// 通常時
+				&:not(.active){
+					@include arrow($size:8px,$color:$color_white, $positionL:25px);
+				}
+				&.active{
+					.icon_close{
+						span{
+							&.line{
+								transform: rotate(45deg);
+							}
+						}
+					}
+				}
 			}
 		}
 

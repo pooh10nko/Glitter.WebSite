@@ -144,4 +144,25 @@ function lig_wp_category_terms_checklist_no_top( $args, $post_id = null ) {
 add_action( 'wp_terms_checklist_args', 'lig_wp_category_terms_checklist_no_top' );
 
 
+
+//投稿記事一覧にアイキャッチ画像を表示
+function customize_admin_manage_posts_columns($columns) {
+    $columns['thumbnail'] = __('Thumbnail');
+    return $columns;
+}
+function customize_admin_add_column($column_name, $post_id) {
+    if ( 'thumbnail' == $column_name) {
+        $thum = get_the_post_thumbnail($post_id, 'small', array( 'style'=>'width:75px;height:auto;' ));
+    }
+    if ( isset($thum) && $thum ) {
+        echo $thum;
+    }
+}
+
+function customize_admin_css_list() {
+    echo '<style TYPE="text/css">.column-thumbnail{width:80px;}</style>';
+}
+add_filter( 'manage_posts_columns', 'customize_admin_manage_posts_columns' );
+add_action( 'manage_posts_custom_column', 'customize_admin_add_column', 10, 2 );
+add_action('admin_print_styles', 'customize_admin_css_list', 21);
 ?>

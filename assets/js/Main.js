@@ -60,6 +60,41 @@ $(window).on('load resize', function(){
     }
 });
 
+//------------------------------------------------------------//
+// 金額にカンマを追加
+//------------------------------------------------------------//
+
+$('.priceNum').each(function(){
+	$(this).html(Number($(this).html()).toLocaleString());
+})
+
+// ループでセパレート
+function separate(num){
+    // 文字列にする
+    num = String(num);
+
+    // 返却用
+    var separated = '';
+
+    // 位置文字ずつ配列にする
+    var nums = num.split('');
+
+    // 長さを入れとく
+    var len = nums.length;
+
+    // 一文字ずつ追加してくよ
+    for(var i = 0; i < len; i++){
+        // 後ろから追加していく
+        separated = nums[(len-1)-i] + separated;
+
+        // 3桁ごとにカンマ追加
+        if(i % 3 === 2){
+            separated = ',' + separated;
+        }
+    }
+
+    return separated;
+}
 
 /*
 --------------------------------------------
@@ -98,12 +133,13 @@ $('.slider_gallery,.slider_blog').slick({
 	slidesToShow: 4,
 	slidesToScroll: 1,
 	accessibility: false,
+	lazyLoad: 'ondemand',
 	appendArrows: $('.control'),
 	prevArrow: '<button type="button" class="slick-prev">PREV</button>',
 	nextArrow: '<button type="button" class="slick-next">NEXT</button>',
 	responsive: [
 	{
-		breakpoint: 768,
+		breakpoint: 845,
 		settings: {
 			slidesToShow: 3,
 			slidesToScroll: 1
@@ -114,13 +150,12 @@ $('.slider_gallery,.slider_blog').slick({
 		settings: {
 			// arrows: true,
 			slidesToShow: 2,
-			slidesToScroll: 1
+			slidesToScroll: 2
 			// dots: false
 		}
 	}
 	]
 });
-
 
 $('.slider_shop').slick({
 	autoplay: true,
@@ -186,14 +221,14 @@ var resizeTabBody = function(){
 	})
 }
 $(targetTab).on('click',function(){
-	var targetIndex = $(targetTab).index(this) + 1;
+	var targetIndex = $(targetTab).index(this);
 	// ターゲット非表示
 	$('.nav_area').removeClass('active');
 	$('.tab_area').fadeOut();
 
 	// ターゲット表示
-	$('#nav'+targetIndex).addClass('active');
-	$('#tab'+targetIndex).fadeIn(function(){
+	$('.nav_area').eq(targetIndex).addClass('active');
+	$('.tab_area').eq(targetIndex).fadeIn(function(){
 		resizeTabBody();
 	});
 	resizeTabBody(); // 背景が追いつかないのを防ぐためにcallback前にも呼ぶ
@@ -201,7 +236,7 @@ $(targetTab).on('click',function(){
 
 	return false;
 });
-$('#nav1').trigger('click');
+$('.nav_area').eq(0).trigger('click');
 
 $(window).on("load resize",function(){
 	resizeTabBody();
@@ -259,7 +294,7 @@ $('.input_all').on('change',function(){
 ///////////////////////////////
 // lazyload.js 呼び出し 遅延ロード
 //////////////////////////////
-$('.post_area img').lazyload({
+$('.lazyimg').lazyload({
     effect: 'fadeIn',
     effectspeed: 1000
 });
@@ -269,14 +304,16 @@ $('.post_area img').lazyload({
 //////////////////////////////
 
 $(window).on('load', function(){
-	$('.loading').fadeOut(800);
+	$('.loading').fadeOut(1000);
+	$('.footer_fix').addClass('active');
 });
+
 
 ///////////////////////////////
 // heightLine.jp 呼び出し
 //////////////////////////////
-$(window).on("load resize",function(){
-	$(".list_area .item, .heightLine").heightLine();
-})
+// $(window).on("load resize",function(){
+// 	$(".list_area .item,.post_area .img, .heightLine").heightLine();
+// })
 
 })

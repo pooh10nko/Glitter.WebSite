@@ -44,6 +44,10 @@ Parts : Footer _footer.scss
 	}
 }
 
+.footer_fix{
+	display: none;
+}
+
 
 @media screen and (max-width: $width_sp) {
 	.footer{
@@ -53,6 +57,22 @@ Parts : Footer _footer.scss
 				&.map{
 					text-decoration: underline;
 				}
+			}
+		}
+	}
+	.footer_fix{
+		display: block;
+		.btn{
+			transition: 0.6s 2s;
+			position: fixed;
+			right: -200px;
+			bottom: 10px;
+			width: 200px;
+			border: 1px solid #fff;
+		}
+		&.active{
+			.btn{
+				right: -36px;
 			}
 		}
 	}

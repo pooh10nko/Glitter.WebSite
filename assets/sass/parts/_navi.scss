@@ -5,12 +5,16 @@
 Parts : Navi _navi.scss
 
 ----------------------------------------------------------------------------------*/
-%navi-active{
-	width: 100%;
-	opacity: 1;
+
+// 共通
+.navi{
+	position: fixed;
+	@include font-family($type:Futura,$space:4);
+	font-size: $font_size-navi;
 }
 
-
+// PC TB 表示
+@media screen and (min-width: $width-tb){
 .navi{
 	position: fixed;
 	left: 0;
@@ -18,8 +22,7 @@ Parts : Navi _navi.scss
 	width: 100%;
 	z-index: 200;
 	overflow: hidden;
-	@include font-family($type:Futura,$space:4);
-	font-size: $font_size-navi;
+	padding: 0 176px 0 86px;
 	ul{
 		position: relative;
 		left: 50%;
@@ -49,7 +52,8 @@ Parts : Navi _navi.scss
 				}
 				&:hover{
 					&:before{
-						@extend %navi-active;
+						width: 100%;
+						opacity: 1;
 					}
 				}
 			}
@@ -71,7 +75,8 @@ $navilist: index, menu, gallery, faq, access, recruit, blog;
 				    &.navi_#{$navi}{
 				        a{
 							&:before{
-								@extend %navi-active;
+								width: 100%;
+								opacity: 1;
 							}
 				        }
 				    }
@@ -81,9 +86,12 @@ $navilist: index, menu, gallery, faq, access, recruit, blog;
 	}
 }
 
+}
 
+// PC以下
 @media screen and (max-width: $width-pc){
 	.navi{
+		padding-right: 60px;
 		ul{
 			li{
 				padding-left: 8px;
@@ -93,6 +101,7 @@ $navilist: index, menu, gallery, faq, access, recruit, blog;
 	}
 }
 
+// PC small 以下
 @media screen and (max-width: 800px){
 	.navi{
 		ul{
@@ -105,8 +114,7 @@ $navilist: index, menu, gallery, faq, access, recruit, blog;
 	}
 }
 
-
-
+// TB以下
 @media screen and (max-width: $width-tb){
 
 	.navi{
@@ -114,11 +122,12 @@ $navilist: index, menu, gallery, faq, access, recruit, blog;
 		right: 0;
 		left: inherit;
 		top: 0;
-		padding-right: 0;
 		width: 250px;
 		height: 100%;
 		overflow: auto;
 		background: $color_brown;
+		padding: 0;
+		@include font-family($type:Futura,$space:4);
 		ul{
 			position: static;
 			float: none;
@@ -147,7 +156,7 @@ $navilist: index, menu, gallery, faq, access, recruit, blog;
 							content: '';
 							border: none;
 							background: url('/assets/img/icon/icon_home.png') no-repeat 0 50%;
-							background-size: cover;
+							background-size: 100% auto;
 							width: 14px;
 							height: 13px;
 							margin-top: -6px;

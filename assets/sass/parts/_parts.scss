@@ -22,8 +22,33 @@ Module :パーツ _parts.scss
 
 // ボタンエリア（ページャー用）
 .pager_area{
-	display: table;
 	width: 100%;
+	position: relative;
+	padding: 0 170px;
+	.page-numbers{
+		display: inline-block;
+		text-decoration: none;
+		color: #bbb2aa;
+		padding: 0 5px;
+		line-height: 48px;
+		&.prev{
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		&.next{
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+	}
+	a{
+		&.page-numbers{
+			text-decoration: underline;
+			display: inline-block;
+			color: $font_color_base;
+		}
+	}
 	.pager_btn{
 		display: table-cell;
 		width: 160px;
@@ -35,7 +60,6 @@ Module :パーツ _parts.scss
 			margin-bottom: 0;
 			&.square{
 				line-height: 80px;
-				background: #eeeceb;
 			}
 		}
 		&.prev{
@@ -49,32 +73,19 @@ Module :パーツ _parts.scss
 		}
 		&.next{
 			padding-left: 5px;
-			a{
+			.btn{
 				&:before{
-					right: 25px;
 					left: inherit;
+					right: 25px;
 				}
 			}
-		}
-	}
-	.pager_num{
-		display: table-cell;
-		a{
-			text-decoration: underline;
-			display: inline-block;
-			padding: 0 5px;
-		}
-		.active{
-			text-decoration: none;
-			color: #bbb2aa;
-			padding: 0 5px;
 		}
 	}
 }
 
 // ボタン単体
 .btn{
-	@include font-family($type:SourceHanSans,$space:1);
+	font-family: $font_family;
 	width: 100%;
 	max-width: 360px;
 	display: inline-block;
@@ -134,14 +145,20 @@ Module :パーツ _parts.scss
 		background-image: url('/assets/img/faq/faq_icon_tel.png');
 		background-repeat: no-repeat;
 		background-position: 35px 50%;
-		line-height: 130%;
-		padding: 18px 0;
+		background-size: 35px auto;
 		&:before{
 			content: none;
 		}
+		
+	}
+	&.row2{
+		line-height: 130%;
+		padding: 20px 0;
 		small{
-			font-size: $font_size-btn - 4;
+			font-size: $font_size-btn - 5;
 			display: block;
+			line-height: 120%;
+			margin-bottom: 4px;
 		}
 	}
 	// 長さ
@@ -182,7 +199,7 @@ h1{
 	}
 	// サイズ
 	&.large{
-		font-size: 40px;
+		font-size: 38px;
 		letter-spacing: 8px;
 	}
 }
@@ -206,9 +223,9 @@ h1{
 	line-height: 60px;
 	max-width: 300px;
 	font-size: $font_size-btn - 2;
-	margin-top: 10px;
 	margin-left: 0;
 	margin-right: 0;
+	@include arrow($size:8px, $positionL:25px);
 	&:first-child{
 		margin-top: 0;
 	}
@@ -218,7 +235,9 @@ h1{
 	}
 
 	&.tel{
-		padding: 10px 0;
+		padding: 12px 0;
+		background-position: 50px 50%;
+		background-size: 25px auto;
 		&:before{
 			content: none;
 		}
@@ -226,15 +245,33 @@ h1{
 	&.facebook{
 		transform: scale(0.8);
 	}
+	&.row2{
+		small{
+			margin-bottom: 2px;
+			font-size: $font_size-btn - 6;
+		}
+	}
 }
 
 
 // ボタンエリア（ページャー用）
 .pager_area{
-	.pager_num{
-		display: none;
+	padding-left: 0;
+	padding-right: 0;
+	.page-numbers{
+		display: none !important;
+		padding: 0;
+		&.prev{
+			display: inline-block !important;
+			position: static !important;
+		}
+		&.next{
+			display: inline-block !important;
+			position: static !important;
+		}
 	}
 	.pager_btn{
+		padding: 0 !important;
 		.btn{
 			&.square{
 				line-height: 60px;
@@ -244,5 +281,17 @@ h1{
 	}
 }
 
+////////////////////////////
+// title
+////////////////////////////
+h1{
+	&.base{
+		font-weight: bold;
+	}
+	// サイズ
+	&.large{
+		font-size: 28px;
+	}
+}
 
 }

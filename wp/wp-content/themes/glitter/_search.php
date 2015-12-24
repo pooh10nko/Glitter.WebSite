@@ -69,7 +69,7 @@ get_header(); ?>
 	 //   's' => $s,
 	 //   ));
         if ( have_posts() ) : while ( have_posts() ) : the_post();
-            get_template_part( 'content', 'nail' );
+            get_template_part( 'content', 'gallery' );
            endwhile; 
         else : ?>
 
@@ -85,7 +85,7 @@ get_header(); ?>
 	    's' => $s,
 	    ));
         if ( have_posts() ) : while ( have_posts() ) : the_post();
-            get_template_part( 'content', 'nail' );
+            get_template_part( 'content', 'gallery' );
  
            endwhile; 
         else : ?>

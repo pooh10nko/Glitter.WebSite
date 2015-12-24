@@ -21,6 +21,18 @@ Page : blogPage _blog.scss
 			background-size: cover;
 		}
 	}
+	.text_read{
+		padding-bottom: 50px;
+		a{
+			text-decoration: underline;
+		}
+	}
+	.list_area{
+		padding-bottom: 0;
+	}
+	.post_area_blog{
+		padding-bottom: 0;
+	}
 
 	
 }

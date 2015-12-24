@@ -87,7 +87,8 @@ Page : TopPage _index.scss
 		padding: 0;
 		margin-bottom: 60px;
 		.inner{
-			padding: 60px 0;
+			padding-top: 60px;
+			padding-bottom: 60px;
 			@media screen and (min-width: $width_sp){
 				background: url('/assets/img/top/top_faq_bg_pc.jpg') no-repeat 50% 50%;
 				background-size: cover;
@@ -138,8 +139,13 @@ Page : TopPage _index.scss
 				padding-bottom: 30px;
 			}
 			.btn_area{
-				padding-top: 0;
+				padding-top: 20px;
 				padding-bottom: 30px;
+				.btn{
+					margin-right: 5px;
+					margin-left: 5px;
+					max-width: 230px;
+				}
 			}
 		}
 		
