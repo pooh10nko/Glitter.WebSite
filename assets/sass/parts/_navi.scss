@@ -1,0 +1,211 @@
+@charset "utf-8";
+
+/* ----------------------------------------------------------------------------------
+
+Parts : Navi _navi.scss
+
+----------------------------------------------------------------------------------*/
+
+// 共通
+.navi{
+	position: fixed;
+	@include font-family($type:Futura,$space:4);
+	font-size: $font_size-navi;
+}
+
+// PC TB 表示
+@media screen and (min-width: $width-tb){
+.navi{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 200;
+	overflow: hidden;
+	padding: 0 176px 0 86px;
+	ul{
+		position: relative;
+		left: 50%;
+		float: left;
+		li{
+			position: relative;
+			left: -50%;
+			float: left;
+			height: 100%;
+			padding: 0 16px;
+			a{
+				display: inline-block;
+				line-height: $header_height;
+				position: relative;
+				transition: 0.5s;
+				&:before{
+					content: '';
+					transition: 0.5s;
+					width: 0;
+					height: 8px;
+					opacity: 0;
+					background: $color_brown;
+					position: absolute;
+					left: 50%;
+					top: 0;
+					transform: translateX(-50%);
+				}
+				&:hover{
+					&:before{
+						width: 100%;
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+	//closeボタン
+	.icon_close{
+		display: none;
+	}
+}
+
+// カレントナビゲーション
+$navilist: index, menu, gallery, faq, access, recruit, blog;
+@each $navi in $navilist{
+	##{$navi}Page{
+		.navi{
+			ul{
+				li{
+				    &.navi_#{$navi}{
+				        a{
+							&:before{
+								width: 100%;
+								opacity: 1;
+							}
+				        }
+				    }
+				}
+			}
+		}
+	}
+}
+
+}
+
+// PC以下
+@media screen and (max-width: $width-pc){
+	.navi{
+		padding-right: 60px;
+		ul{
+			li{
+				padding-left: 8px;
+				padding-right: 8px;
+			}
+		}
+	}
+}
+
+// PC small 以下
+@media screen and (max-width: 800px){
+	.navi{
+		ul{
+			li{
+				a{
+					font-size: 14px;
+				}
+			}
+		}
+	}
+}
+
+// TB以下
+@media screen and (max-width: $width-tb){
+
+	.navi{
+		position: fixed;
+		right: 0;
+		left: inherit;
+		top: 0;
+		width: 250px;
+		height: 100%;
+		overflow: auto;
+		background: $color_brown;
+		padding: 0;
+		@include font-family($type:Futura,$space:4);
+		ul{
+			position: static;
+			float: none;
+			li{
+				position: static;
+				float: none;
+				padding: 0;
+				a{
+					display: block;
+					text-align: left;
+					line-height: 70px;
+					color: $color_white;
+					padding-left: 52px;
+					padding-right: 0;
+					border-bottom: 1px solid #cbc4be;
+					@include arrow($size:6px, $color:#c2b9b2);
+				}
+				&.navi_index{
+					a{
+						&:before{
+							content: none;
+						}
+						&:after{
+							display: inline-block;
+							position: absolute;
+							content: '';
+							border: none;
+							background: url('/assets/img/icon/icon_home.png') no-repeat 0 50%;
+							background-size: 100% auto;
+							width: 14px;
+							height: 13px;
+							margin-top: -6px;
+							left: 27px;
+							top: 50%;
+						}
+					}
+				}
+			}
+		}
+		// closeボタン
+		.icon_close{
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 70px;
+			height: 70px;
+			display: block;
+			background: $color_white;
+			span{
+				&.line{
+					display: inline-block;
+					border-radius: 2px;
+					background: $color_brown;
+					position: absolute;
+					left: 19px;
+					top: 10px;
+					transform: rotate(45deg);
+					&:nth-child(1){
+						width: 32px;
+						height: 4px;
+						margin-top: 14px;
+					}
+					&:nth-child(2){
+						width: 4px;
+						height: 32px;
+						margin-left: 14px;
+					}
+				}
+				&.text{
+					position: absolute;
+					left: 0;
+					width: 100%;
+					top: 42px;
+					font-size: 9px;
+					color: $color_brown;
+					@include font-family($type:SourceHanSans,$space:2);
+				}
+			}
+		}
+	}
+}

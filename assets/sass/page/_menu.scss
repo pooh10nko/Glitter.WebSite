@@ -1,0 +1,213 @@
+@charset "utf-8";
+
+/* ----------------------------------------------------------------------------------
+
+Page : menuPage _menu.scss
+
+----------------------------------------------------------------------------------*/
+#menuPage{
+	
+	////////////////////////////
+	// 共通
+	////////////////////////////
+	.menu_area{
+		overflow: hidden;
+		.item{
+			float: left;
+			width: 33.333%;
+			padding: 0 10px;
+			margin-bottom: 40px;
+			.bg{
+				max-width: inherit;
+				background: $color_white;
+				border: 1px solid $color_gray-border;
+				position: relative;
+				padding-bottom: 64px;
+				.bg_inner{
+					padding: 20px 10px;
+					box-sizing: content-box;
+				}
+			}
+			.heightLine{
+				padding: 30px 10px;
+				box-sizing: content-box;
+			}
+			h2{
+				font-size: 20px;
+				font-weight: bold;
+				line-height: 1.35;
+				padding-bottom: 15px;
+			}
+			.text_read{
+				padding-bottom: 0;
+				color: $font_color_base;
+				a{
+					text-decoration: underline;
+				}
+			}
+			.price{
+				background: $color_gray-bg;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				font-size: 20px;
+				line-height: 64px;
+			}
+		}
+	}
+
+	////////////////////////////
+	// visual
+	////////////////////////////
+
+	.visual{
+		margin-bottom: 80px;
+		@media screen and (min-width: $width_sp){
+			background: url('/assets/img/menu/menu_visual_bg_pc.jpg') no-repeat 50% 50%;
+			background-size: cover;
+		}
+		@media screen and (max-width: $width_sp){
+			background: url('/assets/img/menu/menu_visual_bg_sp.jpg') no-repeat 50% 50%;
+			background-size: cover;
+		}
+	}
+
+	////////////////////////////
+	// campaign
+	////////////////////////////
+
+	.campaign{
+		@media screen and (min-width: $width_sp){
+			background: url('/assets/img/menu/menu_campaign_bg_pc.jpg') no-repeat 50% 0;
+		}
+		@media screen and (max-width: $width_sp){
+			background: url('/assets/img/menu/menu_campaign_bg_sp.jpg') no-repeat 50% 0;
+		}
+	}
+
+	////////////////////////////
+	// bridal
+	////////////////////////////
+	.bridal{
+		@media screen and (min-width: $width_sp){
+			background: url('/assets/img/menu/menu_bridal_bg_pc.jpg') no-repeat 50% 0;
+		}
+		@media screen and (max-width: $width_sp){
+			background: url('/assets/img/menu/menu_bridal_bg_sp.jpg') no-repeat 50% 0;
+		}
+	}
+
+	////////////////////////////
+	// standard
+	////////////////////////////
+	.standard{
+		padding-top: 0;
+		.text_read{
+		&.large{
+				font-size: 20px;
+				padding-bottom: 40px;
+			}
+		}
+		.menu_table{
+			display: table;
+			width: 100%;
+			dt,
+			dd{
+				display: table-cell;
+				vertical-align: middle;
+				background: $color_white;
+				padding-left: 16px;
+				padding-right: 16px;
+				border: 1px solid #ebe9e8;
+				border-bottom: 0;
+				aside{
+					font-size: 10px;
+					color: $color_brown;
+				}
+			}
+			dt{
+				text-align: left;
+				padding-top: 25px;
+				padding-bottom: 25px;
+				border-right: 0;
+				span{
+					display: block;
+				}
+				.text_title{
+					font-weight: bold;
+				}
+			}
+			dd{
+				width: 95px;
+				font-weight: bold;
+			}
+		}
+	}
+
+
+	
+}
+
+
+@media screen and (max-width: $width_sp){
+
+#menuPage{
+	////////////////////////////
+	// 共通
+	////////////////////////////
+	.menu_area{
+		padding-bottom: 10px;	
+		.item{
+			float: none;
+			width: 100%;
+			margin-bottom: 20px;
+			max-width: 320px;
+			margin-left: auto;
+			margin-right: auto;
+			h2{
+				font-size: 16px;
+			}
+			.heightLine-group1{
+				height: auto !important;
+			}
+			.bg{
+				padding-bottom: 50px;
+			}
+			.price{
+				font-size: 16px;
+				line-height: 50px;
+				font-weight: bold;
+			}
+		}
+	}
+
+	////////////////////////////
+	// standard
+	////////////////////////////
+	.standard{
+		.menu_table{
+			dt{
+				line-height: 1.4;
+				padding-top: 15px;
+				padding-bottom: 15px;
+				.text{
+					&.text_title{
+						padding-bottom: 3px;
+					}
+					&.text_disc{
+						font-size: 11px;
+						padding-bottom: 3px;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+}
+
+

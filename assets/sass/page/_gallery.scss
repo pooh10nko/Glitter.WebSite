@@ -1,0 +1,232 @@
+@charset "utf-8";
+
+/* ----------------------------------------------------------------------------------
+
+Page : GalleryPage _gallery.scss
+
+----------------------------------------------------------------------------------*/
+#galleryPage{
+
+	////////////////////////////
+	// visual
+	////////////////////////////
+
+	.visual{
+		@media screen and (min-width: $width_sp){
+			background: url('/assets/img/gallery/gallery_visual_bg_pc.jpg') no-repeat 50% 50%;
+			background-size: cover;
+		}
+		@media screen and (max-width: $width_sp){
+			background: url('/assets/img/gallery/gallery_visual_bg_sp.jpg') no-repeat 50% 50%;
+			background-size: cover;
+		}
+	}
+
+
+	////////////////////////////
+	// ネイル検索機能
+	////////////////////////////
+
+	.search{
+		background: $color_brown;
+		.inner{
+			padding-left: 0;
+			padding-right: 0;
+		}
+		.search_category,
+		.search_customer{
+			text-align: center;
+			width: 50%;
+			a{
+				color: $color_white;
+				position: relative;
+				line-height: 80px;
+				font-size: 18px;
+				display: block;
+				@include font-family($type:SourceHanSans,$space:4);
+				// 閉じるアイコン
+				.icon_close{
+					display: none;
+				}
+				// 通常時
+				&:not(.active){
+					@include arrow($color:$color_white);
+					&:before{
+						position: relative !important;
+						top: 0;
+						left: -20px !important;
+					}
+				}
+				&.active{
+					background: $color_gray;
+					color: $font_color_base;
+					.icon_close{
+						position: relative;
+						top: -9px;
+						left: -17px;
+						width: 10px;
+						height: 10px;
+						display: inline-block;
+						span{
+							&.line{
+								display: inline-block;
+								background: $font_color_base;
+								position: absolute;
+								left: -5px;
+								top: 2px;
+								transform: rotate(45deg);
+								&:nth-child(1){
+									width: 19px;
+									height: 1px;
+									margin-top: 9px;
+								}
+								&:nth-child(2){
+									width: 1px;
+									height: 19px;
+									margin-left: 9px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		.search_category{
+			a{
+				border-right: 1px solid $color_white;
+				&:before{
+					transition: 0.2s;
+					transform: rotate(135deg);
+				}
+			}
+		}
+		// プルダウン
+		.search_pulldown{
+			display: none;
+			position: absolute;
+			z-index: 10;
+			width: 100%;
+			background: $color_gray;
+			padding: 50px 0;
+			border-top: 1px solid #d5d1ce;
+			.search_list{
+				width: 33.33%;
+				padding: 0 10px;
+				text-align: center;
+				.title{
+					display: inline-block;
+					color: $color_brown;
+					font-size: 24px;
+					margin-bottom: 15px;
+					padding-left: 40px;
+					@include font-family($type:Futura-Light, $space:6);
+				}
+				label{
+					cursor: pointer;
+					background: $color_white;
+					color: #84786e;
+					display: block;
+					line-height: 60px;
+					border-bottom: 1px solid #ebe9e8;
+					transition: 0.2s;
+					&.active{
+						background: #aca49f;
+						color: $color_white;
+					}
+
+				}
+				input[type="radio"]{
+					-webkit-appearance: none;
+					margin: 0;
+					padding: 0;
+					width: 100%;
+					display: inline;
+					border: none;
+					border-radius: 0;
+					&:focus{
+						outline: none;
+					}
+				}
+
+				// アイコン
+				$navilist: design, parts, order;
+				@each $navi in $navilist{
+					&.#{$navi}{
+						.title{
+							background: url('/assets/img/icon/icon_#{$navi}.png') no-repeat 0 50%;
+						}
+					}
+				}
+			}
+			.btn_area{
+				padding-top: 40px;
+			}
+		}
+	}
+}
+
+
+@media screen and (max-width: $width_sp){
+
+#galleryPage{
+	////////////////////////////
+	// ネイル検索機能
+	////////////////////////////
+
+	.search{
+		.search_category,
+		.search_customer{
+			a{
+				line-height: 55px;
+				font-size: 14px;
+				// 通常時
+				&:not(.active){
+					@include arrow($size:8px,$color:$color_white, $positionL:25px);
+				}
+				&.active{
+					.icon_close{
+						span{
+							&.line{
+								transform: rotate(45deg);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.search_category{
+			a{
+				border-right: none;
+				border-top: 1px solid $color_white;
+			}
+		}
+		// プルダウン
+		.search_pulldown{
+			padding: 30px 0;
+			.search_list{
+				width: 80% !important;
+				padding-bottom: 30px;
+				margin: 0 auto;
+				.title{
+					font-size: 20px;
+					padding-left: 28px;
+					background-size: 20px auto;
+				}
+				label{
+					line-height: 40px;
+				}
+			}
+			.btn_area{
+				padding-top: 0;
+			}
+		}
+	}
+}
+
+
+
+
+}
+
+

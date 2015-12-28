@@ -1,0 +1,807 @@
+@charset "utf-8";
+
+/* ----------------------------------------------------------------------------------
+
+Module :共通レイアウト _layout.scss
+
+----------------------------------------------------------------------------------*/
+
+////////////////////////////
+// tag
+////////////////////////////
+*{
+	box-sizing: border-box;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+html{
+	width: 100%;
+	height: 100%;
+}
+
+body{
+	font-size: $font_size-base;
+	@include font-family();
+	line-height: 1.7;
+	word-wrap : break-word;
+	word-break: break-all;
+	overflow-wrap : break-word;
+	-webkit-text-size-adjust: 100%;
+	box-sizing: border-box;
+	color: $font_color_base;
+	text-align: center;
+	transition: 0.4s;
+}
+
+img{
+	vertical-align: top;
+	max-width: 100%;
+}
+
+a{
+	display: inline-block;
+	text-decoration: none;
+	outline: none;
+	color: $font_color_base;
+	&.tel{
+		cursor: default;
+		pointer-events: none;
+	}
+}
+
+.sp{
+	display: none;
+}
+.pc{
+	display: inline-block;
+}
+
+
+////////////////////////////
+// Column
+////////////////////////////
+
+.col_L{
+	float: left;
+}
+.col_R{
+	float: right;
+}
+
+.col_Table{
+	display: table;
+	width: 100%;
+}
+.col_Cell{
+	display: table-cell;
+	vertical-align: top;
+}
+
+////////////////////////////
+// Page
+////////////////////////////
+
+.page{
+	padding-top: $header_height;
+	background: $color_white;
+}
+
+////////////////////////////
+// Loading
+////////////////////////////
+
+.loading{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: $color_white;
+	z-index: 10000;
+}
+
+////////////////////////////
+// Inner
+////////////////////////////
+
+.inner{
+	max-width: $width_base;
+	margin: 0 auto;
+	padding: 0 20px;
+	&:after {
+		content: ".";
+		display: block;
+		height: 0;
+		clear: both;
+		visibility: hidden;
+	}
+}
+
+
+////////////////////////////
+// Section
+////////////////////////////
+
+.section{
+	padding: 60px 0;
+}
+
+
+////////////////////////////
+// visual
+////////////////////////////
+
+.visual{	
+	position: relative;
+	min-height: 240px;
+	display: table;
+	width: 100%;
+	.visual_inner{
+		display: table-cell;
+		vertical-align: middle;
+		h1{
+			@include font-family($type:Futura-Light,$space:10);
+			font-size: 40px;
+			color: $color_white;
+			text-transform: uppercase;
+		}
+	}
+}
+
+////////////////////////////
+// Post Area 投稿雛形
+////////////////////////////
+
+.post_area{
+	*zoom: 1;
+	padding-bottom: 20px;
+	&.post_area_gallery{
+		.date{
+			display: none;
+		}
+	}
+	&.post_area_blog{
+		.price{
+			display: none;
+		}
+		.label{
+			display: none;
+		}
+	}
+	&:after {
+		content: "\0020";
+		display: block;
+		height: 0;
+		clear: both;
+		overflow: hidden;
+		visibility: hidden;
+	}
+	&:not(.slider){
+		& > div.item{
+			width: 25%;
+			float: left;
+			margin-bottom: 40px;
+			padding: 0 10px;
+		}
+	}
+	.img{
+		display: table-cell;
+		vertical-align: middle;
+		background: rgba($color_brown,0.2);
+		img{
+			margin: 0 auto;
+			width: 100%;
+			height: auto;
+		}
+	}
+	.label{
+		margin-bottom: 15px;
+		margin-top: 10px;
+		letter-spacing: -0.4em;
+		span{
+			letter-spacing: normal;
+			margin-bottom: 5px;
+			border: 1px solid $color_brown;
+			border-radius: 16px;
+			font-size: 12px;
+			line-height: 28px;
+			display: inline-block;
+			padding: 0 16px;
+			margin-left: 8px;
+			background: $color_white;
+			&:first-child{
+				margin-left: 0;
+			}
+		}
+	}
+	.price{
+		text-decoration: underline;
+	}
+	.date{
+		font-size: 12px;
+		padding-bottom: 10px;
+		margin-top: 10px;
+	}
+	.text{
+		text-decoration: underline;
+	}
+	//現在地カレント
+	.slick-dots{
+		text-align: center;
+		padding-top: 40px;
+		li{
+			display: inline-block;
+			width: 24px;
+			height: 16px;
+			text-align: center;
+			position: relative;
+			button{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translateX(-50%) translateY(-50%);
+				width: 8px;
+				height: 8px;
+				padding: 0;
+				border-radius: 50%;
+				border: none;
+				background: #84786e;
+				text-indent: -9999px;
+				outline: none;
+				cursor: pointer;
+			}
+			&.slick-active{
+				button{
+					width: 16px;
+					height: 16px;
+					transition: 0.8s;
+				}
+			}
+			&:hover{
+				button{
+					opacity: 0.8;
+				}
+			}
+		}
+	}
+}
+// ページ送り
+.control{
+	.slick-arrow{
+		border: none;
+		color: $font_color_base;
+		@include font-family($type:Futura,$space:6);
+		font-size: 16px;
+		background: $color_gray-bg;
+		line-height: 80px;
+		width: 50%;
+		border-top: 1px solid $font_color_base;
+		outline: none;
+		&.slick-prev{
+			border-right: 1px solid $font_color_base;
+		}
+	}
+}
+
+////////////////////////////
+// Detail Area
+////////////////////////////
+.detail_area{
+	.detail_main{
+		width: 74%;
+		padding-right: 2%;
+		border-right: 1px solid #eeeceb;
+		.inner{
+			max-width: inherit;
+			padding: 40px;
+			background: $color_gray-bg;
+		}
+		.label{
+			margin-bottom: 15px;
+			span{
+				margin-bottom: 0;
+			}
+		}
+		h1{
+			font-size: 22px;
+			margin-bottom: 15px;
+			line-height: 1.4;
+		}
+		.pager_area{
+			padding-bottom: 0;
+			position: static;
+			padding-left: 0;
+			padding-right: 0;
+			display: table;
+			.pager_btn{
+				padding: 0;
+				border-top: 1px solid $color_gray-border;
+				background: $color_gray-bg;
+				&.prev{
+					border-right: 1px solid $color_gray-border;
+				}
+				a{
+					width: 100%;
+				}
+			}
+		}
+	}
+	.detail_side{
+		padding-left: 2%;
+		h2{
+			max-width: 215px;
+			margin: 0 auto;
+			font-size: 16px;
+			@include font-family($type:Futura-Light,$space:4);
+			padding: 25px 0;
+			background: url('/assets/img/frame_mid_s.png') repeat-y 50% 0;
+			background-size: 100% auto;
+			margin-bottom: 30px;
+			position: relative;
+			.frame{
+				position: absolute;
+				width: 100%;
+				&:first-child{
+					left: 0;
+					top: 0;
+				}
+				&:last-child{
+					left: 0;
+					bottom: 0;
+				}
+			}
+		}
+		.post_area{
+			padding-bottom: 0;
+			.item{
+				width: 100%;
+				float: none;
+				padding: 0;
+			}
+		}
+	}
+}
+
+
+////////////////////////////
+// Tab
+////////////////////////////
+.tab{
+	nav.tab_header{
+		text-align: center;
+		font-size: 0;
+		.nav_area{
+			display: inline-block;
+			background: $color_brown;
+			color: $color_white;
+			font-size: 18px;
+			line-height: 70px;
+			padding: 0 23px;
+			border-right: 1px solid $color_white;
+			cursor: pointer;
+			&:last-child{
+				border-right: 0;
+			}
+			&.active{
+				background: $color_gray;
+				color: $font_color_base;
+			}
+		}
+	}
+	.tab_body{
+		position: relative;
+		transition: 0.4s;
+		background: $color_gray;
+		border-top: 1px solid #d5d1ce;
+		box-sizing: content-box;
+		.tab_area{
+			display: none;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			padding: 55px 0;
+			box-sizing: content-box;
+		}
+	}
+}
+
+@media screen and (max-width: $width-tb){
+.tab{
+	nav.tab_header{
+		.nav_area{
+			font-size: 14px;
+			line-height: 60px;
+			padding: 0 15px;
+		}
+	}
+}
+}
+
+
+@media screen and (max-width: $width-tb){
+}
+////////////////////////////
+// accordion
+////////////////////////////
+.accordion{
+	margin-bottom: 20px;
+	text-align: left;
+	&:after {
+		content: ".";
+		display: block;
+		height: 0;
+		clear: both;
+		visibility: hidden;
+	}
+	dt,dd{
+		padding: 0 72px;
+		.line{
+			border-left: 1px solid $color_gray;
+			border-right: 1px solid $color_gray;
+			padding: 25px 30px;
+			display: block;
+		}
+	}
+	dt{
+		color: $color_white;
+		font-weight: bold;
+		position: relative;
+		background: url('/assets/img/faq/faq_text_q.png') no-repeat 26px 26px $color_brown;
+		@include arrow($color:$color_gray,$direction:bottom);
+		&:before{
+			left: inherit !important;
+			right: 30px !important;
+		}
+		&.active{
+			@include arrow($color:$color_gray,$direction:top);
+		}
+	}
+	dd{
+		background: url('/assets/img/faq/faq_text_a.png') no-repeat 26px 26px $color_white;
+		padding-right: 0 !important;
+		.line{
+			border-right: 0 !important;
+		}
+	}
+}
+
+.tel_area{
+	padding-top: 20px;
+	.btn_area{
+		padding-top: 0;
+	}
+}
+////////////////////////////
+// table
+////////////////////////////
+.data_table{
+	width: 100%;
+	float: none;
+	dl{
+		display: table;
+		width: 100%;
+		dt,dd{
+			display: table-cell;
+			vertical-align: middle;
+			text-align: left;
+			padding: 15px 20px;
+		}
+		dt{
+			width: 128px;
+			background: $color_brown;
+			color: $color_white;
+			font-size: 14px;
+			border-bottom: 1px solid #f8f7f7;
+		}
+		dd{
+			background: $color_white;
+			border-bottom: 1px solid #eeeceb;
+		}
+	}
+}
+
+////////////////////////////
+// 背景画像のあるコンテンツ
+////////////////////////////
+.bg_area{
+	.text_read{
+		color: $color_white;
+		padding-bottom: 27px;
+		&.large{
+			padding-top: 0;
+		}
+	}
+	.post_area{
+		padding-bottom: 0;
+	}
+	.btn_area{
+		padding-top: 0;
+	}
+}
+
+@media screen and (max-width: $width_tb){
+
+////////////////////////////
+// Page
+////////////////////////////
+
+.page{
+	transition: 0.4s;
+	padding-top: $header_height_sp;
+	position: relative;
+	z-index: 300;
+}
+.showNavi{
+	.page{
+		transform: translateX(-250px);
+	}
+}
+
+////////////////////////////
+// Slider or ItemList
+////////////////////////////
+
+.post_area{
+	padding-bottom: 0;
+	// 各コンテンツ
+	.slick-slide{
+		padding: 0 5px;
+	}
+}
+
+}
+
+@media screen and (max-width: $width_sp) {
+
+////////////////////////////
+// tag
+////////////////////////////
+body{
+	min-width: $width_min;
+}
+a{
+	&.tel{
+		cursor: pointer;
+		pointer-events: auto;
+	}
+}
+
+
+.sp{
+	display: inline-block;
+}
+.pc{
+	display: none;
+}
+
+
+
+
+
+////////////////////////////
+// Column
+////////////////////////////
+.col_L{
+	float: none;
+	width: 100% !important;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+.col_R{
+	float: none;
+	width: 100% !important;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+.col_Table{
+	display: block;
+}
+.col_Cell{
+	display: block;
+	width: 100% !important;
+}
+
+////////////////////////////
+// Page
+////////////////////////////
+
+.page{
+	padding-top: $header_height_sp;
+}
+
+
+////////////////////////////
+// Inner
+////////////////////////////
+
+.inner{
+}
+
+
+
+
+////////////////////////////
+// visual
+////////////////////////////
+
+.visual{	
+	min-height: 180px;
+	.visual_inner{
+		h1{
+			font-size: 32px;
+		}
+	}
+}
+
+
+////////////////////////////
+// Slider or ItemList
+////////////////////////////
+
+.post_area{
+	margin: 0 -10px;
+	&:not(.slider){
+		& > div.item{
+			width: 50%;
+			margin-bottom: 20px;
+		}
+	}
+	.img{
+		margin-bottom: 10px;
+	}
+	.label{
+		margin-bottom: 0;
+		span{
+			font-size: 12px;
+			line-height: 26px;
+			margin-left: 0;
+			padding-left: 12px;
+			padding-right: 12px;
+		}
+	}
+	//現在地カレント
+	.slick-dots{
+		padding-top: 20px;
+	}
+}
+
+
+////////////////////////////
+// Detail Area
+////////////////////////////
+.detail_area{
+	padding-bottom: 0;
+	.detail_main{
+		padding-right: 0;
+		border-right: none;
+		margin-left: 0;
+		margin-right: 0;
+		.inner{
+			padding: 20px;
+		}
+		.pager_area{
+			padding-bottom: 0;
+			.pager_btn{
+				padding: 0;
+				border-top: 1px solid $color_gray-border;
+				&.prev{
+					border-right: 1px solid $color_gray-border;
+				}
+			}
+		}
+	}
+	.detail_side{
+		padding-top: 30px;
+		padding-left: 0;
+		.post_area{
+			.item{
+				width: 50%;
+				float: left;
+				padding: 0 10px;
+			}
+		}
+	}
+}
+
+
+
+
+////////////////////////////
+// Tab
+////////////////////////////
+.tab{
+	nav.tab_header{
+		border-top: 1px solid $color_white;
+		.nav_area{
+			line-height: 40px;
+			font-size: 14px;
+			padding: 0 11px;
+			width: 50%;
+			border-bottom: 1px solid $color_white;
+			@include arrow($size:8px, $color:$color_white, $positionL:20px);
+			&:nth-child(even){
+				border-right: 0;
+			}
+			&.active{
+				@include arrow($size:8px, $color:$font_color_base, $positionL:20px, $direction:bottom);
+				&:before{
+					transform: rotate(135deg);
+				}
+			}
+		}
+	}
+	.tab_body{
+		.tab_area{
+			padding: 30px 0;
+		}
+	}
+}
+
+////////////////////////////
+// accordion
+////////////////////////////
+.accordion{
+	margin-bottom: 10px;
+	dt,dd{
+		padding: 0 50px;
+		.line{
+			border-left: 1px solid $color_gray;
+			border-right: 1px solid $color_gray;
+			padding: 15px 20px;
+			display: block;
+		}
+	}
+	dt{
+		color: $color_white;
+		background-position: 15px 18px;
+		background-size: 15px auto;
+		@include arrow($color:$color_gray,$direction:bottom,$size:8px);
+		&:before{
+			left: inherit;
+			right: 20px !important;
+		}
+		&.active{
+			@include arrow($color:$color_gray,$direction:top,$size:8px);
+		}
+	}
+	dd{
+		background-position: 15px 18px;
+		background-size: 15px auto;
+	}
+}
+
+////////////////////////////
+// table
+////////////////////////////
+.data_table{
+	width: 100%;
+	float: none;
+	dl{
+		dt,dd{
+			padding: 15px;
+		}
+		dt{
+			width: 92px;
+			font-size: 12px;
+		}
+		dd{
+		}
+	}
+}
+
+////////////////////////////
+// 背景画像のあるコンテンツ
+////////////////////////////
+.bg_area{
+	padding-top: 35px;
+	h1{
+		&.base{
+			padding-bottom: 15px;
+		}
+	}
+}
+
+
+
+
+}

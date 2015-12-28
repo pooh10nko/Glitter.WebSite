@@ -1,0 +1,122 @@
+@charset "utf-8";
+
+/* ----------------------------------------------------------------------------------
+
+Parts : Header _header.scss
+
+----------------------------------------------------------------------------------*/
+.header_area{
+	position: relative;
+	// ロゴ
+	.logo{
+		transition: 0.4s;
+		position: fixed;
+		left: 0;
+		top: 16px;
+		width: 110px;
+		text-align: center;
+		z-index: 210;
+	}
+	// WEBで予約ボタン
+	.btn_area{
+		transition: 0.4s;
+		position: fixed;
+		right: -($header_btn_width - $header_btn_width_view);
+		top: 16px;
+		padding-top: 0;
+		width: 232px;
+		z-index: 210;
+		.btn{
+			padding-left: 65px;
+			text-align: left;
+			margin: 0;
+		}
+	}
+	// 白背景
+	.header{
+		display: table;
+		width: 100%;
+		height: $header_height;
+		background: $color_white;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 100;
+		// ハンバーガーメニュー
+		.icon_menu{
+			display: none;
+		}
+	}
+}
+
+
+
+@media screen and (max-width: $width-pc){
+	.header_area{
+		// WEBで予約ボタン
+		.btn_area{
+			right: -($header_btn_width-min - $header_btn_width_view-min);
+		}
+	}
+}
+
+
+@media screen and (max-width: $width-tb){
+	.header_area{
+		// ロゴ
+		.logo{
+			z-index: 410;
+			top: 11px;
+		}
+		// WEBで予約ボタン
+		.btn_area{
+			display: none;
+		}
+		// 白背景
+		.header{
+			transition: 0.4s;
+			z-index: 400;
+			height: $header_height_sp;
+			// ハンバーガーメニュー
+			.icon_menu{
+				display: block;
+				position: absolute;
+				right: 0;
+				top: 0;
+				width: 80px;
+				height: 80px;
+				padding-top: 16px;
+				span{
+					display: block;
+					margin: 0 auto;
+					&.line{
+						border-radius: 2px;
+						background: $color_brown;
+						width: 28px;
+						height: 4px;
+						margin-bottom: 5px;
+					}
+					&.text{
+						font-size: 9px;
+						color: $color_brown;
+						@include font-family($type:SourceHanSans,$space:1);
+					}
+				}
+			}
+		}
+	}
+
+	.showNavi{
+		.header_area{
+			// ロゴ
+			.logo{
+				z-index: 410;
+				top: 11px;
+				transform: translateX(-250px);
+			}
+			.header{
+				transform: translateX(-250px);
+			}
+		}
+	}
+}
