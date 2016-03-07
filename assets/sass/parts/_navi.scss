@@ -203,7 +203,7 @@ $navilist: index, menu, gallery, faq, access, recruit, blog;
 					top: 42px;
 					font-size: 9px;
 					color: $color_brown;
-					@include font-family($type:SourceHanSans,$space:2);
+					@include font-family($type:NotoSans,$space:2);
 				}
 			}
 		}

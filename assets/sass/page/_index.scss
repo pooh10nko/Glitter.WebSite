@@ -42,26 +42,6 @@ Page : TopPage _index.scss
 	}
 
 	.access{
-		max-width: 1136px;
-		margin: 60px auto;
-		padding: 0;
-		background: url('/assets/img/frame_mid.png') repeat-y 50% 0;
-		background-size: 100% auto;
-		@media screen and (max-width: 1136px + $padding*2){
-			margin-left: $padding;
-			margin-right: $padding;
-		}
-		.inner{
-			padding: 60px $padding;
-		}
-		.col_R{
-			width: 50%;
-			padding-left: 15px;
-		}
-		.col_L{
-			width: 50%;
-			padding-right: 15px;
-		}
 		h1{
 			&.base{
 				padding-bottom: 0;
@@ -79,6 +59,12 @@ Page : TopPage _index.scss
 						letter-spacing: 3px;
 					}
 				}
+			}
+		}
+		figure{
+			text-align: center;
+			img{
+				display: inline-block;
 			}
 		}
 	}
@@ -118,6 +104,34 @@ Page : TopPage _index.scss
 		color: $color_white;
 	}
 
+	@media screen and (max-width: $width_tb){
+		.col_L{
+			float: none;
+			width: 100% !important;
+			max-width: 100% !important;
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+		}
+		.col_R{
+			float: none;
+			width: 100% !important;
+			max-width: 100% !important;
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+		}
+		.access{
+			.btn_area{
+				padding-top: 20px;
+				padding-bottom: 30px;
+				.btn{
+					margin-right: 5px;
+					margin-left: 5px;
+					max-width: 230px;
+				}
+			}
+		}
+	} 
+
 	@media screen and (max-width: $width_sp) {
 		.visual{
 			background: none;
@@ -131,20 +145,10 @@ Page : TopPage _index.scss
 				}
 			}
 		}
-		.access{
-			margin-top: 0;
-			margin-bottom: 60px;
-			.inner{
-				padding-top: 30px;
-				padding-bottom: 30px;
-			}
-			.btn_area{
-				padding-top: 20px;
-				padding-bottom: 30px;
-				.btn{
-					margin-right: 5px;
-					margin-left: 5px;
-					max-width: 230px;
+		.recruit{
+			.img{
+				img{
+					width: 200px;
 				}
 			}
 		}

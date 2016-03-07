@@ -1,0 +1,23 @@
+@charset "utf-8";
+/* ----------------------------------------------------------------------------------
+
+Animation : Animation _animation.scss
+
+----------------------------------------------------------------------------------*/
+$d5s:5s;
+
+@mixin animationFunc($name, $duration, $ease, $loop, $delay)
+{
+	@include animation-name($name);
+	@include animation-duration($duration);
+	@include animation-timing-function($ease);
+	@include animation-iteration-count($loop);
+	@include animation-iteration-count($delay);
+}
+
+.bnr__contact--btn{
+	@include animation(contactBtn 4s ease-in-out infinite);
+}
+.btn__play{
+	@include animation(playBtn 2s infinite);
+}

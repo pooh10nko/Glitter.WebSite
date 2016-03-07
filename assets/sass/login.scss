@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+
+
+//////////////////////////////////////////////////
+// Setting : 共通設定 変数定義
+//////////////////////////////////////////////////
+
+@import "setting/setting";
+
+
+html{
+	background: url('/assets/img/footer/footer_bg.png') repeat-y;
+	background-size: 100% auto;
+}
+body{
+	background: rgba(#fff,.5);
+}
+
+
+.login{
+	h1{
+		a{
+			background: url('/assets/img/logo_brown_l.png');
+			width: 180px;
+			height: 144px;
+			margin-bottom: 0;
+		}
+	}
+}
+
+
+.wp-core-ui{
+	.button-primary,.button-primary:hover{
+		background: $color_brown;
+		box-shadow: none;
+		border: none;
+		text-shadow: none;
+	}
+}
+
+.button-primary:hover{
+	opacity: 0.8;
+}

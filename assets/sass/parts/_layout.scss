@@ -21,7 +21,7 @@ html{
 body{
 	font-size: $font_size-base;
 	@include font-family();
-	line-height: 1.7;
+	line-height: $lineheight-base;
 	word-wrap : break-word;
 	word-break: break-all;
 	overflow-wrap : break-word;
@@ -51,6 +51,9 @@ a{
 .sp{
 	display: none;
 }
+.tb{
+	display: none;
+}
 .pc{
 	display: inline-block;
 }
@@ -74,6 +77,14 @@ a{
 .col_Cell{
 	display: table-cell;
 	vertical-align: top;
+}
+
+////////////////////////////
+// Margin
+////////////////////////////
+
+.mt20{
+	margin-top: 20px;
 }
 
 ////////////////////////////
@@ -132,7 +143,7 @@ a{
 
 .visual{	
 	position: relative;
-	min-height: 240px;
+	min-height: 180px;
 	display: table;
 	width: 100%;
 	.visual_inner{
@@ -177,24 +188,27 @@ a{
 	}
 	&:not(.slider){
 		& > div.item{
-			width: 25%;
+			width: 33.33%;
 			float: left;
 			margin-bottom: 40px;
 			padding: 0 10px;
 		}
 	}
+	.item{
+		a{
+			width: 100%;
+		}
+	}
 	.img{
-		display: table-cell;
-		vertical-align: middle;
-		background: rgba($color_brown,0.2);
 		img{
 			margin: 0 auto;
-			width: 100%;
+			max-width: 100%;
 			height: auto;
+			max-height: 230px;
 		}
 	}
 	.label{
-		margin-bottom: 15px;
+		margin-bottom: 10px;
 		margin-top: 10px;
 		letter-spacing: -0.4em;
 		span{
@@ -296,7 +310,6 @@ a{
 			background: $color_gray-bg;
 		}
 		.label{
-			margin-bottom: 15px;
 			span{
 				margin-bottom: 0;
 			}
@@ -305,6 +318,22 @@ a{
 			font-size: 22px;
 			margin-bottom: 15px;
 			line-height: 1.4;
+		}
+		
+		.shopinfo{
+			text-align: center;
+			border: 4px solid $color_gray-border;
+			background: $color_white;
+			padding: 25px 10px;
+			margin-top: 40px;
+			.text_read{
+				text-decoration: none;
+				padding-top: 0;
+				padding-bottom: 0 !important;
+			}
+			.btn_area{
+				padding-top: 15px;
+			}
 		}
 		.pager_area{
 			padding-bottom: 0;
@@ -332,7 +361,7 @@ a{
 			margin: 0 auto;
 			font-size: 16px;
 			@include font-family($type:Futura-Light,$space:4);
-			padding: 25px 0;
+			padding: 18px 0 25px;
 			background: url('/assets/img/frame_mid_s.png') repeat-y 50% 0;
 			background-size: 100% auto;
 			margin-bottom: 30px;
@@ -356,7 +385,50 @@ a{
 				width: 100%;
 				float: none;
 				padding: 0;
+				margin-bottom: 20px;
 			}
+		}
+	}
+}
+
+////////////////////////////
+// Frame
+////////////////////////////
+.frame_bg{
+	max-width: 1136px;
+	line-height: 1;
+	margin: 60px auto;
+	padding: 0;
+	background: url('/assets/img/frame_mid.png') repeat-y 50% 0;
+	background-size: 100% auto;
+	@media screen and (max-width: 1136px + $padding*2){
+		margin-left: $padding;
+		margin-right: $padding;
+	}
+	img{
+		&.frame{
+			width: 100%;
+			height: auto;
+		}
+	}
+	.inner{
+		padding: 60px $padding;
+		line-height: $lineheight-base;
+	}
+	.col_R{
+		width: 50%;
+		padding-left: 15px;
+	}
+	.col_L{
+		width: 50%;
+		padding-right: 15px;
+	}
+	&.frame_bg_M{
+		background: url('/assets/img/frame_mid_m.png') repeat-y 50% 0;
+		background-size: 100% auto;
+		.inner{
+			padding-top: 15px;
+			padding-bottom: 15px;
 		}
 	}
 }
@@ -405,21 +477,6 @@ a{
 	}
 }
 
-@media screen and (max-width: $width-tb){
-.tab{
-	nav.tab_header{
-		.nav_area{
-			font-size: 14px;
-			line-height: 60px;
-			padding: 0 15px;
-		}
-	}
-}
-}
-
-
-@media screen and (max-width: $width-tb){
-}
 ////////////////////////////
 // accordion
 ////////////////////////////
@@ -434,20 +491,37 @@ a{
 		visibility: hidden;
 	}
 	dt,dd{
-		padding: 0 72px;
+		padding: 0 72px 0 0;
+		.accordion_inner{
+			display: table;
+			width: 100%;
+		}
 		.line{
+			display: table-cell;
+			vertical-align: top;
 			border-left: 1px solid $color_gray;
 			border-right: 1px solid $color_gray;
 			padding: 25px 30px;
-			display: block;
+		}
+		.icon{
+			display: table-cell;
+			vertical-align: top;
+			width: 72px;
+			line-height: 72px;
+			font-size: 24px;
+			text-align: center;
+			@include font-family($type:Futura-Light);
 		}
 	}
 	dt{
 		color: $color_white;
 		font-weight: bold;
 		position: relative;
-		background: url('/assets/img/faq/faq_text_q.png') no-repeat 26px 26px $color_brown;
+		background: $color_brown;
 		@include arrow($color:$color_gray,$direction:bottom);
+		.icon{
+			color: $color_white;
+		}
 		&:before{
 			left: inherit !important;
 			right: 30px !important;
@@ -457,8 +531,11 @@ a{
 		}
 	}
 	dd{
-		background: url('/assets/img/faq/faq_text_a.png') no-repeat 26px 26px $color_white;
+		background: $color_white;
 		padding-right: 0 !important;
+		.icon{
+			color: $color_brown;
+		}
 		.line{
 			border-right: 0 !important;
 		}
@@ -522,6 +599,18 @@ a{
 @media screen and (max-width: $width_tb){
 
 ////////////////////////////
+// tag
+////////////////////////////
+.pc{
+	display: none;
+}
+.tb{
+	display: inline-block;
+}
+.sp{
+	display: none;
+}
+////////////////////////////
 // Page
 ////////////////////////////
 
@@ -534,6 +623,19 @@ a{
 .showNavi{
 	.page{
 		transform: translateX(-250px);
+	}
+}
+
+////////////////////////////
+// Tab
+////////////////////////////
+.tab{
+	nav.tab_header{
+		.nav_area{
+			font-size: 14px;
+			line-height: 60px;
+			padding: 0 15px;
+		}
 	}
 }
 
@@ -558,6 +660,7 @@ a{
 ////////////////////////////
 body{
 	min-width: $width_min;
+	padding-bottom: 60px;
 }
 a{
 	&.tel{
@@ -570,12 +673,12 @@ a{
 .sp{
 	display: inline-block;
 }
+.tb{
+	display: inline-block;
+}
 .pc{
 	display: none;
 }
-
-
-
 
 
 ////////////////////////////
@@ -584,12 +687,14 @@ a{
 .col_L{
 	float: none;
 	width: 100% !important;
+	max-width: 100% !important;
 	padding-left: 0 !important;
 	padding-right: 0 !important;
 }
 .col_R{
 	float: none;
 	width: 100% !important;
+	max-width: 100% !important;
 	padding-left: 0 !important;
 	padding-right: 0 !important;
 }
@@ -617,6 +722,13 @@ a{
 .inner{
 }
 
+.container{
+	.section{
+		&:first-child{
+			padding-top: 20px;
+		}
+	}
+}
 
 
 
@@ -625,7 +737,7 @@ a{
 ////////////////////////////
 
 .visual{	
-	min-height: 180px;
+	min-height: 120px;
 	.visual_inner{
 		h1{
 			font-size: 32px;
@@ -644,6 +756,7 @@ a{
 		& > div.item{
 			width: 50%;
 			margin-bottom: 20px;
+			padding: 0 5px;
 		}
 	}
 	.img{
@@ -652,11 +765,10 @@ a{
 	.label{
 		margin-bottom: 0;
 		span{
-			font-size: 12px;
-			line-height: 26px;
-			margin-left: 0;
-			padding-left: 12px;
-			padding-right: 12px;
+			font-size: 8px;
+			line-height: 24px;
+			padding-left: 10px;
+			padding-right: 10px;
 		}
 	}
 	//現在地カレント
@@ -677,7 +789,11 @@ a{
 		margin-left: 0;
 		margin-right: 0;
 		.inner{
-			padding: 20px;
+			padding: 20px 15px;
+		}
+		.label{
+			margin-top: 15px;
+			margin-bottom: 10px;
 		}
 		.pager_area{
 			padding-bottom: 0;
@@ -688,6 +804,9 @@ a{
 					border-right: 1px solid $color_gray-border;
 				}
 			}
+		}
+		.shopinfo{
+			margin-top: 20px;
 		}
 	}
 	.detail_side{
@@ -703,7 +822,20 @@ a{
 	}
 }
 
-
+////////////////////////////
+// Frame
+////////////////////////////
+.frame_bg{
+	margin-top: 0;
+	margin-bottom: 60px;
+	.inner{
+		padding: 30px 15px;
+	}
+	&.frame_bg_M{
+		background: url('/assets/img/frame_mid.png') repeat-y 50% 0;
+		background-size: 100% auto;
+	}
+}
 
 
 ////////////////////////////
@@ -743,18 +875,21 @@ a{
 .accordion{
 	margin-bottom: 10px;
 	dt,dd{
-		padding: 0 50px;
+		padding-right: 48px;
 		.line{
 			border-left: 1px solid $color_gray;
 			border-right: 1px solid $color_gray;
-			padding: 15px 20px;
+			padding: 15px;
 			display: block;
+		}
+		.icon{
+			width: 48px;
+			font-size: 18px;
+			line-height: 52px;
 		}
 	}
 	dt{
 		color: $color_white;
-		background-position: 15px 18px;
-		background-size: 15px auto;
 		@include arrow($color:$color_gray,$direction:bottom,$size:8px);
 		&:before{
 			left: inherit;
@@ -763,10 +898,6 @@ a{
 		&.active{
 			@include arrow($color:$color_gray,$direction:top,$size:8px);
 		}
-	}
-	dd{
-		background-position: 15px 18px;
-		background-size: 15px auto;
 	}
 }
 
@@ -778,10 +909,10 @@ a{
 	float: none;
 	dl{
 		dt,dd{
-			padding: 15px;
+			padding: 15px 10px;
 		}
 		dt{
-			width: 92px;
+			width: 82px;
 			font-size: 12px;
 		}
 		dd{

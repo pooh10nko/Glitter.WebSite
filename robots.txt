@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /photo/
+Disallow: /bridal/
+Disallow: /concept/
+Allow: /wp-content/plugins
+Disallow: /wp-content/cache
+Allow: /wp-content/themes
+Allow: /wp-content/uploads
+Allow: /wp-includes/js/
+Sitemap: http://nail-glitter.net/sitemap.xml
+

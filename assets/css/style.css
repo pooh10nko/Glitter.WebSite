@@ -72,8 +72,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   src: url("/assets/font/Futura-Std-Light.ttf");
 }
 @font-face {
-  font-family: 'SourceHanSans';
-  src: url("/assets/font/SourceHanSans-ExtraLight.otf");
+  font-family: 'NotoSans';
+  src: url("/assets/font/NotoSans-ExtraLight.otf");
 }
 /* ----------------------------------------------------------------------------------
 
@@ -92,7 +92,7 @@ html {
 
 body {
   font-size: 13px;
-  font-family: YuGothic, "游ゴシック", "Noto Sans Japanese", "SourceHanSans", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
+  font-family: YuGothic, "游ゴシック", "Noto Sans Japanese", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
   line-height: 1.7;
   word-wrap: break-word;
   word-break: break-all;
@@ -125,6 +125,10 @@ a.tel {
   display: none;
 }
 
+.tb {
+  display: none;
+}
+
 .pc {
   display: inline-block;
 }
@@ -147,6 +151,10 @@ a.tel {
   vertical-align: top;
 }
 
+.mt20 {
+  margin-top: 20px;
+}
+
 .page {
   padding-top: 80px;
   background: #fff;
@@ -163,7 +171,7 @@ a.tel {
 }
 
 .inner {
-  max-width: 1000px;
+  max-width: 1064px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -181,7 +189,7 @@ a.tel {
 
 .visual {
   position: relative;
-  min-height: 240px;
+  min-height: 180px;
   display: table;
   width: 100%;
 }
@@ -191,6 +199,7 @@ a.tel {
 }
 .visual .visual_inner h1 {
   font-family: "Futura-Light", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
+  font-weight: 300;
   letter-spacing: 10px;
   font-size: 40px;
   color: #fff;
@@ -219,23 +228,22 @@ a.tel {
   visibility: hidden;
 }
 .post_area:not(.slider) > div.item {
-  width: 25%;
+  width: 33.33%;
   float: left;
   margin-bottom: 40px;
   padding: 0 10px;
 }
-.post_area .img {
-  display: table-cell;
-  vertical-align: middle;
-  background: rgba(151, 136, 124, 0.2);
+.post_area .item a {
+  width: 100%;
 }
 .post_area .img img {
   margin: 0 auto;
-  width: 100%;
+  max-width: 100%;
   height: auto;
+  max-height: 230px;
 }
 .post_area .label {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   margin-top: 10px;
   letter-spacing: -0.4em;
 }
@@ -308,6 +316,7 @@ a.tel {
   color: #59493f;
   font-family: "Futura", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
   letter-spacing: 6px;
+  font-weight: 400;
   font-size: 16px;
   background: #f4f3f2;
   line-height: 80px;
@@ -329,9 +338,6 @@ a.tel {
   padding: 40px;
   background: #f4f3f2;
 }
-.detail_area .detail_main .label {
-  margin-bottom: 15px;
-}
 .detail_area .detail_main .label span {
   margin-bottom: 0;
 }
@@ -339,6 +345,21 @@ a.tel {
   font-size: 22px;
   margin-bottom: 15px;
   line-height: 1.4;
+}
+.detail_area .detail_main .shopinfo {
+  text-align: center;
+  border: 4px solid #c5c0bc;
+  background: #fff;
+  padding: 25px 10px;
+  margin-top: 40px;
+}
+.detail_area .detail_main .shopinfo .text_read {
+  text-decoration: none;
+  padding-top: 0;
+  padding-bottom: 0 !important;
+}
+.detail_area .detail_main .shopinfo .btn_area {
+  padding-top: 15px;
 }
 .detail_area .detail_main .pager_area {
   padding-bottom: 0;
@@ -366,8 +387,9 @@ a.tel {
   margin: 0 auto;
   font-size: 16px;
   font-family: "Futura-Light", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
+  font-weight: 300;
   letter-spacing: 4px;
-  padding: 25px 0;
+  padding: 18px 0 25px;
   background: url("/assets/img/frame_mid_s.png") repeat-y 50% 0;
   background-size: 100% auto;
   margin-bottom: 30px;
@@ -392,6 +414,46 @@ a.tel {
   width: 100%;
   float: none;
   padding: 0;
+  margin-bottom: 20px;
+}
+
+.frame_bg {
+  max-width: 1136px;
+  line-height: 1;
+  margin: 60px auto;
+  padding: 0;
+  background: url("/assets/img/frame_mid.png") repeat-y 50% 0;
+  background-size: 100% auto;
+}
+@media screen and (max-width: 1176px) {
+  .frame_bg {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+.frame_bg img.frame {
+  width: 100%;
+  height: auto;
+}
+.frame_bg .inner {
+  padding: 60px 20px;
+  line-height: 1.7;
+}
+.frame_bg .col_R {
+  width: 50%;
+  padding-left: 15px;
+}
+.frame_bg .col_L {
+  width: 50%;
+  padding-right: 15px;
+}
+.frame_bg.frame_bg_M {
+  background: url("/assets/img/frame_mid_m.png") repeat-y 50% 0;
+  background-size: 100% auto;
+}
+.frame_bg.frame_bg_M .inner {
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .tab nav.tab_header {
@@ -433,13 +495,6 @@ a.tel {
   box-sizing: content-box;
 }
 
-@media screen and (max-width: 768px) {
-  .tab nav.tab_header .nav_area {
-    font-size: 14px;
-    line-height: 60px;
-    padding: 0 15px;
-  }
-}
 .accordion {
   margin-bottom: 20px;
   text-align: left;
@@ -452,19 +507,35 @@ a.tel {
   visibility: hidden;
 }
 .accordion dt, .accordion dd {
-  padding: 0 72px;
+  padding: 0 72px 0 0;
+}
+.accordion dt .accordion_inner, .accordion dd .accordion_inner {
+  display: table;
+  width: 100%;
 }
 .accordion dt .line, .accordion dd .line {
+  display: table-cell;
+  vertical-align: top;
   border-left: 1px solid #e6e4e2;
   border-right: 1px solid #e6e4e2;
   padding: 25px 30px;
-  display: block;
+}
+.accordion dt .icon, .accordion dd .icon {
+  display: table-cell;
+  vertical-align: top;
+  width: 72px;
+  line-height: 72px;
+  font-size: 24px;
+  text-align: center;
+  font-family: "Futura-Light", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
+  font-weight: 300;
+  letter-spacing: 4px;
 }
 .accordion dt {
   color: #fff;
   font-weight: bold;
   position: relative;
-  background: url("/assets/img/faq/faq_text_q.png") no-repeat 26px 26px #97887c;
+  background: #97887c;
   position: relative;
 }
 .accordion dt:before {
@@ -486,6 +557,9 @@ a.tel {
   -webkit-transform: rotate(-225deg);
       -ms-transform: rotate(-225deg);
           transform: rotate(-225deg);
+}
+.accordion dt .icon {
+  color: #fff;
 }
 .accordion dt:before {
   left: inherit !important;
@@ -515,8 +589,11 @@ a.tel {
           transform: rotate(-45deg);
 }
 .accordion dd {
-  background: url("/assets/img/faq/faq_text_a.png") no-repeat 26px 26px #fff;
+  background: #fff;
   padding-right: 0 !important;
+}
+.accordion dd .icon {
+  color: #97887c;
 }
 .accordion dd .line {
   border-right: 0 !important;
@@ -570,6 +647,18 @@ a.tel {
 }
 
 @media screen and (max-width: 768px) {
+  .pc {
+    display: none;
+  }
+
+  .tb {
+    display: inline-block;
+  }
+
+  .sp {
+    display: none;
+  }
+
   .page {
     -webkit-transition: 0.4s;
             transition: 0.4s;
@@ -584,6 +673,12 @@ a.tel {
             transform: translateX(-250px);
   }
 
+  .tab nav.tab_header .nav_area {
+    font-size: 14px;
+    line-height: 60px;
+    padding: 0 15px;
+  }
+
   .post_area {
     padding-bottom: 0;
   }
@@ -594,6 +689,7 @@ a.tel {
 @media screen and (max-width: 640px) {
   body {
     min-width: 320px;
+    padding-bottom: 60px;
   }
 
   a.tel {
@@ -605,6 +701,10 @@ a.tel {
     display: inline-block;
   }
 
+  .tb {
+    display: inline-block;
+  }
+
   .pc {
     display: none;
   }
@@ -612,6 +712,7 @@ a.tel {
   .col_L {
     float: none;
     width: 100% !important;
+    max-width: 100% !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
@@ -619,6 +720,7 @@ a.tel {
   .col_R {
     float: none;
     width: 100% !important;
+    max-width: 100% !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
@@ -636,8 +738,12 @@ a.tel {
     padding-top: 70px;
   }
 
+  .container .section:first-child {
+    padding-top: 20px;
+  }
+
   .visual {
-    min-height: 180px;
+    min-height: 120px;
   }
   .visual .visual_inner h1 {
     font-size: 32px;
@@ -649,6 +755,7 @@ a.tel {
   .post_area:not(.slider) > div.item {
     width: 50%;
     margin-bottom: 20px;
+    padding: 0 5px;
   }
   .post_area .img {
     margin-bottom: 10px;
@@ -657,11 +764,10 @@ a.tel {
     margin-bottom: 0;
   }
   .post_area .label span {
-    font-size: 12px;
-    line-height: 26px;
-    margin-left: 0;
-    padding-left: 12px;
-    padding-right: 12px;
+    font-size: 8px;
+    line-height: 24px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   .post_area .slick-dots {
     padding-top: 20px;
@@ -677,7 +783,11 @@ a.tel {
     margin-right: 0;
   }
   .detail_area .detail_main .inner {
-    padding: 20px;
+    padding: 20px 15px;
+  }
+  .detail_area .detail_main .label {
+    margin-top: 15px;
+    margin-bottom: 10px;
   }
   .detail_area .detail_main .pager_area {
     padding-bottom: 0;
@@ -689,6 +799,9 @@ a.tel {
   .detail_area .detail_main .pager_area .pager_btn.prev {
     border-right: 1px solid #c5c0bc;
   }
+  .detail_area .detail_main .shopinfo {
+    margin-top: 20px;
+  }
   .detail_area .detail_side {
     padding-top: 30px;
     padding-left: 0;
@@ -697,6 +810,18 @@ a.tel {
     width: 50%;
     float: left;
     padding: 0 10px;
+  }
+
+  .frame_bg {
+    margin-top: 0;
+    margin-bottom: 60px;
+  }
+  .frame_bg .inner {
+    padding: 30px 15px;
+  }
+  .frame_bg.frame_bg_M {
+    background: url("/assets/img/frame_mid.png") repeat-y 50% 0;
+    background-size: 100% auto;
   }
 
   .tab nav.tab_header {
@@ -769,18 +894,21 @@ a.tel {
     margin-bottom: 10px;
   }
   .accordion dt, .accordion dd {
-    padding: 0 50px;
+    padding-right: 48px;
   }
   .accordion dt .line, .accordion dd .line {
     border-left: 1px solid #e6e4e2;
     border-right: 1px solid #e6e4e2;
-    padding: 15px 20px;
+    padding: 15px;
     display: block;
+  }
+  .accordion dt .icon, .accordion dd .icon {
+    width: 48px;
+    font-size: 18px;
+    line-height: 52px;
   }
   .accordion dt {
     color: #fff;
-    background-position: 15px 18px;
-    background-size: 15px auto;
     position: relative;
   }
   .accordion dt:before {
@@ -830,20 +958,16 @@ a.tel {
         -ms-transform: rotate(-45deg);
             transform: rotate(-45deg);
   }
-  .accordion dd {
-    background-position: 15px 18px;
-    background-size: 15px auto;
-  }
 
   .data_table {
     width: 100%;
     float: none;
   }
   .data_table dl dt, .data_table dl dd {
-    padding: 15px;
+    padding: 15px 10px;
   }
   .data_table dl dt {
-    width: 92px;
+    width: 82px;
     font-size: 12px;
   }
 
@@ -905,6 +1029,7 @@ Module :パーツ _parts.scss
   margin-left: 0;
   margin-right: 0;
   margin-bottom: 0;
+  max-width: inherit;
 }
 .pager_area .pager_btn .btn.square {
   line-height: 80px;
@@ -927,7 +1052,7 @@ Module :パーツ _parts.scss
 }
 
 .btn {
-  font-family: YuGothic, "游ゴシック", "Noto Sans Japanese", "SourceHanSans", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
+  font-family: YuGothic, "游ゴシック", "Noto Sans Japanese", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
   width: 100%;
   max-width: 360px;
   display: inline-block;
@@ -935,7 +1060,7 @@ Module :パーツ _parts.scss
   border-radius: 40px;
   color: #59493f;
   font-size: 17px;
-  margin: 0 15px 10px;
+  margin: 0 10px 10px;
   outline: 0;
   border: none;
   position: relative;
@@ -991,6 +1116,7 @@ Module :パーツ _parts.scss
   background: #e6e4e2;
   font-family: "Futura", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
   letter-spacing: 3px;
+  font-weight: 400;
 }
 .btn.gray_light {
   background: #ebe9e8;
@@ -1001,6 +1127,14 @@ Module :パーツ _parts.scss
   max-width: inherit;
 }
 .btn.facebook:before {
+  content: none;
+}
+.btn.instagram {
+  background: #dad6d3;
+  width: 80px;
+  max-width: inherit;
+}
+.btn.instagram:before {
   content: none;
 }
 .btn.tel {
@@ -1026,19 +1160,28 @@ Module :パーツ _parts.scss
 .btn.short {
   max-width: 200px;
 }
+.btn.long {
+  max-width: 440px;
+}
 .btn.small {
   max-width: 232px;
   line-height: 48px;
-  font-size: 13px;
+  font-size: 14px;
 }
 .btn.square {
   border-radius: 0;
 }
+.btn.en {
+  font-family: "futura-pt",sans-serif;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
 
 h1.base {
-  font-family: "Futura-Light", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
-  letter-spacing: 6px;
-  font-size: 24px;
+  font-family: "Futura", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
+  letter-spacing: 8px;
+  font-weight: 400;
+  font-size: 26px;
   padding: 0 0 25px;
   color: #97887c;
 }
@@ -1096,9 +1239,8 @@ h1.large {
     max-width: 160px;
   }
   .btn.tel {
-    padding: 12px 0;
-    background-position: 50px 50%;
-    background-size: 25px auto;
+    background-position: 30px 50%;
+    background-size: 22px auto;
   }
   .btn.tel:before {
     content: none;
@@ -1108,8 +1250,17 @@ h1.large {
         -ms-transform: scale(0.8);
             transform: scale(0.8);
   }
+  .btn.instagram {
+    -webkit-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  .btn.row2 {
+    padding: 13px 0;
+  }
   .btn.row2 small {
     margin-bottom: 2px;
+    letter-spacing: 1px;
     font-size: 11px;
   }
 
@@ -1137,9 +1288,6 @@ h1.large {
     background: #eeeceb;
   }
 
-  h1.base {
-    font-weight: bold;
-  }
   h1.large {
     font-size: 28px;
   }
@@ -1166,7 +1314,7 @@ Parts : Header _header.scss
   -webkit-transition: 0.4s;
           transition: 0.4s;
   position: fixed;
-  right: -56px;
+  right: -64px;
   top: 16px;
   padding-top: 0;
   width: 232px;
@@ -1176,6 +1324,10 @@ Parts : Header _header.scss
   padding-left: 65px;
   text-align: left;
   margin: 0;
+  letter-spacing: 1px;
+}
+.header_area .btn_area:hover {
+  right: -64px;
 }
 .header_area .header {
   display: table;
@@ -1191,9 +1343,52 @@ Parts : Header _header.scss
   display: none;
 }
 
+.popup_reserve {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+.popup_reserve .popup_reserve_inner {
+  position: fixed;
+  right: 20px;
+  top: 92px;
+  background: #fff;
+  border: 4px solid #97887c;
+  padding: 20px;
+  width: 435px;
+}
+.popup_reserve .popup_reserve_inner:after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-left: 4px solid #97887c;
+  border-top: 4px solid #97887c;
+  background: #fff;
+  position: absolute;
+  right: 42px;
+  top: -15px;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.popup_reserve .title {
+  font-size: 24px;
+  color: #97887c;
+}
+.popup_reserve .btn_area {
+  padding-top: 20px;
+}
+.popup_reserve .btn_area .btn {
+  margin-bottom: 20px;
+}
+
 @media screen and (max-width: 1024px) {
   .header_area .btn_area {
-    right: -169px;
+    right: -170px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -1202,7 +1397,32 @@ Parts : Header _header.scss
     top: 11px;
   }
   .header_area .btn_area {
-    display: none;
+    position: fixed;
+    top: inherit;
+    right: inherit;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    line-height: 60px;
+    background: #97887c;
+    color: #fff;
+    letter-spacing: 2px;
+    z-index: 500;
+  }
+  .header_area .btn_area .btn {
+    padding-left: 0;
+    border-radius: 0;
+    line-height: inherit;
+    max-width: inherit;
+    text-align: center;
+  }
+  .header_area .btn_area .btn span {
+    padding-right: 20px;
+    background: url("/assets/img/icon/icon_link.png") no-repeat 100% 50%;
+    background-size: 12px auto;
+  }
+  .header_area .btn_area .btn:before {
+    content: none;
   }
   .header_area .header {
     -webkit-transition: 0.4s;
@@ -1249,6 +1469,43 @@ Parts : Header _header.scss
         -ms-transform: translateX(-250px);
             transform: translateX(-250px);
   }
+  .showNavi .header_area .btn_area {
+    -webkit-transform: translateX(-250px);
+        -ms-transform: translateX(-250px);
+            transform: translateX(-250px);
+  }
+
+  .popup_reserve {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .popup_reserve {
+    z-index: 500;
+    background: rgba(255, 255, 255, 0.8);
+  }
+  .popup_reserve .popup_reserve_inner {
+    position: absolute;
+    width: 300px;
+    height: 280px;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  .popup_reserve .popup_reserve_inner:after {
+    content: none;
+  }
+  .popup_reserve .title {
+    font-size: 20px;
+  }
+  .popup_reserve .btn_area {
+    padding-top: 10px;
+  }
+  .popup_reserve .btn_area .btn {
+    margin-bottom: 10px;
+  }
 }
 /* ----------------------------------------------------------------------------------
 
@@ -1259,6 +1516,7 @@ Parts : Navi _navi.scss
   position: fixed;
   font-family: "Futura", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
   letter-spacing: 4px;
+  font-weight: 400;
   font-size: 16px;
 }
 
@@ -1376,6 +1634,7 @@ Parts : Navi _navi.scss
     padding: 0;
     font-family: "Futura", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
     letter-spacing: 4px;
+    font-weight: 400;
   }
   .navi ul {
     position: static;
@@ -1524,44 +1783,49 @@ Parts : Footer _footer.scss
 }
 .footer h1.bold {
   padding-bottom: 10px;
+  letter-spacing: 1px;
 }
-.footer .shop {
-  padding-bottom: 10px;
+.footer .shop_area {
+  overflow: hidden;
+}
+.footer .shop_area .shop_info.frame_bg {
+  max-width: 49%;
+  margin: 30px auto;
+}
+@media screen and (max-width: 1176px) {
+  .footer .shop_area .shop_info.frame_bg {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+.footer .shop_area .shop_info .inner {
   line-height: 2;
+  box-sizing: content-box;
+  padding-top: 35px;
+  padding-bottom: 35px;
 }
-.footer .shop h2 {
-  font-weight: bold;
+.footer .shop_area .shop_info h2 {
+  font-size: 16px;
+}
+.footer .shop_area .shop_info .text a {
+  display: inline;
 }
 .footer .copyright {
   padding: 40px 0 0;
-}
-
-.footer_fix {
-  display: none;
+  font-family: "Futura", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
+  letter-spacing: 0px;
+  font-weight: 400;
+  font-size: 10px;
 }
 
 @media screen and (max-width: 640px) {
   .footer {
     padding: 20px 0;
   }
-  .footer .shop a.map {
-    text-decoration: underline;
-  }
-
-  .footer_fix {
-    display: block;
-  }
-  .footer_fix .btn {
-    -webkit-transition: 0.6s 2s;
-            transition: 0.6s 2s;
-    position: fixed;
-    right: -200px;
-    bottom: 10px;
-    width: 200px;
-    border: 1px solid #fff;
-  }
-  .footer_fix.active .btn {
-    right: -36px;
+  .footer h1.bold {
+    font-size: 14px;
+    padding-bottom: 10px;
+    letter-spacing: 0;
   }
 }
 /* ----------------------------------------------------------------------------------
@@ -1582,6 +1846,7 @@ Page : TopPage _index.scss
 #indexPage .visual .visual_inner {
   display: block;
   font-family: "Futura-Light", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
+  font-weight: 300;
   letter-spacing: 4px;
   width: 100%;
   font-size: 32px;
@@ -1597,30 +1862,6 @@ Page : TopPage _index.scss
   display: block;
   padding: 35px 0 0;
   letter-spacing: 5px;
-}
-#indexPage .access {
-  max-width: 1136px;
-  margin: 60px auto;
-  padding: 0;
-  background: url("/assets/img/frame_mid.png") repeat-y 50% 0;
-  background-size: 100% auto;
-}
-@media screen and (max-width: 1176px) {
-  #indexPage .access {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-}
-#indexPage .access .inner {
-  padding: 60px 20px;
-}
-#indexPage .access .col_R {
-  width: 50%;
-  padding-left: 15px;
-}
-#indexPage .access .col_L {
-  width: 50%;
-  padding-right: 15px;
 }
 #indexPage .access h1.base {
   padding-bottom: 0;
@@ -1638,6 +1879,12 @@ Page : TopPage _index.scss
 #indexPage .access h1.base span.jp {
   font-size: 14px;
   letter-spacing: 3px;
+}
+#indexPage .access figure {
+  text-align: center;
+}
+#indexPage .access figure img {
+  display: inline-block;
 }
 #indexPage .faq {
   padding: 0;
@@ -1679,6 +1926,31 @@ Page : TopPage _index.scss
     background-size: cover;
   }
 }
+@media screen and (max-width: 768px) {
+  #indexPage .col_L {
+    float: none;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  #indexPage .col_R {
+    float: none;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  #indexPage .access .btn_area {
+    padding-top: 20px;
+    padding-bottom: 30px;
+  }
+  #indexPage .access .btn_area .btn {
+    margin-right: 5px;
+    margin-left: 5px;
+    max-width: 230px;
+  }
+}
 @media screen and (max-width: 640px) {
   #indexPage .visual {
     background: none;
@@ -1694,22 +1966,8 @@ Page : TopPage _index.scss
   #indexPage .visual .visual_inner img {
     width: 100%;
   }
-  #indexPage .access {
-    margin-top: 0;
-    margin-bottom: 60px;
-  }
-  #indexPage .access .inner {
-    padding-top: 30px;
-    padding-bottom: 30px;
-  }
-  #indexPage .access .btn_area {
-    padding-top: 20px;
-    padding-bottom: 30px;
-  }
-  #indexPage .access .btn_area .btn {
-    margin-right: 5px;
-    margin-left: 5px;
-    max-width: 230px;
+  #indexPage .recruit .img img {
+    width: 200px;
   }
 }
 
@@ -1752,16 +2010,15 @@ Page : GalleryPage _gallery.scss
   font-family: "Noto Sans Japanese", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
   letter-spacing: 4px;
 }
-#galleryPage .search .search_category a .icon_close,
-#galleryPage .search .search_customer a .icon_close {
-  display: none;
+#galleryPage .search .search_category a.active,
+#galleryPage .search .search_customer a.active {
+  background: #e6e4e2;
+  color: #59493f;
 }
-#galleryPage .search .search_category a:not(.active),
-#galleryPage .search .search_customer a:not(.active) {
+#galleryPage .search .search_customer a {
   position: relative;
 }
-#galleryPage .search .search_category a:not(.active):before,
-#galleryPage .search .search_customer a:not(.active):before {
+#galleryPage .search .search_customer a:before {
   position: absolute;
   left: 30px;
   top: 50%;
@@ -1776,34 +2033,62 @@ Page : GalleryPage _gallery.scss
   -webkit-transition: 0.4s;
           transition: 0.4s;
 }
-#galleryPage .search .search_category a:not(.active):before,
-#galleryPage .search .search_customer a:not(.active):before {
+#galleryPage .search .search_customer a:before {
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
-#galleryPage .search .search_category a:not(.active):before,
-#galleryPage .search .search_customer a:not(.active):before {
+#galleryPage .search .search_customer a:before {
   position: relative !important;
   top: 0;
   left: -20px !important;
 }
-#galleryPage .search .search_category a.active,
-#galleryPage .search .search_customer a.active {
-  background: #e6e4e2;
-  color: #59493f;
+#galleryPage .search .search_category a {
+  border-right: 1px solid #fff;
 }
-#galleryPage .search .search_category a.active .icon_close,
-#galleryPage .search .search_customer a.active .icon_close {
+#galleryPage .search .search_category a .icon_area {
   position: relative;
-  top: -9px;
-  left: -17px;
-  width: 10px;
-  height: 10px;
+  left: -15px;
+  top: 2px;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+#galleryPage .search .search_category a .icon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  -webkit-transition: 0.2s;
+          transition: 0.2s;
   display: inline-block;
 }
-#galleryPage .search .search_category a.active .icon_close span.line,
-#galleryPage .search .search_customer a.active .icon_close span.line {
+#galleryPage .search .search_category a .icon.icon_serch {
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+#galleryPage .search .search_category a .icon.icon_close {
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  width: 10px;
+  height: 10px;
+  margin-top: -5px;
+}
+#galleryPage .search .search_category a.active .icon.icon_serch {
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+}
+#galleryPage .search .search_category a.active .icon.icon_close {
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+#galleryPage .search .search_category a.active .icon.icon_close span.line {
   display: inline-block;
   background: #59493f;
   position: absolute;
@@ -1813,27 +2098,15 @@ Page : GalleryPage _gallery.scss
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
-#galleryPage .search .search_category a.active .icon_close span.line:nth-child(1),
-#galleryPage .search .search_customer a.active .icon_close span.line:nth-child(1) {
+#galleryPage .search .search_category a.active .icon.icon_close span.line:nth-child(1) {
   width: 19px;
   height: 1px;
   margin-top: 9px;
 }
-#galleryPage .search .search_category a.active .icon_close span.line:nth-child(2),
-#galleryPage .search .search_customer a.active .icon_close span.line:nth-child(2) {
+#galleryPage .search .search_category a.active .icon.icon_close span.line:nth-child(2) {
   width: 1px;
   height: 19px;
   margin-left: 9px;
-}
-#galleryPage .search .search_category a {
-  border-right: 1px solid #fff;
-}
-#galleryPage .search .search_category a:before {
-  -webkit-transition: 0.2s;
-          transition: 0.2s;
-  -webkit-transform: rotate(135deg);
-      -ms-transform: rotate(135deg);
-          transform: rotate(135deg);
 }
 #galleryPage .search .search_pulldown {
   display: none;
@@ -1856,6 +2129,7 @@ Page : GalleryPage _gallery.scss
   margin-bottom: 15px;
   padding-left: 40px;
   font-family: "Futura-Light", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
+  font-weight: 300;
   letter-spacing: 6px;
 }
 #galleryPage .search .search_pulldown .search_list label {
@@ -1886,12 +2160,15 @@ Page : GalleryPage _gallery.scss
 }
 #galleryPage .search .search_pulldown .search_list.design .title {
   background: url("/assets/img/icon/icon_design.png") no-repeat 0 50%;
+  background-size: 24px auto;
 }
 #galleryPage .search .search_pulldown .search_list.parts .title {
   background: url("/assets/img/icon/icon_parts.png") no-repeat 0 50%;
+  background-size: 24px auto;
 }
 #galleryPage .search .search_pulldown .search_list.order .title {
   background: url("/assets/img/icon/icon_order.png") no-repeat 0 50%;
+  background-size: 24px auto;
 }
 #galleryPage .search .search_pulldown .btn_area {
   padding-top: 40px;
@@ -1903,12 +2180,10 @@ Page : GalleryPage _gallery.scss
     line-height: 55px;
     font-size: 14px;
   }
-  #galleryPage .search .search_category a:not(.active),
-  #galleryPage .search .search_customer a:not(.active) {
+  #galleryPage .search .search_customer a {
     position: relative;
   }
-  #galleryPage .search .search_category a:not(.active):before,
-  #galleryPage .search .search_customer a:not(.active):before {
+  #galleryPage .search .search_customer a:before {
     position: absolute;
     left: 25px;
     top: 50%;
@@ -1923,14 +2198,7 @@ Page : GalleryPage _gallery.scss
     -webkit-transition: 0.4s;
             transition: 0.4s;
   }
-  #galleryPage .search .search_category a:not(.active):before,
-  #galleryPage .search .search_customer a:not(.active):before {
-    -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-            transform: rotate(45deg);
-  }
-  #galleryPage .search .search_category a.active .icon_close span.line,
-  #galleryPage .search .search_customer a.active .icon_close span.line {
+  #galleryPage .search .search_customer a:before {
     -webkit-transform: rotate(45deg);
         -ms-transform: rotate(45deg);
             transform: rotate(45deg);
@@ -1938,6 +2206,11 @@ Page : GalleryPage _gallery.scss
   #galleryPage .search .search_category a {
     border-right: none;
     border-top: 1px solid #fff;
+  }
+  #galleryPage .search .search_category a.active .icon_close span.line {
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
   }
   #galleryPage .search .search_pulldown {
     padding: 30px 0;
@@ -1954,6 +2227,15 @@ Page : GalleryPage _gallery.scss
   }
   #galleryPage .search .search_pulldown .search_list label {
     line-height: 40px;
+  }
+  #galleryPage .search .search_pulldown .search_list.design .title {
+    background-size: 22px auto;
+  }
+  #galleryPage .search .search_pulldown .search_list.parts .title {
+    background-size: 22px auto;
+  }
+  #galleryPage .search .search_pulldown .search_list.order .title {
+    background-size: 22px auto;
   }
   #galleryPage .search .search_pulldown .btn_area {
     padding-top: 0;
@@ -2041,7 +2323,90 @@ Page : accessPage _access.scss
     background-size: cover;
   }
 }
+#accessPage .shop {
+  text-align: left;
+}
+#accessPage .shop h1 {
+  padding-bottom: 20px;
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#accessPage .shop h1 span {
+  display: block;
+}
+#accessPage .shop h1 span.jp {
+  font-size: 32px;
+}
+#accessPage .shop dl {
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10px;
+}
+#accessPage .shop dl dt, #accessPage .shop dl dd {
+  vertical-align: top;
+}
+#accessPage .shop dl dt {
+  width: 90px;
+}
+#accessPage .shop figure {
+  text-align: center;
+}
+#accessPage .shop .btn_area {
+  padding-top: 10px;
+  text-align: center;
+}
+#accessPage .shop .btn_area .btn.tel {
+  max-width: 440px;
+}
+#accessPage #googlemap {
+  width: 100%;
+  height: 440px;
+}
 
+@media screen and (max-width: 768px) {
+  #accessPage .shop {
+    margin-top: 60px;
+    text-align: center;
+  }
+  #accessPage .shop .col_L {
+    float: none;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  #accessPage .shop .col_R {
+    float: none;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  #accessPage .shop h1 {
+    padding-bottom: 10px;
+  }
+  #accessPage .shop h1 span.jp {
+    font-size: 22px;
+    padding-top: 5px;
+  }
+  #accessPage .shop dl {
+    padding-bottom: 15px;
+  }
+  #accessPage .shop .btn_area .btn.short {
+    max-width: 200px;
+  }
+}
+@media screen and (max-width: 640px) {
+  #accessPage #googlemap {
+    width: 100%;
+    height: 0;
+    opacity: 0;
+  }
+}
 /* ----------------------------------------------------------------------------------
 
 Page : menuPage _menu.scss
@@ -2106,6 +2471,7 @@ Page : menuPage _menu.scss
   #menuPage .visual {
     background: url("/assets/img/menu/menu_visual_bg_sp.jpg") no-repeat 50% 50%;
     background-size: cover;
+    margin-bottom: 20px;
   }
 }
 @media screen and (min-width: 640px) {
@@ -2132,6 +2498,7 @@ Page : menuPage _menu.scss
   padding-top: 0;
 }
 #menuPage .standard .text_read.large {
+  line-height: 1.4;
   font-size: 20px;
   padding-bottom: 40px;
 }
@@ -2197,6 +2564,11 @@ Page : menuPage _menu.scss
     line-height: 50px;
     font-weight: bold;
   }
+  #menuPage .standard .menu_table dt,
+  #menuPage .standard .menu_table dd {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
   #menuPage .standard .menu_table dt {
     line-height: 1.4;
     padding-top: 15px;
@@ -2208,6 +2580,10 @@ Page : menuPage _menu.scss
   #menuPage .standard .menu_table dt .text.text_disc {
     font-size: 11px;
     padding-bottom: 3px;
+  }
+  #menuPage .standard .menu_table dd {
+    width: 85px;
+    font-weight: normal;
   }
 }
 /* ----------------------------------------------------------------------------------
@@ -2226,9 +2602,13 @@ Page : recruitPage _recruit.scss
 }
 @media screen and (max-width: 640px) {
   #recruitPage .visual {
+    margin-bottom: 40px;
     background: url("/assets/img/recruit/recruit_visual_bg_sp.jpg") no-repeat 50% 50%;
     background-size: cover;
   }
+}
+#recruitPage .welcome {
+  margin-bottom: 30px;
 }
 @media screen and (min-width: 640px) {
   #recruitPage .welcome {
@@ -2238,19 +2618,16 @@ Page : recruitPage _recruit.scss
 @media screen and (max-width: 640px) {
   #recruitPage .welcome {
     background: url("/assets/img/recruit/recruit_welcome_bg_sp.jpg") no-repeat 50% 0;
+    background-size: cover;
   }
 }
 
 @media screen and (max-width: 640px) {
   #recruitPage .bg_area {
     position: relative;
-    margin-bottom: 120px;
   }
-  #recruitPage .bg_area .img {
-    position: absolute;
-    top: 310px;
-    left: 0;
-    padding: 0 20px;
+  #recruitPage .bg_area.welcome {
+    padding-bottom: 20px;
   }
 }
 /* ----------------------------------------------------------------------------------

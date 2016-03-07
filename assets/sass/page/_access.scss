@@ -1,0 +1,150 @@
+@charset "utf-8";
+
+/* ----------------------------------------------------------------------------------
+
+Page : accessPage _access.scss
+
+----------------------------------------------------------------------------------*/
+#accessPage{
+
+	////////////////////////////
+	// visual
+	////////////////////////////
+
+	.visual{
+		@media screen and (min-width: $width_sp){
+			background: url('/assets/img/access/access_visual_bg_pc.jpg') no-repeat 50% 50%;
+			background-size: cover;
+		}
+		@media screen and (max-width: $width_sp){
+			background: url('/assets/img/access/access_visual_bg_sp.jpg') no-repeat 50% 50%;
+			background-size: cover;
+		}
+	}
+
+	////////////////////////////
+	// shop
+	////////////////////////////
+
+	.shop{
+		text-align: left;
+		h1{
+			padding-bottom: 20px;
+			max-width: 440px;
+			margin-left: auto;
+			margin-right: auto;
+			span{
+				display: block;
+				&.jp{
+					font-size: 32px;
+				}
+			}
+		}
+		dl{
+			max-width: 440px;
+			margin-left: auto;
+			margin-right: auto;
+			padding-bottom: 10px;
+			dt,dd{
+				vertical-align: top;
+			}
+			dt{
+				width: 90px;
+			}
+		}
+		figure{
+			text-align: center;
+		}
+		.btn_area{
+			padding-top: 10px;
+			text-align: center;
+			.btn{
+				&.tel{
+					max-width: 440px;
+				}
+			}
+		}
+	}
+
+	////////////////////////////
+	// googlemap
+	////////////////////////////
+
+	#googlemap{
+		width: 100%;
+		height: 440px;
+	}
+
+	
+}
+
+@media screen and (max-width: $width_tb){
+#accessPage{
+	////////////////////////////
+	// shop
+	////////////////////////////
+
+	.shop{
+		.col_L{
+			float: none;
+			width: 100% !important;
+			max-width: 100% !important;
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+		}
+		.col_R{
+			float: none;
+			width: 100% !important;
+			max-width: 100% !important;
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+			margin-bottom: 30px;
+			text-align: center;
+		}
+		margin-top: 60px;
+		text-align: center;
+		h1{
+			padding-bottom: 10px;
+			span{
+				&.jp{
+					font-size: 22px;
+					padding-top: 5px;
+				}
+			}
+		}
+		dl{
+			padding-bottom: 15px;
+		}
+		.btn_area{
+			.btn{
+				&.short{
+					max-width: 200px;
+				}
+			}
+		}
+	}
+}
+}
+
+@media screen and (max-width: $width_sp){
+
+#accessPage{
+
+
+	////////////////////////////
+	// googlemap
+	////////////////////////////
+
+	#googlemap{
+		width: 100%;
+		height: 0;
+		opacity: 0;
+	}
+}
+
+
+
+
+}
+
+

@@ -11,7 +11,7 @@ $width_sp: '640px';
 // ページ全体横幅
 //////////////////////////////////////////////////
 $width_max: 1024px;
-$width_base: 960px + 40px;
+$width_base: 1024px + 40px;
 $width_min: 320px;
 
 //////////////////////////////////////////////////
@@ -45,14 +45,19 @@ $header_btn_width_view-min: 63px;
 		url('/assets/font/Futura-Std-Light.ttf');
 }
 @font-face {
-	font-family: 'SourceHanSans';
+	font-family: 'NotoSans';
 	src:
-		url('/assets/font/SourceHanSans-ExtraLight.otf');
+		url('/assets/font/NotoSans-ExtraLight.otf');
 }
-$font_family: YuGothic, '游ゴシック','Noto Sans Japanese','SourceHanSans', "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
-$font_family-Futura: 'Futura', '游ゴシック',"Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
-$font_family-Futura-Light: 'Futura-Light', '游ゴシック',"Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
-$font_family-SourceHanSans: 'Noto Sans Japanese', '游ゴシック',"Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
+$font_family: YuGothic, '游ゴシック','Noto Sans Japanese', "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
+$font_family-Futura: "Futura", '游ゴシック',"Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
+$font_family-Futura-Light: "Futura-Light", '游ゴシック',"Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
+$font_family-NotoSans: 'Noto Sans Japanese', '游ゴシック',"Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif;
+
+//////////////////////////////////////////////////
+// Lineheight
+//////////////////////////////////////////////////
+$lineheight-base: 1.7;
 
 //////////////////////////////////////////////////
 // Font Size

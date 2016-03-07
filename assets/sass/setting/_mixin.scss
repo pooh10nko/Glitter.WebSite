@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+@mixin font-family($type:base,$space:4){
+	@if $type == Futura {
+		font-family: $font_family-Futura;
+		letter-spacing: $space + px;
+		font-weight: 400;
+	}@elseif $type == Futura-Light{
+		font-family: $font_family-Futura-Light;
+		font-weight: 300;
+		letter-spacing: $space + px;
+	}@elseif $type == NotoSans{
+		font-family: $font_family-NotoSans;
+		letter-spacing: $space + px;
+	}@else{
+		font-family: $font_family;
+	}
+}
+
+//////////////////////////////////////////////////
+//  Arrow
+//////////////////////////////////////////////////
+@mixin arrow($size:10px, $color:$color_brown, $positionL:30px, $direction:right){
+	position: relative;
+	&:before {
+		position: absolute;
+		left: $positionL;
+		top: 50%;
+		margin-top: -($size/2);
+		content: "";
+		width: $size;
+		height: $size;
+		display: inline-block;
+		border-top: solid 1px $color;
+		border-right: solid 1px $color;
+		vertical-align: middle;
+		transition: 0.4s;
+	}
+	@if($direction == right){
+		&:before{
+			transform: rotate(45deg);
+		}
+	}@elseif($direction == top){
+		&:before{
+			transform: rotate(-45deg);
+		}
+	}@elseif($direction == left){
+		&:before{
+			transform: rotate(-135deg);
+		}
+	}@elseif($direction == bottom){
+		&:before{
+			transform: rotate(-225deg);
+		}
+	}
+}
+
+
+
+

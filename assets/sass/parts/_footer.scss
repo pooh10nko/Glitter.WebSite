@@ -10,6 +10,7 @@ Parts : Footer _footer.scss
 	padding: 80px 0;
 	background: url('/assets/img/footer/footer_bg.png') no-repeat 0 100%;
 	background-size: 100% auto;
+	// ページトップ
 	.pagetop{
 		margin-bottom: 80px;
 		a{
@@ -24,55 +25,72 @@ Parts : Footer _footer.scss
 			}
 		}
 	}
+	// ロゴ
 	.logo{
 		padding: 0 0 30px;
 	}
+	// h1
 	h1{
 		&.bold{
 			padding-bottom: 10px;
+			letter-spacing: 1px;
 		}
 	}
-	.shop{
-		padding-bottom: 10px;
-		line-height: 2;
-		h2{
-			font-weight: bold;
-		}
-	}
-	.copyright{
-		padding: 40px 0 0;
-	}
-}
-
-.footer_fix{
-	display: none;
-}
-
-
-@media screen and (max-width: $width_sp) {
-	.footer{
-		padding: 20px 0;
-		.shop{
-			a{
-				&.map{
-					text-decoration: underline;
+	// 店舗情報
+	.shop_area{
+		overflow: hidden;
+		.shop_info{
+			&.frame_bg{
+				max-width: 49%;
+				margin: 30px auto;
+				@media screen and (max-width: 1136px + $padding*2){
+					margin-left: 0;
+					margin-right: 0;
+				}
+			}
+			.inner{
+				line-height: 2;
+				box-sizing: content-box;
+				padding-top: 35px;
+				padding-bottom: 35px;
+			}
+			h2{
+				font-size: 16px;
+			}
+			.text{
+				a{
+					display: inline;
 				}
 			}
 		}
 	}
-	.footer_fix{
-		display: block;
-		.btn{
-			transition: 0.6s 2s;
-			position: fixed;
-			right: -200px;
-			bottom: 10px;
-			width: 200px;
-			border: 1px solid #fff;
+	// copyright
+	.copyright{
+		padding: 40px 0 0;
+		@include font-family($type:Futura,$space:0);
+		font-size: 10px;
+	}
+}
+
+@media screen and (max-width: $width_sp) {
+	.footer{
+		padding: 20px 0;
+		// h1
+		h1{
+			&.bold{
+				font-size: 14px;
+				padding-bottom: 10px;
+				letter-spacing: 0;
+			}
 		}
-		&.active{
-			.btn{
-				right: -36px;
+		// 店舗情報
+		.shop_area{
+			.shop_info{
+				a{
+					&.map{
+						// text-decoration: underline;
+					}
+				}
 			}
 		}
 	}

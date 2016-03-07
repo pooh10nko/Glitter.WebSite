@@ -6,12 +6,13 @@ Utilities
 --------------------------------------------
 */
 
-// SP表示であるかどうか
-function isSPMode()
-{
-    // ヘッダメニューが表示されているかどうかでSP表示かPC表示かを判定する
-    return $('.icon_menu').css('display') != 'none';
-}
+var pc_width = 1024;
+var tb_width = 768;
+var sp_width = 640;
+
+
+//タッチイベント振り分け
+var _touch = ('ontouchstart' in document) ? 'touchstart' : 'click';
 
 // 現在表示されているページを取得する
 function getPageName()
@@ -27,18 +28,27 @@ function isNaviOpened()
     return $('body').hasClass('showNavi');
 }
 
-// // スクロール量を取得する
-// function getScrollTop()
-// {
-//     return $(window).scrollTop();
-// }
+// スクロール量を取得する
+function getScrollTop()
+{
+    return $(window).scrollTop();
+}
 
-// // ウインドウの高さを取得する
-// function getWindowHeight()
-// {
-//     return $(window).height();
-// }
 
+//------------------------------------------------------------//
+// 予約ボタン ポップアップ
+//------------------------------------------------------------//
+
+$('.header_area .btn_area,.footer_fix').on('click',function(){
+	$('.popup_reserve').fadeIn(600);
+});
+$('.popup_reserve').on(_touch,function(){
+	$(this).fadeOut(600);
+});
+// ボタンは親hのイベントを送らない
+$('.popup_reserve_inner a').on(_touch,function(e){
+	e.stopPropagation();
+});
 //------------------------------------------------------------//
 // 画像をPCとSPで表示切り替え
 //------------------------------------------------------------//
@@ -46,7 +56,7 @@ function isNaviOpened()
 
 $(window).on('load resize', function(){
 	$('.imgChange').fadeIn(1);
-    if(isSPMode())
+    if($(window).width() < tb_width)
     {
         // SP表示の場合
         $('.imgChange').each(function(){
@@ -101,11 +111,11 @@ function separate(num){
 スムーズスクロール
 --------------------------------------------
 */
-$("a[href^=#]").on('click',function(){
+$("a[href^=#]").on(_touch,function(){
 	var Hash = $(this.hash);
 	var HashOffset;
 	
-	if(isSPMode())
+	if($(window).width() < tb_width)
     {
         // SP表示の場合
             HashOffset = $(Hash).offset().top - 82;
@@ -133,7 +143,6 @@ $('.slider_gallery,.slider_blog').slick({
 	slidesToShow: 4,
 	slidesToScroll: 1,
 	accessibility: false,
-	lazyLoad: 'ondemand',
 	appendArrows: $('.control'),
 	prevArrow: '<button type="button" class="slick-prev">PREV</button>',
 	nextArrow: '<button type="button" class="slick-next">NEXT</button>',
@@ -146,11 +155,11 @@ $('.slider_gallery,.slider_blog').slick({
 		}
 	},
 	{
-		breakpoint: 400,
+		breakpoint: 640,
 		settings: {
 			// arrows: true,
 			slidesToShow: 2,
-			slidesToScroll: 2
+			slidesToScroll: 1
 			// dots: false
 		}
 	}
@@ -167,12 +176,57 @@ $('.slider_shop').slick({
 	accessibility: false
 });
 
+
+///////////////////////////////
+// GoogleMap 複数設置 デザインをモノクロにカスタマイズ
+//////////////////////////////
+
+// アクセスページの場合
+if(getPageName().indexOf('accessPage') != -1 )
+{
+    // 座標を指定
+    var latlng1 = new google.maps.LatLng(35.7314739,139.7069917);
+    var latlng2 = new google.maps.LatLng(35.9091901,139.4804677);
+
+    // オプション設定
+    var opts1 = {
+        zoom: 10, // 拡大比率
+        center: new google.maps.LatLng(35.8078103,139.6760793),// 表示枠内の中心点
+        mapTypeControlOptions: { mapTypeIds: ['lightGray', google.maps.MapTypeId.ROADMAP] }, // 表示タイプの指定
+        // disableDefaultUI: true, //UIツール
+        scrollwheel: false,
+        draggable: false
+    };
+
+    // 指定idに描画
+    var map1 = new google.maps.Map(document.getElementById("googlemap"), opts1);
+
+    // マーカー情報
+    var marker1 = new google.maps.Marker({
+        position: latlng1,
+        map: map1,
+        title: 'ネイルサロン glitter（グリッター） 池袋店'
+    });
+    var marker2 = new google.maps.Marker({
+        position: latlng2,
+        map: map1,
+        title: 'ネイルサロン glitter（グリッター） 池袋店'
+    });
+
+    /*取得スタイルの貼り付け*/
+  var styleOptions = [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#dde6e8"},{"visibility":"on"}]}];
+  var styledMapOptions = { name: 'ネイルサロン glitter（グリッター）' }
+  var lightGrayType = new google.maps.StyledMapType(styleOptions, styledMapOptions);
+  map1.mapTypes.set('lightGray', lightGrayType);
+  map1.setMapTypeId('lightGray');
+}
+
 ///////////////////////////////
 // ヘッダーナビ開閉
 //////////////////////////////
 var thisScrollTop;
 
-$('.icon_menu,.icon_close').on('click',function(){
+$('.icon_menu,.icon_close').on(_touch,function(){
 	// 開いている時
 	if(isNaviOpened()){
 		closeMenu();
@@ -184,7 +238,7 @@ $('.icon_menu,.icon_close').on('click',function(){
 })
 
 // 開いている場合は.pageをクリックした際にも閉じる
-$('.page').on('click',function(){
+$('.page').on(_touch,function(){
 	if(isNaviOpened()){
 		closeMenu();
 	}
@@ -305,8 +359,12 @@ $('.lazyimg').lazyload({
 
 $(window).on('load', function(){
 	$('.loading').fadeOut(1000);
-	$('.footer_fix').addClass('active');
 });
+
+///////////////////////////////
+// tile.jp 呼び出し
+//////////////////////////////
+$('.heightLine').matchHeight();
 
 
 ///////////////////////////////

@@ -58,6 +58,7 @@ Module :パーツ _parts.scss
 			margin-left: 0;
 			margin-right: 0;
 			margin-bottom: 0;
+			max-width: inherit;
 			&.square{
 				line-height: 80px;
 			}
@@ -93,7 +94,7 @@ Module :パーツ _parts.scss
 	border-radius: 40px;
 	color: $font_color_base;
 	font-size: $font_size-btn;
-	margin: 0 15px 10px;
+	margin: 0 10px 10px;
 	outline: 0;
 	border: none;
 	@include arrow();
@@ -140,6 +141,14 @@ Module :パーツ _parts.scss
 			content: none;
 		}
 	}
+	&.instagram{
+		background: #dad6d3;
+		width: 80px;
+		max-width: inherit;
+		&:before{
+			content: none;
+		}
+	}
 	&.tel{
 		letter-spacing: 2px;
 		background-image: url('/assets/img/faq/faq_icon_tel.png');
@@ -165,15 +174,24 @@ Module :パーツ _parts.scss
 	&.short{
 		max-width: 200px;
 	}
+	&.long{
+		max-width: 440px;
+	}
 	//サイズ
 	&.small{
 		max-width: 232px;
 		line-height: 48px;
-		font-size: $font_size-btn - 4px;
+		font-size: $font_size-btn - 3px;
 	}
 	//四角
 	&.square{
 		border-radius: 0;
+	}
+	//英字
+	&.en{
+		font-family: "futura-pt",sans-serif;
+		font-weight: 300;
+		letter-spacing: 1px;
 	}
 }
 
@@ -183,8 +201,8 @@ Module :パーツ _parts.scss
 ////////////////////////////
 h1{
 	&.base{
-		@include font-family($type:Futura-Light, $space:6);
-		font-size: 24px;
+		@include font-family($type:Futura, $space:8);
+		font-size: 26px;
 		padding: 0 0 25px;
 		color: $color_brown;
 	}
@@ -235,9 +253,8 @@ h1{
 	}
 
 	&.tel{
-		padding: 12px 0;
-		background-position: 50px 50%;
-		background-size: 25px auto;
+		background-position: 30px 50%;
+		background-size: 22px auto;
 		&:before{
 			content: none;
 		}
@@ -245,9 +262,14 @@ h1{
 	&.facebook{
 		transform: scale(0.8);
 	}
+	&.instagram{
+		transform: scale(0.8);
+	}
 	&.row2{
+		padding: 13px 0;
 		small{
 			margin-bottom: 2px;
+			letter-spacing: 1px;
 			font-size: $font_size-btn - 6;
 		}
 	}
@@ -286,7 +308,7 @@ h1{
 ////////////////////////////
 h1{
 	&.base{
-		font-weight: bold;
+
 	}
 	// サイズ
 	&.large{

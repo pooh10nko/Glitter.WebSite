@@ -21,7 +21,7 @@ Parts : Header _header.scss
 	.btn_area{
 		transition: 0.4s;
 		position: fixed;
-		right: -($header_btn_width - $header_btn_width_view);
+		right: -64px;
 		top: 16px;
 		padding-top: 0;
 		width: 232px;
@@ -30,6 +30,10 @@ Parts : Header _header.scss
 			padding-left: 65px;
 			text-align: left;
 			margin: 0;
+			letter-spacing: 1px;
+		}
+		&:hover{
+			right: -64px;
 		}
 	}
 	// 白背景
@@ -49,13 +53,55 @@ Parts : Header _header.scss
 	}
 }
 
+.popup_reserve{
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+	.popup_reserve_inner{
+		position: fixed;
+		right: 20px;
+		top: $header_height + 12px;
+		background: $color_white;
+		border: 4px solid $color_brown;
+		padding: 20px;
+		width: 435px;
+		&:after{
+			content: '';
+			width: 20px;
+			height: 20px;
+			border-left: 4px solid $color_brown;
+			border-top: 4px solid $color_brown;
+			background: $color_white;
+			position: absolute;
+			right: 42px;
+			top: -15px;
+			transform: rotate(45deg);
+		}
+	}
+	.title{
+		font-size: 24px;
+		color: $color_brown;
+	}
+	.btn_area{
+		padding-top: 20px;
+		.btn{
+			margin-bottom: 20px;
+		}
+	}
+
+}
+
 
 
 @media screen and (max-width: $width-pc){
 	.header_area{
 		// WEBで予約ボタン
 		.btn_area{
-			right: -($header_btn_width-min - $header_btn_width_view-min);
+			right: -170px;
 		}
 	}
 }
@@ -70,7 +116,32 @@ Parts : Header _header.scss
 		}
 		// WEBで予約ボタン
 		.btn_area{
-			display: none;
+			position: fixed;
+			top: inherit;
+			right: inherit;	
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			line-height: 60px;
+			background: $color_brown;
+			color: $color_white;
+			letter-spacing: 2px;
+			z-index: 500;
+			.btn{
+				padding-left: 0;
+				border-radius: 0;
+				line-height: inherit;
+				max-width: inherit;
+				text-align: center;
+				span{
+					padding-right: 20px;
+					background: url('/assets/img/icon/icon_link.png') no-repeat 100% 50%;
+					background-size: 12px auto;
+				}
+				&:before{
+					content: none;
+				}
+			}
 		}
 		// 白背景
 		.header{
@@ -99,7 +170,7 @@ Parts : Header _header.scss
 					&.text{
 						font-size: 9px;
 						color: $color_brown;
-						@include font-family($type:SourceHanSans,$space:1);
+						@include font-family($type:NotoSans,$space:1);
 					}
 				}
 			}
@@ -116,6 +187,41 @@ Parts : Header _header.scss
 			}
 			.header{
 				transform: translateX(-250px);
+			}
+			.btn_area{
+				transform: translateX(-250px);
+			}
+		}
+	}
+	.popup_reserve{
+		display: none;
+	}
+}
+
+@media screen and (max-width: $width-tb){
+	.popup_reserve{
+		z-index: 500;
+		background: rgba($color_white,0.8);
+		.popup_reserve_inner{
+			position: absolute;
+			width: 300px;
+			height: 280px;
+			margin: auto;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			&:after{
+				content: none;
+			}
+		}
+		.title{
+			font-size: 20px;
+		}
+		.btn_area{
+			padding-top: 10px;
+			.btn{
+				margin-bottom: 10px;
 			}
 		}
 	}

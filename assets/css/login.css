@@ -1,0 +1,46 @@
+@font-face {
+  font-family: 'Noto Sans Japanese';
+  src: url("/assets/font/NotoSansCJKjp-DemiLight.otf");
+}
+
+@font-face {
+  font-family: 'Futura';
+  src: url("/assets/font/Futura-Book.ttf");
+}
+
+@font-face {
+  font-family: 'Futura-Light';
+  src: url("/assets/font/Futura-Std-Light.ttf");
+}
+
+@font-face {
+  font-family: 'NotoSans';
+  src: url("/assets/font/NotoSans-ExtraLight.otf");
+}
+
+html {
+  background: url("/assets/img/footer/footer_bg.png") repeat-y;
+  background-size: 100% auto;
+}
+
+body {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.login h1 a {
+  background: url("/assets/img/logo_brown_l.png");
+  width: 180px;
+  height: 144px;
+  margin-bottom: 0;
+}
+
+.wp-core-ui .button-primary, .wp-core-ui .button-primary:hover {
+  background: #97887c;
+  box-shadow: none;
+  border: none;
+  text-shadow: none;
+}
+
+.button-primary:hover {
+  opacity: 0.8;
+}
