@@ -9,7 +9,7 @@ Parts : Navi _navi.scss
 // 共通
 .navi{
 	position: fixed;
-	@include font-family($type:Futura,$space:4);
+	@include font-family($type:Futura,$space:3);
 	font-size: $font_size-navi;
 }
 
@@ -127,7 +127,7 @@ $navilist: index, menu, gallery, faq, access, recruit, blog;
 		overflow: auto;
 		background: $color_brown;
 		padding: 0;
-		@include font-family($type:Futura,$space:4);
+		@include font-family($type:Futura,$space:3);
 		ul{
 			position: static;
 			float: none;

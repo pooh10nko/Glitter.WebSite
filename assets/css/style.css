@@ -80,7 +80,7 @@ a.tel { cursor: default; pointer-events: none; }
 .post_area .label span { letter-spacing: normal; margin-bottom: 5px; border: 1px solid #97887c; border-radius: 16px; font-size: 12px; line-height: 28px; display: inline-block; padding: 0 16px; margin-left: 8px; background: #fff; }
 .post_area .label span:first-child { margin-left: 0; }
 .post_area .price { text-decoration: underline; }
-.post_area .date { font-size: 12px; padding-bottom: 10px; margin-top: 10px; }
+.post_area .date { font-size: 12px; margin-top: 10px; }
 .post_area .text { text-decoration: underline; }
 .post_area .slick-dots { text-align: center; padding-top: 40px; }
 .post_area .slick-dots li { display: inline-block; width: 24px; height: 16px; text-align: center; position: relative; }
@@ -176,6 +176,7 @@ a.tel { cursor: default; pointer-events: none; }
   .col_Table { display: block; }
   .col_Cell { display: block; width: 100% !important; }
   .page { padding-top: 70px; }
+  .section { padding: 30px 0; }
   .container .section:first-child { padding-top: 20px; }
   .visual { min-height: 120px; }
   .visual .visual_inner h1 { font-size: 32px; }
@@ -195,7 +196,7 @@ a.tel { cursor: default; pointer-events: none; }
   .detail_area .detail_main .shopinfo { margin-top: 20px; }
   .detail_area .detail_side { padding-top: 30px; padding-left: 0; }
   .detail_area .detail_side .post_area .item { width: 50%; float: left; padding: 0 10px; }
-  .frame_bg { margin-top: 0; margin-bottom: 60px; }
+  .frame_bg { margin-top: 0; margin-bottom: 60px; padding-top: 0; padding-bottom: 0; }
   .frame_bg .inner { padding: 30px 15px; }
   .frame_bg.frame_bg_M { background: url("/assets/img/frame_mid.png") repeat-y 50% 0; background-size: 100% auto; }
   .tab nav.tab_header { border-top: 1px solid #fff; }
@@ -273,7 +274,7 @@ Module :パーツ _parts.scss
 .btn.square { border-radius: 0; }
 .btn.en { font-family: "futura-pt",sans-serif; font-weight: 300; letter-spacing: 1px; }
 
-h1.base { font-family: "Futura", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif; letter-spacing: 8px; font-weight: 400; font-size: 26px; padding: 0 0 25px; color: #97887c; }
+h1.base { font-family: "Futura-Light", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif; font-weight: 300; letter-spacing: 7px; font-size: 28px; padding: 0 0 25px; color: #97887c; }
 h1.white { color: #fff; }
 h1.bold { font-weight: bold; font-size: 16px; }
 h1.large { font-size: 38px; letter-spacing: 8px; }
@@ -344,7 +345,7 @@ Parts : Header _header.scss
 Parts : Navi _navi.scss
 
 ----------------------------------------------------------------------------------*/
-.navi { position: fixed; font-family: "Futura", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif; letter-spacing: 4px; font-weight: 400; font-size: 16px; }
+.navi { position: fixed; font-family: "Futura", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif; letter-spacing: 3px; font-weight: 400; font-size: 16px; }
 
 @media screen and (min-width: 768px) { .navi { position: fixed; left: 0; top: 0; width: 100%; z-index: 200; overflow: hidden; padding: 0 176px 0 86px; }
   .navi ul { position: relative; left: 50%; float: left; }
@@ -363,7 +364,7 @@ Parts : Navi _navi.scss
 @media screen and (max-width: 1024px) { .navi { padding-right: 60px; }
   .navi ul li { padding-left: 8px; padding-right: 8px; } }
 @media screen and (max-width: 800px) { .navi ul li a { font-size: 14px; } }
-@media screen and (max-width: 768px) { .navi { position: fixed; right: 0; left: inherit; top: 0; width: 250px; height: 100%; overflow: auto; background: #97887c; padding: 0; font-family: "Futura", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif; letter-spacing: 4px; font-weight: 400; }
+@media screen and (max-width: 768px) { .navi { position: fixed; right: 0; left: inherit; top: 0; width: 250px; height: 100%; overflow: auto; background: #97887c; padding: 0; font-family: "Futura", "游ゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", sans-serif; letter-spacing: 3px; font-weight: 400; }
   .navi ul { position: static; float: none; }
   .navi ul li { position: static; float: none; padding: 0; }
   .navi ul li a { display: block; text-align: left; line-height: 70px; color: #fff; padding-left: 52px; padding-right: 0; border-bottom: 1px solid #cbc4be; position: relative; }
@@ -419,7 +420,7 @@ Page : TopPage _index.scss
 #indexPage .faq .inner { padding-top: 60px; padding-bottom: 60px; color: #fff; }
 @media screen and (min-width: 640px) { #indexPage .faq .inner { background: url("/assets/img/top/top_faq_bg_pc.jpg") no-repeat 50% 50%; background-size: cover; } }
 @media screen and (max-width: 640px) { #indexPage .faq .inner { background: url("/assets/img/top/top_faq_bg_sp.jpg") no-repeat 50% 50%; background-size: cover; } }
-#indexPage .blog { background: #e6e4e2; }
+#indexPage .blog { background: #e6e4e2; margin-bottom: 30px; }
 #indexPage .recruit { background-size: cover; color: #fff; }
 @media screen and (min-width: 640px) { #indexPage .recruit { background: url("/assets/img/top/top_recruit_bg_pc.jpg") no-repeat 50% 50%; background-size: cover; } }
 @media screen and (max-width: 640px) { #indexPage .recruit { background: url("/assets/img/top/top_recruit_bg_sp.jpg") no-repeat 50% 50%; background-size: cover; } }
@@ -430,7 +431,11 @@ Page : TopPage _index.scss
 @media screen and (max-width: 640px) { #indexPage .visual { background: none; min-height: inherit; }
   #indexPage .visual .visual_inner { position: static; top: 0; -webkit-transform: none; -ms-transform: none; transform: none; }
   #indexPage .visual .visual_inner img { width: 100%; }
-  #indexPage .recruit .img img { width: 200px; } }
+  #indexPage .gallery { padding-top: 40px; }
+  #indexPage .faq .inner { padding-top: 30px; padding-bottom: 30px; }
+  #indexPage .recruit .img img { width: 200px; }
+  #indexPage .access h1.base img { padding-top: 10px; }
+  #indexPage .access h1.base span.jp { font-size: 12px; } }
 
 /* ----------------------------------------------------------------------------------
 

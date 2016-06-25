@@ -89,6 +89,7 @@ Page : TopPage _index.scss
 
 	.blog{
 		background: $color_gray;
+		margin-bottom: 30px;
 	}
 
 	.recruit{
@@ -145,10 +146,33 @@ Page : TopPage _index.scss
 				}
 			}
 		}
+		.gallery{
+			padding-top: 40px;
+		}
+		.faq{
+			.inner{
+				padding-top: 30px;
+				padding-bottom: 30px;
+			}
+		}
 		.recruit{
 			.img{
 				img{
 					width: 200px;
+				}
+			}
+		}
+		.access{
+			h1{
+				&.base{
+					img{
+						padding-top: 10px;
+					}
+					span{
+						&.jp{
+							font-size: 12px;
+						}
+					}
 				}
 			}
 		}

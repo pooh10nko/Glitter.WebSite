@@ -42,7 +42,7 @@ add_action('do_feed_atom', 'fb_disable_feed', 1);
 //管理画面の不要なメニューを削除
 function remove_menus () {
     global $menu;
-    $restricted = array(  __('ダッシュボード'), __('リンク'), __('コメント'), __('外観'), __('プロフィール'), __('フィードバック'), __('プラグイン'));
+    $restricted = array(  __('ダッシュボード'), __('リンク'), __('コメント'), __('外観'), __('プロフィール'), __('フィードバック'));
     end ($menu);
     while (prev($menu)){
         $value = explode(' ',$menu[key($menu)][0]);
@@ -68,6 +68,8 @@ remove_action( 'wp_head',             'wp_print_styles',                  8    )
 remove_action( 'wp_head',             'wp_print_head_scripts',            9    );
 remove_action( 'wp_head',             'wp_generator'                           );
 remove_action( 'wp_head',             'rel_canonical'                          );
+
+add_filter( 'jetpack_enable_opengraph', '__return_false' );
 
 //特定カテゴリーアーカイプページの1ページの表示件数
 //固定ページの表示件数はarchive.phpで指定
